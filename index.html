@@ -2,206 +2,224 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#080a0d">
-
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Hybrid Athlete HQ</title>
 
 <style>
 *{box-sizing:border-box}
-
 :root{
   --bg:#080a0d;
-  --card:#14171c;
-  --card2:#1b1f25;
-  --line:#292e36;
+  --card:#15191e;
+  --card2:#1b2026;
+  --line:#2c333c;
   --text:#f5f7f8;
   --muted:#969da7;
-  --green:#cfff3d;
+  --green:#d6ff45;
+  --blue:#8ccfff;
+  --yellow:#ffd978;
+  --red:#ff8585;
 }
-
-body{
+html,body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,
-  "Segoe UI","Noto Sans TC",sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;
 }
-
+body{padding-bottom:92px}
 header{
-  padding:calc(20px + env(safe-area-inset-top)) 20px 18px;
+  padding:52px 22px 24px;
   border-bottom:1px solid var(--line);
 }
-
-.logo{
+.eyebrow{
   color:var(--green);
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:2px;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:3px;
 }
-
-h1{
-  margin:5px 0 0;
-  font-size:24px;
-}
-
-main{
-  padding:18px 16px 110px;
-  max-width:700px;
+h1{font-size:30px;margin:10px 0 0}
+h2{font-size:23px;margin:28px 0 14px}
+h3{font-size:19px;margin:0 0 5px}
+h4{margin:0 0 8px;font-size:15px}
+p{line-height:1.55}
+.page{
+  display:none;
+  padding:18px;
+  max-width:760px;
   margin:auto;
 }
-
-.hero{
-  padding:22px;
-  border-radius:22px;
-  background:linear-gradient(145deg,#1d2224,#111316);
+.page.active{display:block}
+.card{
+  background:var(--card);
   border:1px solid var(--line);
+  border-radius:22px;
+  padding:20px;
+  margin-bottom:15px;
 }
-
-.label{
-  color:var(--green);
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:1px;
-}
-
-.hero h2{
-  margin:8px 0;
-  font-size:30px;
-}
-
+.hero{padding:26px}
+.big{font-size:34px;font-weight:900;margin:6px 0}
 .muted{color:var(--muted)}
-
-.grid{
+.green{color:var(--green)}
+.blue{color:var(--blue)}
+.yellow{color:var(--yellow)}
+.red{color:var(--red)}
+.row{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:14px;
+  gap:12px;
 }
-
-.metric,.card{
-  background:var(--card);
+.mini{
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:15px;
+  background:#111419;
+  border-radius:17px;
+  padding:16px;
 }
-
-.metric strong{
-  display:block;
-  font-size:18px;
-  margin-top:5px;
-}
-
-.section{
-  margin:27px 3px 11px;
-  font-size:18px;
-}
-
-.card{margin-bottom:10px}
-
-.card h3{
-  margin:6px 0;
-  font-size:17px;
-}
-
 .tag{
   display:inline-block;
-  padding:5px 8px;
-  border-radius:8px;
-  background:#242a31;
-  font-size:11px;
+  padding:7px 10px;
+  border-radius:9px;
+  background:#252b32;
+  margin:2px 4px 5px 0;
+  font-size:12px;
   font-weight:800;
 }
-
-.run{color:#8dd4ff}
-.strength{color:#ffaaa4}
-.crossfit{color:#ffd374}
-.recovery{color:#9ce8b2}
-
 .intent{
-  margin-top:12px;
-  padding-left:10px;
-  border-left:3px solid var(--green);
-  color:#cfd5dc;
-  line-height:1.5;
+  border-left:4px solid var(--green);
+  padding-left:14px;
+  margin-top:18px;
 }
-
-.weekbuttons{
+.weekbar{
   display:flex;
-  gap:7px;
+  gap:8px;
   overflow:auto;
-  margin-bottom:12px;
+  padding-bottom:8px;
 }
-
-.weekbuttons button{
-  flex:0 0 auto;
+.weekbtn{
   border:1px solid var(--line);
   background:var(--card);
-  color:white;
-  border-radius:10px;
-  padding:9px 12px;
+  color:var(--text);
+  padding:11px 14px;
+  border-radius:12px;
   font-weight:800;
 }
-
-.weekbuttons button.active{
+.weekbtn.active{
   background:var(--green);
-  color:#080a0d;
+  color:#0a0c0f;
 }
-
-textarea,input,select{
+.day{
+  border:1px solid var(--line);
+  border-radius:20px;
+  margin:14px 0;
+  overflow:hidden;
+  background:var(--card);
+}
+.dayhead{
+  padding:18px;
+  cursor:pointer;
+}
+.daytitle{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+}
+.daybody{
+  display:none;
+  padding:0 18px 18px;
+}
+.day.open .daybody{display:block}
+.section{
+  border-top:1px solid var(--line);
+  padding:16px 0 5px;
+}
+.section:first-child{border-top:none}
+.secname{
+  color:var(--green);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1.5px;
+  margin-bottom:8px;
+}
+.work{
+  font-size:15px;
+  line-height:1.65;
+  white-space:pre-line;
+}
+.timepill{
+  background:#232930;
+  color:var(--muted);
+  border-radius:99px;
+  padding:6px 9px;
+  font-size:11px;
+  white-space:nowrap;
+}
+.cut{
+  margin-top:14px;
+  background:#101317;
+  border-radius:14px;
+  padding:13px;
+  font-size:13px;
+  line-height:1.5;
+  color:var(--muted);
+}
+label{
+  display:block;
+  color:var(--muted);
+  font-size:13px;
+  margin:14px 0 6px;
+}
+input,select,textarea{
   width:100%;
   padding:13px;
   border-radius:12px;
   border:1px solid var(--line);
-  background:#0d0f12;
-  color:white;
+  background:#101318;
+  color:var(--text);
   font-size:16px;
-  margin:5px 0 13px;
 }
-
-textarea{height:110px}
-
-.save{
+textarea{min-height:105px}
+button.primary{
   width:100%;
-  border:0;
-  padding:14px;
-  border-radius:12px;
+  margin-top:16px;
   background:var(--green);
   color:#080a0d;
-  font-size:15px;
+  border:none;
+  border-radius:13px;
+  padding:15px;
+  font-size:16px;
   font-weight:900;
 }
-
+.reportItem{
+  border-top:1px solid var(--line);
+  padding:12px 0;
+}
 nav{
   position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
+  left:0;right:0;bottom:0;
+  background:#111419f5;
+  border-top:1px solid var(--line);
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  background:#12151a;
-  border-top:1px solid var(--line);
-  padding:8px 5px calc(8px + env(safe-area-inset-bottom));
+  padding:10px 4px calc(10px + env(safe-area-inset-bottom));
+  z-index:10;
 }
-
 nav button{
   border:0;
   background:none;
-  color:#8e959f;
-  padding:9px 2px;
-  font-size:11px;
-  font-weight:700;
+  color:var(--muted);
+  font-weight:900;
+  font-size:12px;
+  padding:12px 3px;
 }
-
 nav button.active{color:var(--green)}
-
-.page{display:none}
-.page.active{display:block}
-
-.workout-details{
-  white-space:pre-line;
-  line-height:1.6;
-  margin-top:9px;
+.stat{
+  font-size:22px;
+  font-weight:900;
+}
+@media(min-width:700px){
+  header{padding-left:calc((100% - 720px)/2)}
 }
 </style>
 </head>
@@ -209,521 +227,1216 @@ nav button.active{color:var(--green)}
 <body>
 
 <header>
-<div class="logo">VIC'S TRAINING SYSTEM</div>
-<h1>HYBRID ATHLETE HQ</h1>
+  <div class="eyebrow">VIC'S TRAINING SYSTEM</div>
+  <h1>HYBRID ATHLETE HQ</h1>
 </header>
 
 <main>
 
 <section id="today" class="page active">
+  <div class="card hero">
+    <div class="eyebrow">NEXT A RACE</div>
+    <div class="big">鋼鐵盃 ELITE</div>
+    <div class="muted">2026 / 10 / 17–18</div>
 
-<div class="hero">
-<div class="label">NEXT A RACE</div>
-<h2>鋼鐵盃 ELITE</h2>
-<div class="muted">2026 / 10 / 17–18</div>
+    <div class="row" style="margin-top:20px">
+      <div class="mini">
+        <div class="muted">CURRENT PHASE</div>
+        <div class="stat">STEEL CUP</div>
+      </div>
+      <div class="mini">
+        <div class="muted">LONG TERM</div>
+        <div class="stat">SUB 3:30</div>
+      </div>
+    </div>
+  </div>
 
-<div class="grid">
-<div class="metric">
-<span class="muted">CURRENT PHASE</span>
-<strong>STEEL CUP</strong>
-</div>
+  <h2>Current Priority</h2>
 
-<div class="metric">
-<span class="muted">LONG TERM</span>
-<strong>SUB 3:30</strong>
-</div>
-</div>
-</div>
+  <div class="card">
+    <span class="tag yellow">CROSSFIT</span>
+    <span class="tag blue">RUNNING</span>
+    <span class="tag">HYBRID</span>
 
-<h2 class="section">Current Priority</h2>
+    <h3>Hybrid Competition Build</h3>
 
-<div class="card">
-<span class="tag crossfit">CROSSFIT</span>
-<span class="tag run">RUNNING</span>
+    <p class="muted">
+      保留最大肌力與體操能力，把恢復預算投入 Mixed-modal repeatability、
+      Barbell cycling、Gymnastics under fatigue 與跑步底盤。
+    </p>
 
-<h3>Hybrid Competition Build</h3>
+    <div class="intent">
+      <strong>COACH INTENT</strong>
+      <p>
+        鋼鐵盃前不追求新的 1RM。主要目標是讓你在疲勞環境下，
+        仍能維持槓鈴效率、體操穩定度以及下一輪輸出能力。
+      </p>
+    </div>
+  </div>
 
-<div class="muted">
-保留目前已經足夠的最大肌力與 Gymnastics，
-把恢復預算投入 Mixed-modal repeatability
-以及跑步底盤。
-</div>
-
-<div class="intent">
-<strong>COACH INTENT</strong><br>
-鋼鐵盃前不追求新的 1RM。
-目標是讓你在疲勞狀態下仍能維持動作品質與輸出。
-</div>
-</div>
-
-<h2 class="section">Race Calendar</h2>
-
-<div class="card">
-<div class="label">A RACE</div>
-<h3>鋼鐵盃 Elite</h3>
-<div class="muted">2026/10/17–18</div>
-</div>
-
-<div class="card">
-<div class="label">A RACE</div>
-<h3>Taipei Marathon</h3>
-<div class="muted">2026/12/20</div>
-</div>
-
-<div class="card">
-<div class="label">A RACE</div>
-<h3>HYROX Taipei Pro Singles</h3>
-<div class="muted">2027/03/12–14</div>
-</div>
-
+  <div class="card">
+    <h3>Programming Rules</h3>
+    <p class="muted">
+      每堂標準 60–90 分鐘。不是每天硬塞全部能力，而是依當天主要刺激決定訓練比例。
+      CrossFit 日以 Skill + Strength + Conditioning 為核心；跑步日則讓跑步品質優先。
+    </p>
+  </div>
 </section>
-
 
 <section id="plan" class="page">
+  <h2>Steel Cup Block</h2>
+  <p class="muted">2026 / 09 / 07 → 10 / 18</p>
 
-<h2>TRAINING PLAN</h2>
-
-<div class="weekbuttons">
-<button class="active" onclick="week(1,this)">W1</button>
-<button onclick="week(2,this)">W2</button>
-<button onclick="week(3,this)">W3</button>
-<button onclick="week(4,this)">W4</button>
-<button onclick="week(5,this)">W5</button>
-<button onclick="week(6,this)">W6</button>
-</div>
-
-<div id="workouts"></div>
-
+  <div class="weekbar" id="weekbar"></div>
+  <div id="weekContent"></div>
 </section>
-
 
 <section id="profile" class="page">
+  <h2>Athlete Profile</h2>
 
-<div class="hero">
-<div class="label">ATHLETE PROFILE</div>
-<h2>165 CM / 67 KG</h2>
-<div class="muted">
-Hybrid Athlete • 5 training days / week
-</div>
-</div>
+  <div class="card">
+    <h3>Body</h3>
+    <p>165 cm · 67 kg</p>
+  </div>
 
-<h2 class="section">Strength</h2>
+  <div class="card">
+    <h3>Strength</h3>
+    <p class="muted">
+      Back Squat 135 kg<br>
+      Front Squat 100 kg<br>
+      Deadlift 140 kg<br>
+      Bench Press 85 kg<br>
+      Strict Press 50 kg
+    </p>
+  </div>
 
-<div class="card">
-Back Squat <strong>135 kg</strong><br><br>
-Front Squat <strong>100 kg</strong><br><br>
-Deadlift <strong>140 kg</strong><br><br>
-Bench Press <strong>85 kg</strong><br><br>
-Strict Press <strong>50 kg</strong>
-</div>
+  <div class="card">
+    <h3>Olympic Weightlifting</h3>
+    <p class="muted">
+      Clean 95 kg<br>
+      Clean & Jerk 85 kg<br>
+      Snatch 60 kg
+    </p>
+  </div>
 
-<h2 class="section">Weightlifting</h2>
+  <div class="card">
+    <h3>Gymnastics</h3>
+    <p class="muted">
+      Strict Pull-up 17<br>
+      C2B 20<br>
+      BMU 5<br>
+      RMU 6<br>
+      T2B 13–15<br>
+      HSW 20m+
+    </p>
+  </div>
 
-<div class="card">
-Clean <strong>95 kg</strong><br><br>
-Clean & Jerk <strong>85 kg</strong><br><br>
-Snatch <strong>60 kg</strong>
-</div>
+  <div class="card">
+    <h3>Running</h3>
+    <p class="muted">
+      10K 49:00<br>
+      Half Marathon 1:54<br>
+      Z1 130–142 bpm<br>
+      Z2 144–155 bpm<br>
+      Marathon Goal Sub 3:30
+    </p>
+  </div>
 
-<h2 class="section">Gymnastics</h2>
-
-<div class="card">
-Strict Pull-up <strong>17</strong><br>
-Chest-to-bar <strong>20</strong><br>
-Bar Muscle-up <strong>5</strong><br>
-Ring Muscle-up <strong>6</strong><br>
-Toes-to-bar <strong>13–15</strong><br>
-Handstand Walk <strong>20m+</strong>
-</div>
-
-<h2 class="section">Running</h2>
-
-<div class="card">
-10K <strong>49:00</strong><br><br>
-Half Marathon <strong>1:54</strong><br><br>
-Z1 <strong>130–142 bpm</strong><br>
-Z2 <strong>144–155 bpm</strong><br><br>
-Long-term Marathon Goal
-<strong>SUB 3:30</strong>
-</div>
-
-<h2 class="section">HYROX</h2>
-
-<div class="card">
-Men's Doubles Pro ×2<br><br>
-Priority Weakness:
-<strong>SLED PULL</strong>
-</div>
-
+  <div class="card">
+    <h3>HYROX</h3>
+    <p class="muted">
+      Men's Doubles Pro × 2<br>
+      Current limiter: Sled Pull
+    </p>
+  </div>
 </section>
 
-
 <section id="report" class="page">
+  <h2>Training Report</h2>
 
-<h2>TRAINING REPORT</h2>
+  <div class="card">
+    <label>Date</label>
+    <input type="date" id="rDate">
 
-<div class="card">
+    <label>Workout / Session</label>
+    <input id="rWorkout" placeholder="例：W2 Monday">
 
-<label>DATE</label>
-<input type="date" id="date">
+    <label>Completion</label>
+    <select id="rComplete">
+      <option>100%</option>
+      <option>75–99%</option>
+      <option>50–74%</option>
+      <option>&lt;50%</option>
+      <option>Rest / Skip</option>
+    </select>
 
-<label>WORKOUT</label>
-<input id="session"
-placeholder="例如 W2 Tuesday Threshold">
+    <label>Session RPE</label>
+    <select id="rRpe">
+      <option>5</option>
+      <option>6</option>
+      <option selected>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+    </select>
 
-<label>COMPLETION</label>
+    <label>Fatigue</label>
+    <select id="rFatigue">
+      <option>Low</option>
+      <option selected>Normal</option>
+      <option>High</option>
+      <option>Very High</option>
+    </select>
 
-<select id="completion">
-<option>完成</option>
-<option>部分完成</option>
-<option>未完成</option>
-</select>
+    <label>Pain / Feedback / Question</label>
+    <textarea id="rNotes" placeholder="今天哪裡卡？哪一段太難？疼痛？Garmin 感受？想問教練什麼？"></textarea>
 
-<label>SESSION RPE</label>
-<input type="number" id="rpe"
-min="1" max="10">
+    <button class="primary" onclick="saveReport()">SAVE REPORT</button>
+  </div>
 
-<label>FATIGUE 1–10</label>
-<input type="number" id="fatigue"
-min="1" max="10">
-
-<label>PAIN / FEEDBACK / QUESTION</label>
-
-<textarea id="notes"
-placeholder="例如：
-第三組 1K 開始掉速，
-HR 比平常高，
-右小腿有點緊。
-明天需要調整嗎？"></textarea>
-
-<button class="save" onclick="saveReport()">
-SAVE TRAINING REPORT
-</button>
-
-</div>
-
-<h2 class="section">Recent Reports</h2>
-
-<div id="reports"></div>
-
+  <div class="card">
+    <h3>Recent Reports</h3>
+    <div id="reports"></div>
+  </div>
 </section>
 
 </main>
 
-
 <nav>
-
-<button class="active"
-onclick="showPage('today',this)">
-TODAY
-</button>
-
-<button
-onclick="showPage('plan',this)">
-PLAN
-</button>
-
-<button
-onclick="showPage('profile',this)">
-PROFILE
-</button>
-
-<button
-onclick="showPage('report',this)">
-REPORT
-</button>
-
+  <button class="active" onclick="showPage('today',this)">TODAY</button>
+  <button onclick="showPage('plan',this)">PLAN</button>
+  <button onclick="showPage('profile',this)">PROFILE</button>
+  <button onclick="showPage('report',this)">REPORT</button>
 </nav>
 
-
 <script>
+const weeks = [
 
-const weeks={
+{
+name:"W1",
+dates:"SEP 7–13",
+focus:"Re-entry + Skill Quality",
+days:[
+{
+day:"MON",
+title:"Lower Strength + Barbell Cycling",
+time:"80–90 min",
+intent:"重新建立下肢力量輸出與槓鈴節奏。保留 2–3 reps in reserve，不追求極限。",
+sections:[
+["01 WARM-UP · 8 MIN",
+`3 Rounds
+60 sec Bike easy → moderate
+8 Cossack Squat / side
+10 Banded Good Morning
+8 Scap Push-up
+10 Empty Bar Front Squat`],
 
-1:[
-["MON","Strength Technique","STRENGTH",
-"Back Squat 4×4 @RPE6\nStrict Press 4×5 @RPE6\nEasy Accessories",
-"恢復動作品質，不製造額外疲勞"],
+["02 MOBILITY / STABILITY · 8 MIN",
+`2 Sets
+Ankle Rock × 10 / side
+90/90 Hip Switch × 10
+Copenhagen Plank 20 sec / side
+Dead Bug + Band Pulldown × 8 / side`],
 
-["TUE","Easy Run + Strides","RUN",
-"40–50 min Z1–Low Z2\nHR 約 130–150\n4×20s relaxed strides（腿感正常才做）",
-"重新建立跑感，不追配速"],
+["03 OLY SKILL · 12 MIN",
+`Every 2:00 × 6
+1 Power Clean
++ 1 Hang Squat Clean
++ 1 Front Squat
 
-["WED","Gymnastics + Engine","CROSSFIT",
-"BMU 5×2–3\nT2B 5×6–8\n12–15 min aerobic mixed modal @RPE6",
-"維持技巧與有氧引擎"],
+55 → 70% Clean
+約 52.5 → 67.5 kg
+全部保持技術品質。`],
 
-["THU","Easy Run + Deadlift","RUN",
-"Easy Run 35–45 min\nDeadlift 3×4 @RPE6\nPosterior Chain 3×8",
-"低負荷跑步＋後鏈力量維持"],
+["04 STRENGTH · 20 MIN",
+`Back Squat
+5 × 3 @ 75–80%
+約 100–107.5 kg
+Rest 2:30–3:00
 
-["SUN","Long Easy Run","RUN",
-"60–75 min Z2\nNo pace target",
-"恢復長距離耐受"]
+Bulgarian Split Squat
+3 × 8 / leg @ RPE 7`],
+
+["05 ENERGY SYSTEM · 12 MIN",
+`Every 3:00 × 4
+10 Thrusters @ 40 kg
+8 C2B
+10/8 cal Echo Bike
+剩餘時間休息
+
+Target：每輪 1:35–2:00`],
+
+["06 ACCESSORY · 6 MIN",
+`2 Sets
+Nordic eccentric × 5
+Pallof Press × 10 / side
+Standing Calf Raise × 15`],
+
+["07 COOL DOWN · 5 MIN",
+`2 min easy Bike
+Couch Stretch 45 sec / side
+Lat Stretch 45 sec / side
+5 slow nasal breaths`]
 ],
+cut:"60 MIN：刪除 Accessory，Strength 改 4×3，Metcon 做 3 rounds。"
+},
 
-2:[
-["MON","Squat + Barbell Cycling","STRENGTH",
-"Back Squat 5×3 @RPE7–7.5\n10 min Barbell Cycling EMOM",
-"維持力量並建立重複輸出"],
+{
+day:"TUE",
+title:"Running Threshold + Durability",
+time:"70–80 min",
+intent:"建立跑步閾值能力，不讓 CrossFit 刺激侵蝕跑姿與跑步經濟性。",
+sections:[
+["01 GENERAL WARM-UP · 8 MIN",
+`Easy Jog 8 min
+從 Z1 漸進至 Z2`],
 
-["TUE","Threshold Intro","RUN",
-"WU 15 min\n3×8 min @RPE7\n2 min jog recovery\nCD 10 min",
-"重新建立 Threshold 耐受"],
+["02 RUNNING PREP · 8 MIN",
+`Ankle pogo × 20
+A-skip × 20m
+Straight-leg bound × 20m
+Walking lunge × 10 / side
+4 × 60m progressive strides`],
 
-["WED","Competition Engine","CROSSFIT",
-"4 Rounds\n3 min work / 2 min rest\nGymnastics + Machine + Moderate Barbell",
-"建立比賽型 Mixed Modal 輸出"],
+["03 MAIN RUN · 30–35 MIN",
+`5 × 1 km
+Pace 4:55–5:00 / km
+Rest 90 sec easy jog
 
-["THU","Easy Run + Upper","RUN",
-"45–55 min Z2\nStrict Press 4×4 @RPE7\nPull Strength",
-"有氧基礎＋上肢力量維持"],
+目標：最後一組仍能控制呼吸與跑姿。`],
 
-["SUN","Long Run","RUN",
-"75–85 min Easy\nHR 穩定才做最後 10 min steady",
-"耐力發展"]
+["04 SPEED SUPPORT · 6 MIN",
+`4 × 200m relaxed fast
+約 4:20–4:30/km effort
+Walk / jog 200m recovery`],
+
+["05 DURABILITY · 8 MIN",
+`Soleus Raise 3 × 12
+Single-leg RDL 2 × 8 / side
+Tibialis Raise 2 × 15`],
+
+["06 COOL DOWN · 8 MIN",
+`Easy Jog 5 min
+Calf + Hip Flexor mobility
+鼻吸鼻吐降低心率`]
 ],
+cut:"60 MIN：主課表改 4×1km，取消 200m speed support。"
+},
 
-3:[
-["MON","Front Squat + Clean","STRENGTH",
-"Front Squat 5×3 @RPE7.5–8\nClean 6×2 @70–80%\n6–8 min Metcon",
-"力量與舉重 repeatability"],
+{
+day:"WED",
+title:"Gymnastics + Upper Strength",
+time:"80–90 min",
+intent:"在沒有大量代謝疲勞時累積體操品質與上肢力量。",
+sections:[
+["01 WARM-UP · 7 MIN",
+`Row 4 min easy
+2 Rounds
+8 Ring Row
+8 Scap Pull-up
+10 PVC Pass Through
+8 Push-up`],
 
-["TUE","1K Repeats","RUN",
-"5×1 km @10K–Threshold Effort\nRPE7.5–8\n2 min easy jog",
-"速度耐力"],
+["02 SHOULDER STABILITY · 8 MIN",
+`Bottom-up KB Carry 20m / side
+Banded External Rotation × 12
+Serratus Wall Slide × 10
+Hollow Hold 25 sec
+2 Sets`],
 
-["WED","Gymnastics Density","CROSSFIT",
-"18–22 min Mixed Modal @RPE8",
-"疲勞狀態維持 Gymnastics 品質"],
+["03 GYMNASTICS SKILL · 15 MIN",
+`EMOM 15
+Min 1：3–5 BMU
+Min 2：8–10 T2B
+Min 3：20–30m HSW practice
 
-["THU","Easy + Deadlift","RUN",
-"45 min Z1–Z2\nDeadlift 4×3 @RPE7.5",
-"維持有氧＋後鏈力量"],
+所有組別停止在技術失敗前。`],
 
-["SUN","Long Run","RUN",
-"80–90 min Easy",
-"馬拉松底盤維持"]
+["04 STRENGTH · 20 MIN",
+`Strict Press
+5 × 4 @ 70–75%
+約 35–37.5 kg
+
+Weighted Pull-up
+4 × 5 @ RPE 7–8
+
+Rest 2:00`],
+
+["05 ENERGY SYSTEM · 12 MIN",
+`AMRAP 12
+10 cal Ski
+8 DB Snatch 22.5kg
+6 Burpee Box Jump Over
+
+保持 sustainable pace。`],
+
+["06 ACCESSORY · 7 MIN",
+`Ring Face Pull 3 × 12
+DB Incline Press 2 × 10
+Hollow Rock 2 × 15`],
+
+["07 COOL DOWN · 5 MIN",
+`Easy Ski
+Lat + Pec Stretch
+Thoracic Rotation`]
 ],
+cut:"60 MIN：Gymnastics EMOM 改 12；Strength 各做 3 組；取消 Accessory。"
+},
 
-4:[
-["MON","Squat + C&J","STRENGTH",
-"Back Squat 4×3 @RPE8\nClean & Jerk 6×1–2 @75–85%",
-"Peak strength maintenance"],
+{
+day:"THU",
+title:"Hybrid Aerobic Repeatability",
+time:"75–85 min",
+intent:"練習多模式切換後仍可回到可控制的 aerobic output。",
+sections:[
+["01 WARM-UP · 8 MIN",
+`2 min Row
+2 min Bike
+2 min Ski
+Dynamic Hip + Shoulder Flow`],
 
-["TUE","Threshold + Speed","RUN",
-"4×6 min Threshold @RPE8\n2 min jog\n4×30 sec fast relaxed",
-"高有氧能力"],
+["02 MOVEMENT PREP · 8 MIN",
+`2 Sets
+KB Front Rack March 30 sec
+Bear Crawl 15m
+Goblet Squat × 10
+Ring Support Hold 20 sec`],
 
-["WED","Competition Mixed Modal","CROSSFIT",
-"20–25 min @RPE8–9\nGymnastics under fatigue",
-"最高專項刺激"],
+["03 SKILL · 8 MIN",
+`Wall Ball efficiency
+4 × 12 @ competition rhythm
+Rest 45 sec
 
-["THU","Easy Run","RUN",
-"45–55 min Z2",
-"恢復＋跑步底盤"],
+專注呼吸節奏與接球位置。`],
 
-["SUN","Long Run","RUN",
-"85–95 min Easy",
-"耐力維持"]
+["04 MAIN CONDITIONING · 30 MIN",
+`5 Rounds
+500m Row
+400m Run
+15 Wall Balls
+10 DB Walking Lunges
+
+RPE 7
+不追求 sprint。`],
+
+["05 CORE / PREHAB · 8 MIN",
+`Suitcase Carry 30m / side
+Side Plank 30 sec / side
+Reverse Nordic × 8
+2 Sets`],
+
+["06 COOL DOWN · 8 MIN",
+`Easy walk
+Hip Flexor
+Adductor
+T-spine
+5 slow breaths`]
 ],
+cut:"60 MIN：Main Conditioning 做 4 rounds。"
+},
 
-5:[
-["MON","Front Squat + Clean","STRENGTH",
-"Front Squat 3×3 @RPE7\nClean 5×1 @75–80%",
-"開始降低疲勞"],
+{
+day:"SUN",
+title:"Long Run + Aerobic Base",
+time:"75–90 min",
+intent:"保留馬拉松底盤。今天不再疊 CrossFit Metcon。",
+sections:[
+["01 PRE-RUN · 8 MIN",
+`Walk 2 min
+Easy Jog 4 min
+Ankle / Hip dynamic mobility`],
 
-["TUE","Controlled Speed","RUN",
-"3×1 km controlled 10K effort\n4×200m fast relaxed",
-"保留速度"],
+["02 DRILLS · 5 MIN",
+`A-skip × 20m
+Quick feet × 20m
+2 × 60m strides`],
 
-["WED","Steel Cup Specific","CROSSFIT",
-"12–16 min @RPE8",
-"Competition sharpening"],
+["03 LONG RUN · 60–70 MIN",
+`Mostly Z2
+144–155 bpm
 
-["THU","Easy Run","RUN",
-"40–45 min Easy",
-"維持跑感"],
+不要追配速。
+最後 10 min 可自然漸進，但心率不失控。`],
 
-["SUN","Long Easy","RUN",
-"65–75 min Easy",
-"維持有氧"]
+["04 POST-RUN · 7 MIN",
+`Walk 3 min
+Calf Stretch
+Hamstring floss
+Hip Flexor Stretch`]
 ],
-
-6:[
-["MON","Full Body Primer","STRENGTH",
-"Back Squat 3×2 @60–70%\nClean 4×1 @65–75%",
-"神經啟動，不累積疲勞"],
-
-["TUE","Easy + Strides","RUN",
-"35–40 min Easy\n4×20 sec strides",
-"保持跑感"],
-
-["WED","Mixed Modal Primer","CROSSFIT",
-"8–10 min @RPE6–7",
-"保持競賽節奏"],
-
-["THU","Recovery","RECOVERY",
-"25–30 min Easy Aerobic + Mobility",
-"降低疲勞"],
-
-["SAT","STEEL CUP DAY 1","CROSSFIT",
-"RACE DAY",
-"競賽"],
-
-["SUN","STEEL CUP DAY 2","CROSSFIT",
-"RACE DAY",
-"競賽"]
+cut:"60 MIN：Z2 Run 45–50 min。"
+}
 ]
+},
 
-};
+{
+name:"W2",
+dates:"SEP 14–20",
+focus:"Volume Build",
+days:[
+{
+day:"MON",
+title:"Squat Strength + Clean Cycling",
+time:"85–90 min",
+intent:"提高下肢力量刺激，同時練習 clean 在疲勞前的穩定循環。",
+sections:[
+["01 WARM-UP · 8 MIN",`Bike 3 min
+2 Rounds
+10 Air Squat
+8 Reverse Lunge / side
+8 Scap Push-up
+10 Empty Bar RDL`],
+["02 MOBILITY / STABILITY · 8 MIN",`Ankle Rock ×10 / side
+Adductor Rockback ×10
+Copenhagen Plank 25 sec / side
+Dead Bug ×8 / side
+2 Sets`],
+["03 OLY SKILL · 12 MIN",`Every 2:00 × 6
+2 Hang Power Clean
++ 1 Front Squat
+60–70% Clean
+約 57.5–67.5kg`],
+["04 STRENGTH · 20 MIN",`Back Squat
+5 × 3 @ 77–82%
+約 105–110kg
+Rest 2:30–3:00
 
+Rear-foot Elevated Split Squat
+3 × 8 / side`],
+["05 ENERGY SYSTEM · 12 MIN",`Every 3:00 × 4
+8 Power Clean @ 60kg
+10 C2B
+10/8 cal Echo Bike
+Rest remaining time`],
+["06 ACCESSORY · 7 MIN",`Nordic Eccentric 3×5
+Pallof Press 2×10 / side
+Calf Raise 2×15`],
+["07 COOL DOWN · 5 MIN",`Easy Bike
+Couch Stretch
+Adductor Stretch`]
+],
+cut:"60 MIN：Back Squat 4×3，Energy System 3 rounds，取消 Accessory。"
+},
 
-function week(n,btn){
+{
+day:"TUE",
+title:"Running Threshold",
+time:"70–80 min",
+intent:"提高可持續速度，保持公里重複之間的穩定性。",
+sections:[
+["01 WARM-UP · 10 MIN",`Easy Jog 10 min`],
+["02 RUN PREP · 8 MIN",`A-skip 2×20m
+B-skip 2×20m
+Pogo ×20
+4×60m strides`],
+["03 MAIN RUN · 32 MIN",`5 × 1 km
+4:50–4:55/km
+Rest 90 sec jog`],
+["04 SUPPORT · 6 MIN",`4 × 20 sec hill stride
+Walk back recovery`],
+["05 DURABILITY · 8 MIN",`Soleus Raise 3×12
+Single-leg Calf Raise 2×12
+Hamstring Slider 2×10`],
+["06 COOL DOWN · 6 MIN",`Easy Jog + mobility`]
+],
+cut:"60 MIN：4×1km；取消 hill stride。"
+},
 
-document.querySelectorAll(".weekbuttons button")
-.forEach(x=>x.classList.remove("active"));
+{
+day:"WED",
+title:"Gymnastics Density + Press",
+time:"80–90 min",
+intent:"增加體操密度，但每一組仍保留 1–2 reps，避免失敗次數堆積。",
+sections:[
+["01 WARM-UP · 8 MIN",`Row 5 min
+Band Shoulder Flow`],
+["02 STABILITY · 8 MIN",`Scap Pull-up ×8
+Ring Support 25 sec
+Serratus Push-up ×10
+Hollow Hold 30 sec
+2 Sets`],
+["03 GYMNASTICS · 16 MIN",`EMOM 16
+1：4 BMU
+2：10 T2B
+3：8 C2B
+4：HSW 20–30m`],
+["04 STRENGTH · 20 MIN",`Strict Press 5×3 @ 75–80%
+Weighted Pull-up 4×4 @ RPE8`],
+["05 CONDITIONING · 12 MIN",`4 Rounds
+12 cal Ski
+10 DB Thruster
+8 Burpee Box Jump Over
+Rest 60 sec between rounds`],
+["06 ACCESSORY · 7 MIN",`Face Pull 3×12
+DB Row 2×10
+Hollow Rock 2×15`],
+["07 COOL DOWN · 5 MIN",`Easy Ski + Shoulder Mobility`]
+],
+cut:"60 MIN：Gymnastics 12 min；Strength 各 3 組。"
+},
 
-btn.classList.add("active");
+{
+day:"THU",
+title:"Mixed Modal Intervals",
+time:"75–85 min",
+intent:"建立比賽型 repeatability，重點是每輪輸出差距小。",
+sections:[
+["01 WARM-UP · 8 MIN",`Bike / Row / Ski 各 2 min
+Dynamic Flow`],
+["02 PREP · 7 MIN",`Goblet Squat ×10
+Bear Crawl 15m
+KB Rack Carry 20m
+2 Sets`],
+["03 SKILL · 8 MIN",`Wall Ball
+5×10
+Rest 30 sec
+練習無停頓呼吸`],
+["04 MAIN · 28 MIN",`Every 7:00 × 4
+400m Run
+15 Wall Ball
+12 Burpee
+12/10 cal Row
+Rest remaining time
 
-let html="";
+各輪時間差 <10 sec`],
+["05 CORE · 8 MIN",`Suitcase Carry
+Pallof Press
+Side Plank
+2 Sets`],
+["06 COOL DOWN · 6 MIN",`Walk + mobility`]
+],
+cut:"60 MIN：做 3 rounds。"
+},
 
-weeks[n].forEach(w=>{
+{
+day:"SUN",
+title:"Long Run",
+time:"80–90 min",
+intent:"建立跑步容量，不加入高乳酸刺激。",
+sections:[
+["01 PRE-RUN · 8 MIN",`Easy Jog + mobility`],
+["02 STRIDES · 5 MIN",`3×60m progressive`],
+["03 LONG RUN · 65–75 MIN",`Z2 144–155 bpm
+穩定 conversational effort`],
+["04 COOL DOWN · 6 MIN",`Walk + calf / hip mobility`]
+],
+cut:"60 MIN：50 min Z2。"
+}
+]
+},
 
-let c=w[2].toLowerCase();
+{
+name:"W3",
+dates:"SEP 21–27",
+focus:"Intensity Build",
+days:[
+{
+day:"MON",
+title:"Front Squat + Clean & Jerk",
+time:"85–90 min",
+intent:"開始提高重量，但仍不做 grind reps。",
+sections:[
+["01 WARM-UP · 8 MIN",`Bike 3 min
+Barbell Complex ×3 rounds`],
+["02 MOBILITY · 8 MIN",`Ankle
+Front Rack
+Adductor
+Core Brace`],
+["03 OLY · 15 MIN",`Every 2:30 × 6
+1 Clean + 1 Jerk
+65–78%
+約 55–67.5kg C&J`],
+["04 STRENGTH · 20 MIN",`Front Squat
+5×3 @ 75–82%
+75–82.5kg
+Rest 2:30`],
+["05 CONDITIONING · 12 MIN",`AMRAP 12
+6 Clean @ 60kg
+8 HSPU / Pike strict variation
+10 cal Bike`],
+["06 ACCESSORY · 7 MIN",`Split Squat 2×10
+Nordic 2×5
+Calf 2×15`],
+["07 COOL DOWN · 5 MIN",`Easy Bike + Hip / Wrist mobility`]
+],
+cut:"60 MIN：Front Squat 4×3；Conditioning 9 min。"
+},
 
-html+=`
+{
+day:"TUE",
+title:"Running VO2 Support",
+time:"70–80 min",
+intent:"增加 10K 以上速度儲備，但總量控制。",
+sections:[
+["01 WARM-UP · 12 MIN",`Easy Run 10 min + mobility`],
+["02 DRILLS · 8 MIN",`A-skip
+Pogo
+Strides ×4`],
+["03 MAIN · 30 MIN",`6 × 800m
+4:35–4:40/km pace
+Rest 2:00 easy jog`],
+["04 DURABILITY · 8 MIN",`Soleus Raise
+Hamstring Slider
+Tibialis`],
+["05 COOL DOWN · 8 MIN",`Easy Jog`]
+],
+cut:"60 MIN：5×800m。"
+},
 
-<div class="card">
+{
+day:"WED",
+title:"Gymnastics Under Fatigue",
+time:"80–90 min",
+intent:"讓 BMU / T2B 開始進入輕度疲勞環境。",
+sections:[
+["01 WARM-UP · 8 MIN",`Row + Shoulder Flow`],
+["02 STABILITY · 8 MIN",`Scap Pull
+Ring Support
+Serratus
+Hollow / Arch`],
+["03 SKILL · 14 MIN",`Every 2:00 × 7
+3 BMU
+8 T2B
+20m HSW`],
+["04 STRENGTH · 20 MIN",`Bench Press 5×5 @ 70–75%
+Weighted Pull-up 4×5`],
+["05 CONDITIONING · 14 MIN",`AMRAP 14
+250m Row
+6 BMU
+12 DB Front Rack Lunge
+9 T2B`],
+["06 ACCESSORY · 6 MIN",`Face Pull
+External Rotation
+Dead Bug`],
+["07 COOL DOWN · 5 MIN",`Lat / Pec / T-spine`]
+],
+cut:"60 MIN：Strength 各 3 組；AMRAP 10。"
+},
 
-<span class="tag ${c}">
-${w[2]}
-</span>
+{
+day:"THU",
+title:"Competition Intervals",
+time:"80–90 min",
+intent:"把跑、體操、槓鈴三種刺激放在同一個 repeatability session。",
+sections:[
+["01 WARM-UP · 8 MIN",`Run 4 min
+Bike 2 min
+Dynamic mobility`],
+["02 PREP · 8 MIN",`Thruster ×8 empty bar
+C2B ×5
+Burpee step / jump pattern`],
+["03 MAIN · 30 MIN",`Every 6:00 × 5
+300m Run
+8 Thruster @ 42.5kg
+8 C2B
+8 Burpee Box Jump Over
 
-<h3>${w[0]} • ${w[1]}</h3>
+Target：各輪差距 <8 sec`],
+["04 AEROBIC FLUSH · 10 MIN",`Easy Bike Z1–low Z2`],
+["05 CORE · 8 MIN",`Carry + Pallof + Side Plank`],
+["06 COOL DOWN · 5 MIN",`Mobility + breathing`]
+],
+cut:"60 MIN：做 4 rounds，取消 aerobic flush。"
+},
 
-<div class="workout-details">
-${w[3]}
-</div>
+{
+day:"SUN",
+title:"Long Run + Fast Finish",
+time:"85–90 min",
+intent:"開始加入少量 marathon-specific fatigue resistance。",
+sections:[
+["01 PREP · 8 MIN",`Easy jog + drills`],
+["02 LONG RUN · 70 MIN",`前 55 min Z2
+最後 15 min steady
+約 marathon effort 以下`],
+["03 COOL DOWN · 7 MIN",`Easy walk + mobility`]
+],
+cut:"60 MIN：45 min Z2 + 10 min steady。"
+}
+]
+},
 
-<div class="intent">
+{
+name:"W4",
+dates:"SEP 28–OCT 4",
+focus:"Competition Specific",
+days:[
+{
+day:"MON",
+title:"Heavy Squat + Barbell Efficiency",
+time:"85–90 min",
+intent:"維持高力量輸出，降低額外肌肉損傷。",
+sections:[
+["01 WARM-UP · 8 MIN",`Bike + Squat Flow`],
+["02 PREP · 8 MIN",`Ankle / Adductor / Core`],
+["03 OLY · 12 MIN",`EMOM 12
+Odd：2 Power Clean @ 70%
+Even：1 Squat Clean @ 75%`],
+["04 STRENGTH · 20 MIN",`Back Squat
+4×3 @ 82–85%
+110–115kg
+不 grind`],
+["05 CONDITIONING · 14 MIN",`5 Rounds
+6 Power Clean @ 60kg
+8 Front Rack Lunge
+10/8 cal Bike
+Rest 60 sec`],
+["06 ACCESSORY · 6 MIN",`Nordic 2×5
+Pallof 2×10
+Calf 2×12`],
+["07 COOL DOWN · 5 MIN",`Bike + mobility`]
+],
+cut:"60 MIN：Strength 3×3；Conditioning 4 rounds。"
+},
 
-<strong>INTENT</strong><br>
-${w[4]}
+{
+day:"TUE",
+title:"Threshold Run",
+time:"70–80 min",
+intent:"維持跑步閾值，不追求新的跑量。",
+sections:[
+["01 WARM-UP · 12 MIN",`Jog + drills + strides`],
+["02 MAIN · 30 MIN",`3 × 2 km
+4:55–5:00/km
+Rest 2:00 jog`],
+["03 SPEED · 6 MIN",`4×15 sec relaxed fast stride`],
+["04 DURABILITY · 8 MIN",`Calf / Soleus / Hamstring`],
+["05 COOL DOWN · 8 MIN",`Jog easy`]
+],
+cut:"60 MIN：2×2km + 1×1km。"
+},
 
-</div>
+{
+day:"WED",
+title:"Gymnastics Competition Density",
+time:"80–90 min",
+intent:"體操從 skill 轉向 competition density。",
+sections:[
+["01 WARM-UP · 8 MIN",`Row + Shoulder`],
+["02 STABILITY · 7 MIN",`Scap + Ring + Hollow`],
+["03 SKILL · 12 MIN",`EMOM 12
+1：5 BMU
+2：10 T2B
+3：8 C2B`],
+["04 STRENGTH · 18 MIN",`Strict Press 4×3 @ 80%
+Weighted Pull-up 4×3`],
+["05 CONDITIONING · 15 MIN",`AMRAP 15
+12 cal Ski
+8 BMU
+12 DB Snatch
+12 Box Jump Over`],
+["06 ACCESSORY · 6 MIN",`Shoulder prehab + core`],
+["07 COOL DOWN · 5 MIN",`Mobility`]
+],
+cut:"60 MIN：Skill 9 min；Strength 各3組；AMRAP 12。"
+},
 
-</div>
+{
+day:"THU",
+title:"Steel Cup Simulation A",
+time:"80–90 min",
+intent:"模擬比賽節奏，但不是 full send。",
+sections:[
+["01 WARM-UP · 10 MIN",`Run / Row / Bike gradual
+Dynamic mobility`],
+["02 MOVEMENT PREP · 8 MIN",`Thruster
+C2B
+DB Lunge
+Burpee`],
+["03 PRIMER · 6 MIN",`2 Rounds @ 60%
+5 Thruster
+5 C2B
+5 Burpee`],
+["04 SIMULATION · 24 MIN",`3 Rounds
+600m Run
+15 Thruster @ 40kg
+12 C2B
+15 Burpee Box Jump Over
 
-`;
+Rest 3 min between rounds
+RPE 8`],
+["05 FLUSH · 10 MIN",`Easy Bike`],
+["06 CORE · 7 MIN",`Carry + anti-rotation`],
+["07 COOL DOWN · 5 MIN",`Mobility`]
+],
+cut:"60 MIN：Simulation 2 rounds。"
+},
 
-});
+{
+day:"SUN",
+title:"Aerobic Long Run",
+time:"75–85 min",
+intent:"吸收本週高強度，不做 fast finish。",
+sections:[
+["01 PREP · 8 MIN",`Easy jog + mobility`],
+["02 RUN · 60–70 MIN",`Z2 only
+144–155 bpm`],
+["03 COOL DOWN · 6 MIN",`Walk + mobility`]
+],
+cut:"60 MIN：50 min Z2。"
+}
+]
+},
 
-document.getElementById("workouts").innerHTML=html;
+{
+name:"W5",
+dates:"OCT 5–11",
+focus:"Peak Specificity",
+days:[
+{
+day:"MON",
+title:"Strength Maintenance + Clean Speed",
+time:"75–85 min",
+intent:"開始降低 volume，只保留速度與力量感。",
+sections:[
+["01 WARM-UP · 8 MIN",`Bike + Barbell Flow`],
+["02 PREP · 7 MIN",`Hip / Ankle / Core`],
+["03 OLY · 12 MIN",`Every 2:00 × 6
+1 Power Clean + 1 Squat Clean
+65–75%`],
+["04 STRENGTH · 16 MIN",`Back Squat
+4×2 @ 82–85%
+110–115kg`],
+["05 CONDITIONING · 12 MIN",`Every 3:00 × 4
+6 Clean @60kg
+8 C2B
+10 cal Bike`],
+["06 ACCESSORY · 5 MIN",`Calf + Pallof`],
+["07 COOL DOWN · 5 MIN",`Easy Bike`]
+],
+cut:"60 MIN：Strength 3×2；Conditioning 3 rounds。"
+},
 
+{
+day:"TUE",
+title:"Running Sharpness",
+time:"60–70 min",
+intent:"保留速度感，明顯降低總量。",
+sections:[
+["01 WARM-UP · 12 MIN",`Jog + drills + strides`],
+["02 MAIN · 24 MIN",`5×800m
+4:35–4:40/km
+Rest 2:00`],
+["03 STRIDES · 5 MIN",`3×15 sec relaxed fast`],
+["04 COOL DOWN · 10 MIN",`Easy jog + mobility`]
+],
+cut:"60 MIN：4×800m。"
+},
+
+{
+day:"WED",
+title:"Gymnastics Sharpness",
+time:"70–80 min",
+intent:"保持神經速度與體操信心，不累積 failure。",
+sections:[
+["01 WARM-UP · 8 MIN",`Row + Shoulder`],
+["02 STABILITY · 7 MIN",`Scap + Hollow + Ring`],
+["03 SKILL · 12 MIN",`EMOM 12
+4 BMU
+8 T2B
+6 C2B`],
+["04 STRENGTH · 15 MIN",`Strict Press 3×3 @75%
+Weighted Pull-up 3×3`],
+["05 CONDITIONING · 10 MIN",`AMRAP 10
+10 cal Ski
+6 BMU
+10 DB Lunge`],
+["06 COOL DOWN · 6 MIN",`Mobility`]
+],
+cut:"60 MIN：直接照做，取消額外 accessory。"
+},
+
+{
+day:"THU",
+title:"Steel Cup Simulation B",
+time:"70–80 min",
+intent:"最後一次 competition feel。做到快，但不要做到殘。",
+sections:[
+["01 WARM-UP · 10 MIN",`Full competition warm-up`],
+["02 PRIMER · 8 MIN",`Barbell + Gymnastics primer`],
+["03 MAIN · 20 MIN",`Every 5:00 × 4
+300m Run
+8 Thruster
+8 C2B
+8 Burpee Box Jump Over
+
+約 90% race effort`],
+["04 FLUSH · 12 MIN",`Easy Bike / Walk`],
+["05 COOL DOWN · 8 MIN",`Mobility + breathing`]
+],
+cut:"60 MIN：做 3 rounds。"
+},
+
+{
+day:"SUN",
+title:"Easy Aerobic",
+time:"60–70 min",
+intent:"恢復優先，保留跑步節奏。",
+sections:[
+["01 PREP · 6 MIN",`Easy mobility`],
+["02 RUN · 45–55 MIN",`Z1–low Z2
+完全 conversational`],
+["03 COOL DOWN · 6 MIN",`Walk + calf mobility`]
+],
+cut:"60 MIN：45 min easy。"
+}
+]
+},
+
+{
+name:"W6",
+dates:"OCT 12–18",
+focus:"Taper + Race",
+days:[
+{
+day:"MON",
+title:"Full Body Primer",
+time:"60 min",
+intent:"保持力量感與動作速度，不製造 DOMS。",
+sections:[
+["01 WARM-UP · 8 MIN",`Bike + mobility`],
+["02 OLY · 10 MIN",`5×1 Power Clean @60–70%
+Fast reps only`],
+["03 STRENGTH · 15 MIN",`Back Squat
+3×2 @70–75%
+
+Strict Press
+3×3 @65–70%`],
+["04 PRIMER · 8 MIN",`3 Rounds easy-fast
+6 Thruster
+5 C2B
+6 cal Bike`],
+["05 COOL DOWN · 8 MIN",`Easy aerobic + mobility`]
+],
+cut:"本堂已是 taper 版本。"
+},
+
+{
+day:"TUE",
+title:"Run Primer",
+time:"45–55 min",
+intent:"喚醒跑步速度，不建立疲勞。",
+sections:[
+["01 WARM-UP · 10 MIN",`Easy Jog`],
+["02 DRILLS · 6 MIN",`A-skip + strides`],
+["03 MAIN · 15 MIN",`4×400m @ 10K pace
+Rest 90 sec
++
+4×15 sec fast relaxed stride`],
+["04 COOL DOWN · 10 MIN",`Easy Jog`]
+],
+cut:"本堂已是 taper 版本。"
+},
+
+{
+day:"WED",
+title:"Gymnastics Primer",
+time:"45–55 min",
+intent:"保持動作感與信心，絕不做到 failure。",
+sections:[
+["01 WARM-UP · 8 MIN",`Row + Shoulder`],
+["02 GYMNASTICS · 12 MIN",`EMOM 12
+3 BMU
+6 T2B
+5 C2B`],
+["03 PRIMER · 8 MIN",`2–3 Rounds
+6 DB Snatch
+6 Burpee
+6 cal Ski
+Easy-fast`],
+["04 COOL DOWN · 8 MIN",`Mobility`]
+],
+cut:"本堂已是 taper 版本。"
+},
+
+{
+day:"THU",
+title:"Rest / Mobility",
+time:"20–30 min",
+intent:"開始把恢復能力全部留給週末。",
+sections:[
+["01 EASY MOVEMENT",`Walk 15–20 min`],
+["02 MOBILITY",`Hip
+T-spine
+Ankle
+Shoulder
+每個區域 1–2 動作即可`],
+["03 BREATHING",`5 min relaxed nasal breathing`]
+],
+cut:"若精神很好也不要加訓。"
+},
+
+{
+day:"FRI",
+title:"Pre-Race Activation",
+time:"20–30 min",
+intent:"只確認身體有彈性、有速度。",
+sections:[
+["01 EASY",`5 min easy Bike / Jog`],
+["02 ACTIVATION",`2 Rounds
+5 Air Squat
+5 Push-up
+5 Ring Row
+5 Burpee`],
+["03 SPEED",`3×10 sec fast Bike
+Full recovery`],
+["04 DONE",`結束。不要加碼。`]
+],
+cut:"若旅途疲勞，直接休息。"
+},
+
+{
+day:"SAT–SUN",
+title:"STEEL CUP ELITE",
+time:"RACE",
+intent:"比賽週末。執行 > 證明體能。",
+sections:[
+["RACE STRATEGY",
+`第一個 Event 不要提前把比賽打完。
+以可重複輸出為優先。
+
+Gymnastics：
+失敗前切組。
+
+Barbell：
+穩定呼吸、固定節奏。
+
+Mixed Modal：
+第一輪控制，最後 25–30% 再提高輸出。`],
+
+["BETWEEN EVENTS",
+`補水
+碳水
+電解質
+走動
+不要長時間坐死
+依下一場時間安排 warm-up`],
+
+["MENTAL CUE",
+`Fast is smooth.
+Smooth is repeatable.
+Repeatable wins.`]
+],
+cut:"Race Day。"
+}
+]
 }
 
+];
 
 function showPage(id,btn){
-
-document.querySelectorAll(".page")
-.forEach(p=>p.classList.remove("active"));
-
-document.getElementById(id)
-.classList.add("active");
-
-document.querySelectorAll("nav button")
-.forEach(b=>b.classList.remove("active"));
-
-btn.classList.add("active");
-
-window.scrollTo(0,0);
-
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active');
+  window.scrollTo(0,0);
 }
 
+let selectedWeek = 0;
+
+function renderWeekBar(){
+  const bar=document.getElementById('weekbar');
+  bar.innerHTML=weeks.map((w,i)=>
+    `<button class="weekbtn ${i===selectedWeek?'active':''}" onclick="selectWeek(${i})">${w.name}</button>`
+  ).join('');
+}
+
+function selectWeek(i){
+  selectedWeek=i;
+  renderWeekBar();
+  renderWeek();
+}
+
+function renderWeek(){
+  const w=weeks[selectedWeek];
+  const box=document.getElementById('weekContent');
+
+  box.innerHTML=`
+    <div class="card">
+      <div class="eyebrow">${w.name} · ${w.dates}</div>
+      <h3 style="margin-top:8px">${w.focus}</h3>
+    </div>
+    ${w.days.map((d,idx)=>`
+      <div class="day ${idx===0?'open':''}">
+        <div class="dayhead" onclick="this.parentElement.classList.toggle('open')">
+          <div class="daytitle">
+            <div>
+              <div class="eyebrow">${d.day}</div>
+              <h3>${d.title}</h3>
+            </div>
+            <span class="timepill">${d.time}</span>
+          </div>
+
+          <div class="intent">
+            <strong>COACH INTENT</strong>
+            <div class="muted" style="margin-top:5px">${d.intent}</div>
+          </div>
+        </div>
+
+        <div class="daybody">
+          ${d.sections.map(s=>`
+            <div class="section">
+              <div class="secname">${s[0]}</div>
+              <div class="work">${s[1]}</div>
+            </div>
+          `).join('')}
+
+          <div class="cut">
+            <strong>只有 60 分鐘時：</strong><br>
+            ${d.cut}
+          </div>
+        </div>
+      </div>
+    `).join('')}
+  `;
+}
 
 function saveReport(){
+  const data={
+    date:document.getElementById('rDate').value,
+    workout:document.getElementById('rWorkout').value,
+    completion:document.getElementById('rComplete').value,
+    rpe:document.getElementById('rRpe').value,
+    fatigue:document.getElementById('rFatigue').value,
+    notes:document.getElementById('rNotes').value,
+    savedAt:new Date().toISOString()
+  };
 
-let reports=
-JSON.parse(localStorage.getItem("hybridReports")||"[]");
+  const arr=JSON.parse(localStorage.getItem('hybridReports')||'[]');
+  arr.unshift(data);
+  localStorage.setItem('hybridReports',JSON.stringify(arr.slice(0,30)));
 
-reports.push({
-
-date:document.getElementById("date").value,
-
-session:document.getElementById("session").value,
-
-completion:document.getElementById("completion").value,
-
-rpe:document.getElementById("rpe").value,
-
-fatigue:document.getElementById("fatigue").value,
-
-notes:document.getElementById("notes").value
-
-});
-
-localStorage.setItem(
-"hybridReports",
-JSON.stringify(reports)
-);
-
-renderReports();
-
-alert("Training report saved.");
-
+  document.getElementById('rNotes').value='';
+  renderReports();
+  alert('Report saved');
 }
-
 
 function renderReports(){
+  const arr=JSON.parse(localStorage.getItem('hybridReports')||'[]');
+  const box=document.getElementById('reports');
 
-let reports=
-JSON.parse(localStorage.getItem("hybridReports")||"[]");
+  if(!arr.length){
+    box.innerHTML='<p class="muted">尚無回報資料</p>';
+    return;
+  }
 
-let html="";
-
-reports.slice().reverse().forEach(r=>{
-
-html+=`
-
-<div class="card">
-
-<div class="label">${r.date}</div>
-
-<h3>${r.session || "Training Session"}</h3>
-
-<div>
-${r.completion}
-• RPE ${r.rpe || "-"}
-• Fatigue ${r.fatigue || "-"}
-</div>
-
-<div class="muted"
-style="margin-top:8px">
-${r.notes || ""}
-</div>
-
-</div>
-
-`;
-
-});
-
-document.getElementById("reports").innerHTML=html;
-
+  box.innerHTML=arr.map(r=>`
+    <div class="reportItem">
+      <strong>${r.date||'No date'} · ${r.workout||'Session'}</strong>
+      <div class="muted">
+        Completion ${r.completion} · RPE ${r.rpe} · Fatigue ${r.fatigue}
+      </div>
+      ${r.notes?`<p>${r.notes}</p>`:''}
+    </div>
+  `).join('');
 }
 
+document.getElementById('rDate').value =
+  new Date().toISOString().slice(0,10);
 
-document.getElementById("date").value =
-new Date().toISOString().slice(0,10);
-
-week(
-1,
-document.querySelector(".weekbuttons button")
-);
-
+renderWeekBar();
+renderWeek();
 renderReports();
-
 </script>
 
 </body>
