@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080a0d">
+
+<title>Hybrid Athlete HQ</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+  --bg:#080a0d;
+  --card:#14171c;
+  --card2:#1b1f25;
+  --line:#292e36;
+  --text:#f5f7f8;
+  --muted:#969da7;
+  --green:#cfff3d;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,
+  "Segoe UI","Noto Sans TC",sans-serif;
+}
+
+header{
+  padding:calc(20px + env(safe-area-inset-top)) 20px 18px;
+  border-bottom:1px solid var(--line);
+}
+
+.logo{
+  color:var(--green);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+h1{
+  margin:5px 0 0;
+  font-size:24px;
+}
+
+main{
+  padding:18px 16px 110px;
+  max-width:700px;
+  margin:auto;
+}
+
+.hero{
+  padding:22px;
+  border-radius:22px;
+  background:linear-gradient(145deg,#1d2224,#111316);
+  border:1px solid var(--line);
+}
+
+.label{
+  color:var(--green);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.hero h2{
+  margin:8px 0;
+  font-size:30px;
+}
+
+.muted{color:var(--muted)}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:14px;
+}
+
+.metric,.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:15px;
+}
+
+.metric strong{
+  display:block;
+  font-size:18px;
+  margin-top:5px;
+}
+
+.section{
+  margin:27px 3px 11px;
+  font-size:18px;
+}
+
+.card{margin-bottom:10px}
+
+.card h3{
+  margin:6px 0;
+  font-size:17px;
+}
+
+.tag{
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:8px;
+  background:#242a31;
+  font-size:11px;
+  font-weight:800;
+}
+
+.run{color:#8dd4ff}
+.strength{color:#ffaaa4}
+.crossfit{color:#ffd374}
+.recovery{color:#9ce8b2}
+
+.intent{
+  margin-top:12px;
+  padding-left:10px;
+  border-left:3px solid var(--green);
+  color:#cfd5dc;
+  line-height:1.5;
+}
+
+.weekbuttons{
+  display:flex;
+  gap:7px;
+  overflow:auto;
+  margin-bottom:12px;
+}
+
+.weekbuttons button{
+  flex:0 0 auto;
+  border:1px solid var(--line);
+  background:var(--card);
+  color:white;
+  border-radius:10px;
+  padding:9px 12px;
+  font-weight:800;
+}
+
+.weekbuttons button.active{
+  background:var(--green);
+  color:#080a0d;
+}
+
+textarea,input,select{
+  width:100%;
+  padding:13px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:#0d0f12;
+  color:white;
+  font-size:16px;
+  margin:5px 0 13px;
+}
+
+textarea{height:110px}
+
+.save{
+  width:100%;
+  border:0;
+  padding:14px;
+  border-radius:12px;
+  background:var(--green);
+  color:#080a0d;
+  font-size:15px;
+  font-weight:900;
+}
+
+nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:#12151a;
+  border-top:1px solid var(--line);
+  padding:8px 5px calc(8px + env(safe-area-inset-bottom));
+}
+
+nav button{
+  border:0;
+  background:none;
+  color:#8e959f;
+  padding:9px 2px;
+  font-size:11px;
+  font-weight:700;
+}
+
+nav button.active{color:var(--green)}
+
+.page{display:none}
+.page.active{display:block}
+
+.workout-details{
+  white-space:pre-line;
+  line-height:1.6;
+  margin-top:9px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">VIC'S TRAINING SYSTEM</div>
+<h1>HYBRID ATHLETE HQ</h1>
+</header>
+
+<main>
+
+<section id="today" class="page active">
+
+<div class="hero">
+<div class="label">NEXT A RACE</div>
+<h2>鋼鐵盃 ELITE</h2>
+<div class="muted">2026 / 10 / 17–18</div>
+
+<div class="grid">
+<div class="metric">
+<span class="muted">CURRENT PHASE</span>
+<strong>STEEL CUP</strong>
+</div>
+
+<div class="metric">
+<span class="muted">LONG TERM</span>
+<strong>SUB 3:30</strong>
+</div>
+</div>
+</div>
+
+<h2 class="section">Current Priority</h2>
+
+<div class="card">
+<span class="tag crossfit">CROSSFIT</span>
+<span class="tag run">RUNNING</span>
+
+<h3>Hybrid Competition Build</h3>
+
+<div class="muted">
+保留目前已經足夠的最大肌力與 Gymnastics，
+把恢復預算投入 Mixed-modal repeatability
+以及跑步底盤。
+</div>
+
+<div class="intent">
+<strong>COACH INTENT</strong><br>
+鋼鐵盃前不追求新的 1RM。
+目標是讓你在疲勞狀態下仍能維持動作品質與輸出。
+</div>
+</div>
+
+<h2 class="section">Race Calendar</h2>
+
+<div class="card">
+<div class="label">A RACE</div>
+<h3>鋼鐵盃 Elite</h3>
+<div class="muted">2026/10/17–18</div>
+</div>
+
+<div class="card">
+<div class="label">A RACE</div>
+<h3>Taipei Marathon</h3>
+<div class="muted">2026/12/20</div>
+</div>
+
+<div class="card">
+<div class="label">A RACE</div>
+<h3>HYROX Taipei Pro Singles</h3>
+<div class="muted">2027/03/12–14</div>
+</div>
+
+</section>
+
+
+<section id="plan" class="page">
+
+<h2>TRAINING PLAN</h2>
+
+<div class="weekbuttons">
+<button class="active" onclick="week(1,this)">W1</button>
+<button onclick="week(2,this)">W2</button>
+<button onclick="week(3,this)">W3</button>
+<button onclick="week(4,this)">W4</button>
+<button onclick="week(5,this)">W5</button>
+<button onclick="week(6,this)">W6</button>
+</div>
+
+<div id="workouts"></div>
+
+</section>
+
+
+<section id="profile" class="page">
+
+<div class="hero">
+<div class="label">ATHLETE PROFILE</div>
+<h2>165 CM / 67 KG</h2>
+<div class="muted">
+Hybrid Athlete • 5 training days / week
+</div>
+</div>
+
+<h2 class="section">Strength</h2>
+
+<div class="card">
+Back Squat <strong>135 kg</strong><br><br>
+Front Squat <strong>100 kg</strong><br><br>
+Deadlift <strong>140 kg</strong><br><br>
+Bench Press <strong>85 kg</strong><br><br>
+Strict Press <strong>50 kg</strong>
+</div>
+
+<h2 class="section">Weightlifting</h2>
+
+<div class="card">
+Clean <strong>95 kg</strong><br><br>
+Clean & Jerk <strong>85 kg</strong><br><br>
+Snatch <strong>60 kg</strong>
+</div>
+
+<h2 class="section">Gymnastics</h2>
+
+<div class="card">
+Strict Pull-up <strong>17</strong><br>
+Chest-to-bar <strong>20</strong><br>
+Bar Muscle-up <strong>5</strong><br>
+Ring Muscle-up <strong>6</strong><br>
+Toes-to-bar <strong>13–15</strong><br>
+Handstand Walk <strong>20m+</strong>
+</div>
+
+<h2 class="section">Running</h2>
+
+<div class="card">
+10K <strong>49:00</strong><br><br>
+Half Marathon <strong>1:54</strong><br><br>
+Z1 <strong>130–142 bpm</strong><br>
+Z2 <strong>144–155 bpm</strong><br><br>
+Long-term Marathon Goal
+<strong>SUB 3:30</strong>
+</div>
+
+<h2 class="section">HYROX</h2>
+
+<div class="card">
+Men's Doubles Pro ×2<br><br>
+Priority Weakness:
+<strong>SLED PULL</strong>
+</div>
+
+</section>
+
+
+<section id="report" class="page">
+
+<h2>TRAINING REPORT</h2>
+
+<div class="card">
+
+<label>DATE</label>
+<input type="date" id="date">
+
+<label>WORKOUT</label>
+<input id="session"
+placeholder="例如 W2 Tuesday Threshold">
+
+<label>COMPLETION</label>
+
+<select id="completion">
+<option>完成</option>
+<option>部分完成</option>
+<option>未完成</option>
+</select>
+
+<label>SESSION RPE</label>
+<input type="number" id="rpe"
+min="1" max="10">
+
+<label>FATIGUE 1–10</label>
+<input type="number" id="fatigue"
+min="1" max="10">
+
+<label>PAIN / FEEDBACK / QUESTION</label>
+
+<textarea id="notes"
+placeholder="例如：
+第三組 1K 開始掉速，
+HR 比平常高，
+右小腿有點緊。
+明天需要調整嗎？"></textarea>
+
+<button class="save" onclick="saveReport()">
+SAVE TRAINING REPORT
+</button>
+
+</div>
+
+<h2 class="section">Recent Reports</h2>
+
+<div id="reports"></div>
+
+</section>
+
+</main>
+
+
+<nav>
+
+<button class="active"
+onclick="showPage('today',this)">
+TODAY
+</button>
+
+<button
+onclick="showPage('plan',this)">
+PLAN
+</button>
+
+<button
+onclick="showPage('profile',this)">
+PROFILE
+</button>
+
+<button
+onclick="showPage('report',this)">
+REPORT
+</button>
+
+</nav>
+
+
+<script>
+
+const weeks={
+
+1:[
+["MON","Strength Technique","STRENGTH",
+"Back Squat 4×4 @RPE6\nStrict Press 4×5 @RPE6\nEasy Accessories",
+"恢復動作品質，不製造額外疲勞"],
+
+["TUE","Easy Run + Strides","RUN",
+"40–50 min Z1–Low Z2\nHR 約 130–150\n4×20s relaxed strides（腿感正常才做）",
+"重新建立跑感，不追配速"],
+
+["WED","Gymnastics + Engine","CROSSFIT",
+"BMU 5×2–3\nT2B 5×6–8\n12–15 min aerobic mixed modal @RPE6",
+"維持技巧與有氧引擎"],
+
+["THU","Easy Run + Deadlift","RUN",
+"Easy Run 35–45 min\nDeadlift 3×4 @RPE6\nPosterior Chain 3×8",
+"低負荷跑步＋後鏈力量維持"],
+
+["SUN","Long Easy Run","RUN",
+"60–75 min Z2\nNo pace target",
+"恢復長距離耐受"]
+],
+
+2:[
+["MON","Squat + Barbell Cycling","STRENGTH",
+"Back Squat 5×3 @RPE7–7.5\n10 min Barbell Cycling EMOM",
+"維持力量並建立重複輸出"],
+
+["TUE","Threshold Intro","RUN",
+"WU 15 min\n3×8 min @RPE7\n2 min jog recovery\nCD 10 min",
+"重新建立 Threshold 耐受"],
+
+["WED","Competition Engine","CROSSFIT",
+"4 Rounds\n3 min work / 2 min rest\nGymnastics + Machine + Moderate Barbell",
+"建立比賽型 Mixed Modal 輸出"],
+
+["THU","Easy Run + Upper","RUN",
+"45–55 min Z2\nStrict Press 4×4 @RPE7\nPull Strength",
+"有氧基礎＋上肢力量維持"],
+
+["SUN","Long Run","RUN",
+"75–85 min Easy\nHR 穩定才做最後 10 min steady",
+"耐力發展"]
+],
+
+3:[
+["MON","Front Squat + Clean","STRENGTH",
+"Front Squat 5×3 @RPE7.5–8\nClean 6×2 @70–80%\n6–8 min Metcon",
+"力量與舉重 repeatability"],
+
+["TUE","1K Repeats","RUN",
+"5×1 km @10K–Threshold Effort\nRPE7.5–8\n2 min easy jog",
+"速度耐力"],
+
+["WED","Gymnastics Density","CROSSFIT",
+"18–22 min Mixed Modal @RPE8",
+"疲勞狀態維持 Gymnastics 品質"],
+
+["THU","Easy + Deadlift","RUN",
+"45 min Z1–Z2\nDeadlift 4×3 @RPE7.5",
+"維持有氧＋後鏈力量"],
+
+["SUN","Long Run","RUN",
+"80–90 min Easy",
+"馬拉松底盤維持"]
+],
+
+4:[
+["MON","Squat + C&J","STRENGTH",
+"Back Squat 4×3 @RPE8\nClean & Jerk 6×1–2 @75–85%",
+"Peak strength maintenance"],
+
+["TUE","Threshold + Speed","RUN",
+"4×6 min Threshold @RPE8\n2 min jog\n4×30 sec fast relaxed",
+"高有氧能力"],
+
+["WED","Competition Mixed Modal","CROSSFIT",
+"20–25 min @RPE8–9\nGymnastics under fatigue",
+"最高專項刺激"],
+
+["THU","Easy Run","RUN",
+"45–55 min Z2",
+"恢復＋跑步底盤"],
+
+["SUN","Long Run","RUN",
+"85–95 min Easy",
+"耐力維持"]
+],
+
+5:[
+["MON","Front Squat + Clean","STRENGTH",
+"Front Squat 3×3 @RPE7\nClean 5×1 @75–80%",
+"開始降低疲勞"],
+
+["TUE","Controlled Speed","RUN",
+"3×1 km controlled 10K effort\n4×200m fast relaxed",
+"保留速度"],
+
+["WED","Steel Cup Specific","CROSSFIT",
+"12–16 min @RPE8",
+"Competition sharpening"],
+
+["THU","Easy Run","RUN",
+"40–45 min Easy",
+"維持跑感"],
+
+["SUN","Long Easy","RUN",
+"65–75 min Easy",
+"維持有氧"]
+],
+
+6:[
+["MON","Full Body Primer","STRENGTH",
+"Back Squat 3×2 @60–70%\nClean 4×1 @65–75%",
+"神經啟動，不累積疲勞"],
+
+["TUE","Easy + Strides","RUN",
+"35–40 min Easy\n4×20 sec strides",
+"保持跑感"],
+
+["WED","Mixed Modal Primer","CROSSFIT",
+"8–10 min @RPE6–7",
+"保持競賽節奏"],
+
+["THU","Recovery","RECOVERY",
+"25–30 min Easy Aerobic + Mobility",
+"降低疲勞"],
+
+["SAT","STEEL CUP DAY 1","CROSSFIT",
+"RACE DAY",
+"競賽"],
+
+["SUN","STEEL CUP DAY 2","CROSSFIT",
+"RACE DAY",
+"競賽"]
+]
+
+};
+
+
+function week(n,btn){
+
+document.querySelectorAll(".weekbuttons button")
+.forEach(x=>x.classList.remove("active"));
+
+btn.classList.add("active");
+
+let html="";
+
+weeks[n].forEach(w=>{
+
+let c=w[2].toLowerCase();
+
+html+=`
+
+<div class="card">
+
+<span class="tag ${c}">
+${w[2]}
+</span>
+
+<h3>${w[0]} • ${w[1]}</h3>
+
+<div class="workout-details">
+${w[3]}
+</div>
+
+<div class="intent">
+
+<strong>INTENT</strong><br>
+${w[4]}
+
+</div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("workouts").innerHTML=html;
+
+}
+
+
+function showPage(id,btn){
+
+document.querySelectorAll(".page")
+.forEach(p=>p.classList.remove("active"));
+
+document.getElementById(id)
+.classList.add("active");
+
+document.querySelectorAll("nav button")
+.forEach(b=>b.classList.remove("active"));
+
+btn.classList.add("active");
+
+window.scrollTo(0,0);
+
+}
+
+
+function saveReport(){
+
+let reports=
+JSON.parse(localStorage.getItem("hybridReports")||"[]");
+
+reports.push({
+
+date:document.getElementById("date").value,
+
+session:document.getElementById("session").value,
+
+completion:document.getElementById("completion").value,
+
+rpe:document.getElementById("rpe").value,
+
+fatigue:document.getElementById("fatigue").value,
+
+notes:document.getElementById("notes").value
+
+});
+
+localStorage.setItem(
+"hybridReports",
+JSON.stringify(reports)
+);
+
+renderReports();
+
+alert("Training report saved.");
+
+}
+
+
+function renderReports(){
+
+let reports=
+JSON.parse(localStorage.getItem("hybridReports")||"[]");
+
+let html="";
+
+reports.slice().reverse().forEach(r=>{
+
+html+=`
+
+<div class="card">
+
+<div class="label">${r.date}</div>
+
+<h3>${r.session || "Training Session"}</h3>
+
+<div>
+${r.completion}
+• RPE ${r.rpe || "-"}
+• Fatigue ${r.fatigue || "-"}
+</div>
+
+<div class="muted"
+style="margin-top:8px">
+${r.notes || ""}
+</div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("reports").innerHTML=html;
+
+}
+
+
+document.getElementById("date").value =
+new Date().toISOString().slice(0,10);
+
+week(
+1,
+document.querySelector(".weekbuttons button")
+);
+
+renderReports();
+
+</script>
+
+</body>
+</html>
