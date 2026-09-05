@@ -15,7 +15,6 @@
 :root{
   --bg:#080a0d;
   --card:#15191e;
-  --card2:#1b2026;
   --line:#2c333c;
   --text:#f5f7f8;
   --muted:#969da7;
@@ -46,21 +45,9 @@ header{
   letter-spacing:2.4px;
 }
 
-h1{
-  font-size:30px;
-  margin:10px 0 0;
-}
-
-h2{
-  font-size:23px;
-  margin:28px 0 14px;
-}
-
-h3{
-  font-size:19px;
-  margin:0 0 6px;
-}
-
+h1{font-size:30px;margin:10px 0 0}
+h2{font-size:23px;margin:28px 0 14px}
+h3{font-size:19px;margin:0 0 6px}
 p{line-height:1.6}
 
 .page{
@@ -197,8 +184,12 @@ p{line-height:1.6}
 
 .work{
   font-size:15px;
-  line-height:1.72;
+  line-height:1.75;
   white-space:pre-line;
+}
+
+.work strong{
+  color:#fff;
 }
 
 .timepill{
@@ -354,48 +345,26 @@ nav button.active{
 <section id="today" class="page active">
 
   <div class="card hero">
-
-    <div class="eyebrow">
-      NEXT RACE
-    </div>
-
-    <div class="big">
-      鋼鐵盃 ELITE
-    </div>
-
-    <div class="muted">
-      2026 / 10 / 17–18
-    </div>
+    <div class="eyebrow">NEXT RACE</div>
+    <div class="big">鋼鐵盃 ELITE</div>
+    <div class="muted">2026 / 10 / 17–18</div>
 
     <div class="row" style="margin-top:20px">
-
       <div class="mini">
-        <div class="muted">
-          CURRENT PHASE
-        </div>
-        <div class="stat">
-          STEEL CUP
-        </div>
+        <div class="muted">CURRENT PHASE</div>
+        <div class="stat">STEEL CUP</div>
       </div>
 
       <div class="mini">
-        <div class="muted">
-          LONG TERM
-        </div>
-        <div class="stat">
-          SUB 3:30
-        </div>
+        <div class="muted">LONG TERM</div>
+        <div class="stat">SUB 3:30</div>
       </div>
-
     </div>
-
   </div>
-
 
   <h2>Weekly Structure</h2>
 
   <div class="card">
-
     <span class="tag blue">RUN × 4</span>
     <span class="tag yellow">STRENGTH × 3</span>
     <span class="tag">GYMNASTICS</span>
@@ -411,121 +380,45 @@ nav button.active{
     </p>
 
     <div class="intent">
-
-      <strong>
-        PROGRAMMING LOGIC
-      </strong>
-
+      <strong>PROGRAMMING LOGIC</strong>
       <p>
         肌力集中在週二到週四。
         跑步固定四次。
         週三可以兩餐。
         Long Run 依生活安排放週五或週六，
         另外一天作為恢復日。
-        週日因 07:30 上班，訓練安排在下班後。
       </p>
-
     </div>
-
   </div>
 
-
   <div class="card">
-
-    <div class="eyebrow">
-      LONG RUN DAY
-    </div>
-
-    <h3 style="margin-top:8px">
-      這週長跑排哪一天？
-    </h3>
+    <div class="eyebrow">LONG RUN DAY</div>
+    <h3 style="margin-top:8px">這週長跑排哪一天？</h3>
 
     <select
       id="longRunChoice"
       class="longChoice"
       onchange="setLongRunDay(this.value)"
     >
-      <option value="FRI">
-        Friday｜週五
-      </option>
-
-      <option value="SAT">
-        Saturday｜週六
-      </option>
+      <option value="FRI">Friday｜週五</option>
+      <option value="SAT">Saturday｜週六</option>
     </select>
 
-    <div
-      id="longRunMessage"
-      class="notice"
-    ></div>
-
-  </div>
-
-
-  <div class="card">
-
-    <h3>
-      Wednesday Two-a-Day
-    </h3>
-
-    <div class="notice">
-
-      <strong class="blue">
-        SESSION A
-      </strong>
-
-      <p>
-        Quality Run
-      </p>
-
-      <strong class="yellow">
-        SESSION B
-      </strong>
-
-      <p>
-        Gymnastics + Upper Strength
-      </p>
-
-      <span class="muted">
-        建議兩餐間隔約 6 小時。
-      </span>
-
-    </div>
-
+    <div id="longRunMessage" class="notice"></div>
   </div>
 
 </section>
-
-
 
 <section id="plan" class="page">
-
-  <h2>
-    Steel Cup Block
-  </h2>
-
-  <p class="muted">
-    4 Runs · 3 Strength Days · Gymnastics · Mixed Modal
-  </p>
-
-  <div
-    class="weekbar"
-    id="weekbar"
-  ></div>
-
-  <div
-    id="weekContent"
-  ></div>
-
+  <h2>Steel Cup Block</h2>
+  <p class="muted">4 Runs · 3 Strength Days · Gymnastics · Mixed Modal</p>
+  <div class="weekbar" id="weekbar"></div>
+  <div id="weekContent"></div>
 </section>
-
-
 
 <section id="profile" class="page">
 
-  <h2>
-    Athlete Profile
-  </h2>
+  <h2>Athlete Profile</h2>
 
   <div class="card">
     <h3>Body</h3>
@@ -533,11 +426,7 @@ nav button.active{
   </div>
 
   <div class="card">
-
-    <h3>
-      Strength
-    </h3>
-
+    <h3>Strength</h3>
     <p class="muted">
       Back Squat 135 kg<br>
       Front Squat 100 kg<br>
@@ -545,29 +434,19 @@ nav button.active{
       Bench Press 85 kg<br>
       Strict Press 50 kg
     </p>
-
   </div>
 
   <div class="card">
-
-    <h3>
-      Olympic Weightlifting
-    </h3>
-
+    <h3>Olympic Weightlifting</h3>
     <p class="muted">
       Clean 95 kg<br>
       Clean & Jerk 85 kg<br>
       Snatch 60 kg
     </p>
-
   </div>
 
   <div class="card">
-
-    <h3>
-      Gymnastics
-    </h3>
-
+    <h3>Gymnastics</h3>
     <p class="muted">
       Strict Pull-up 17<br>
       C2B 20<br>
@@ -576,15 +455,10 @@ nav button.active{
       T2B 13–15<br>
       HSW 20m+
     </p>
-
   </div>
 
   <div class="card">
-
-    <h3>
-      Running
-    </h3>
-
+    <h3>Running</h3>
     <p class="muted">
       10K 49:00<br>
       Half Marathon 1:54<br>
@@ -592,43 +466,23 @@ nav button.active{
       Z2 144–155 bpm<br>
       Marathon Goal Sub 3:30
     </p>
-
   </div>
 
 </section>
 
-
-
 <section id="report" class="page">
 
-  <h2>
-    Training Report
-  </h2>
+  <h2>Training Report</h2>
 
   <div class="card">
 
-    <label>
-      Date
-    </label>
+    <label>Date</label>
+    <input type="date" id="rDate">
 
-    <input
-      type="date"
-      id="rDate"
-    >
+    <label>Workout / Session</label>
+    <input id="rWorkout" placeholder="例：W2 Wednesday AM">
 
-    <label>
-      Workout / Session
-    </label>
-
-    <input
-      id="rWorkout"
-      placeholder="例：W2 Wednesday AM"
-    >
-
-    <label>
-      Completion
-    </label>
-
+    <label>Completion</label>
     <select id="rComplete">
       <option>100%</option>
       <option>75–99%</option>
@@ -637,10 +491,7 @@ nav button.active{
       <option>Rest / Skip</option>
     </select>
 
-    <label>
-      Session RPE
-    </label>
-
+    <label>Session RPE</label>
     <select id="rRpe">
       <option>5</option>
       <option>6</option>
@@ -650,10 +501,7 @@ nav button.active{
       <option>10</option>
     </select>
 
-    <label>
-      Fatigue
-    </label>
-
+    <label>Fatigue</label>
     <select id="rFatigue">
       <option>Low</option>
       <option selected>Normal</option>
@@ -661,96 +509,42 @@ nav button.active{
       <option>Very High</option>
     </select>
 
-    <label>
-      Pain / Feedback / Question
-    </label>
-
+    <label>Pain / Feedback / Question</label>
     <textarea
       id="rNotes"
-      placeholder="今天哪裡卡？哪一段太難？疼痛？Garmin 感受？想問什麼？"
+      placeholder="今天哪裡卡？哪一段太難？疼痛？Garmin 感受？"
     ></textarea>
 
-    <button
-      class="primary"
-      onclick="saveReport()"
-    >
+    <button class="primary" onclick="saveReport()">
       SAVE REPORT
     </button>
 
   </div>
 
-
   <div class="card">
-
-    <h3>
-      Recent Reports
-    </h3>
-
+    <h3>Recent Reports</h3>
     <div id="reports"></div>
-
   </div>
 
 </section>
 
 </main>
 
-
-
 <nav>
-
-<button
-class="active"
-onclick="showPage('today',this)"
->
-TODAY
-</button>
-
-<button
-onclick="showPage('plan',this)"
->
-PLAN
-</button>
-
-<button
-onclick="showPage('profile',this)"
->
-PROFILE
-</button>
-
-<button
-onclick="showPage('report',this)"
->
-REPORT
-</button>
-
+  <button class="active" onclick="showPage('today',this)">TODAY</button>
+  <button onclick="showPage('plan',this)">PLAN</button>
+  <button onclick="showPage('profile',this)">PROFILE</button>
+  <button onclick="showPage('report',this)">REPORT</button>
 </nav>
-
-
 
 <script>
 
-/* =====================================
-YOUTUBE
-===================================== */
-
 function ytLink(search){
-
   return "https://www.youtube.com/results?search_query="
   + encodeURIComponent(search);
-
 }
 
-
-/* =====================================
-PROGRAM
-===================================== */
-
 const weeks = [
-
-
-/* =====================================
-WEEK 1
-===================================== */
 
 {
 name:"W1",
@@ -758,7 +552,6 @@ dates:"SEP 7–13",
 focus:"Base Re-entry",
 
 days:[
-
 
 {
 day:"MON",
@@ -771,32 +564,39 @@ intent:
 sections:[
 
 ["01 WARM-UP · 8 MIN",
-`Walk 2 min
+`Equipment: Running Shoes
 
-Easy Jog 6 min
+8 min Easy Jog
 
-由 Z1 慢慢升溫。`],
+Intensity: Z1
+HR: 130–142 bpm`],
 
 ["02 EASY RUN · 35–45 MIN",
-`Z1 → Low Z2
+`Equipment: Running Shoes
 
-HR 約 130–150 bpm
+Distance: Time-based
 
-RPE 3–4
+Duration: 35–45 min
 
-全程 conversational pace。
+Intensity: Z1 → Low Z2
 
-今天不要追配速。`],
+HR: 130–150 bpm
+
+RPE: 3–4
+
+全程 conversational pace。`],
 
 ["03 STRIDES · 5 MIN",
-`4 × 15 sec
+`Equipment: Running Shoes
 
-Fast but relaxed
+4 Sets × 15 sec
 
-完整走路恢復。`],
+Intensity: Fast but relaxed
+
+Recovery: Full walk recovery`],
 
 ["04 COOL DOWN · 5 MIN",
-`Walk
+`5 min Walk
 
 Calf Stretch
 
@@ -816,110 +616,140 @@ cut:
 "若週末 Long Run 特別疲勞，今天只跑 30–40 min Easy。"
 },
 
-
-
 {
 day:"TUE",
 title:"OLY + Lower Strength + Metcon",
 time:"80–90 min",
 
 intent:
-"本週主要下肢力量日。先處理 Olympic Weightlifting 技術，再進 Squat Strength，最後短時間 conditioning。",
+"本週主要下肢力量日。先做 OLY 技術，再做 Squat Strength，最後加入短時間 conditioning。",
 
 sections:[
 
 ["01 GENERAL WARM-UP · 7 MIN",
-`Bike 3 min
+`Equipment: Bike + Mini Band
 
-2 Rounds
+Bike
+3 min
 
-8 Cossack Squat / side
+Cossack Squat
+2 Sets × 8 Reps / side
 
-10 Banded Good Morning
+Banded Good Morning
+2 Sets × 10 Reps
 
-10 Air Squat
+Air Squat
+2 Sets × 10 Reps
 
-8 Scap Push-up`],
+Scap Push-up
+2 Sets × 8 Reps`],
 
 ["02 MOBILITY / STABILITY · 8 MIN",
-`Ankle Rock
-10 / side
+`Equipment: Bodyweight
+
+Ankle Rock
+2 Sets × 10 Reps / side
 
 90/90 Hip Switch
-10 total
+2 Sets × 10 Reps total
 
 Copenhagen Plank
-20 sec / side
+2 Sets × 20 sec / side
 
 Dead Bug
-8 / side
-
-2 rounds`],
+2 Sets × 8 Reps / side`],
 
 ["03 OLY SKILL · 15 MIN",
-`Every 2:00 × 6
+`Equipment: Barbell
 
-1 Power Clean
+6 Sets
 
+Each Set:
+1 Rep Power Clean
 +
-
-1 Hang Squat Clean
-
+1 Rep Hang Squat Clean
 +
+1 Rep Front Squat
 
-1 Front Squat
+Every: 2:00
 
-55–70% Clean
+Load: 52.5–67.5 kg
 
-約 52.5–67.5 kg
+Intensity: 55–70% Clean 1RM
 
-全部維持漂亮技術。`],
+Focus: Technique + Bar Speed`],
 
 ["04 LOWER STRENGTH · 20 MIN",
 `Back Squat
 
-5 × 3
+Equipment: Barbell + Rack
 
-@ 75–80%
+5 Sets × 3 Reps
 
-約 100–107.5 kg
+Load: 100–107.5 kg
 
-Rest 2:30–3:00
+Intensity: 75–80% 1RM
 
-+
+Rest: 2:30–3:00
+
 
 Bulgarian Split Squat
 
-3 × 8 / leg
+Equipment: DB
 
-RPE 7`],
+3 Sets × 8 Reps / leg
+
+Intensity: RPE 7
+
+Rest: 1:30–2:00`],
 
 ["05 ENERGY SYSTEM · 12 MIN",
-`Every 3:00 × 4
+`Every 3:00 × 4 Sets
 
-8 Power Clean
-@ 55–60 kg
+Power Clean
+Equipment: Barbell
+8 Reps
+Load: 55–60 kg
 
-8 C2B
+Chest-to-Bar
+Equipment: Pull-up Bar
+8 Reps
 
-10/8 cal Echo Bike
+Echo Bike
+Equipment: Bike
+10/8 cal
 
-剩餘時間休息。
+Recovery:
+Remaining time in each 3:00 window
 
-各輪時間差 <10 sec。`],
+Goal:
+Each set within 10 sec difference`],
 
 ["06 ACCESSORY · 7 MIN",
 `Nordic Eccentric
-3 × 5
+
+Equipment: Bodyweight / Nordic Setup
+
+3 Sets × 5 Reps
+
 
 Pallof Press
-2 × 10 / side
+
+Equipment: Cable / Band
+
+2 Sets × 10 Reps / side
+
 
 Standing Calf Raise
-2 × 15`],
+
+Equipment: DB / Machine
+
+2 Sets × 15 Reps`],
 
 ["07 COOL DOWN · 5 MIN",
-`Easy Bike
+`Equipment: Bike
+
+5 min Easy Bike
 
 Hip Mobility
 
@@ -942,124 +772,172 @@ videos:[
 ],
 
 cut:
-"60 MIN：Back Squat 4×3、Metcon 做 3 rounds、取消 Accessory。"
+"60 MIN：Back Squat 改 4 Sets × 3 Reps，Metcon 做 3 Sets，取消 Accessory。"
 },
-
-
 
 {
 day:"WED",
-title:"Two-a-Day｜Quality Run + Upper",
+title:"Two-a-Day｜Threshold + Upper",
 time:"AM 55–65 / PM 65–75",
 
 intent:
-"今天兩餐。上午跑步品質優先，晚上 Gymnastics + Upper Strength，避免再堆大量下肢離心疲勞。",
+"上午跑步品質優先，晚上 Gymnastics + Upper Strength。",
 
 sections:[
 
-["SESSION A · QUALITY RUN",
-`AM SESSION`],
+["SESSION A · THRESHOLD INTERVALS",
+`Equipment: Running Shoes
+
+AM Session`],
 
 ["A1 WARM-UP · 12 MIN",
-`Easy Jog 8 min
+`Easy Jog
+8 min
 
-Pogo × 20
+Pogo Jump
+1 Set × 20 Reps
 
-A-Skip × 20m
+A-Skip
+1 Set × 20 m
 
-3 × 60m Strides`],
+Running Strides
+3 Sets × 60 m
+
+Recovery:
+Walk back`],
 
 ["A2 MAIN RUN · 30 MIN",
-`5 × 1 km
+`Threshold Intervals
 
+5 Sets × 1 km
+
+Pace:
 4:55–5:00 / km
 
-Recovery：
-90 sec Easy Jog
+Recovery:
+90 sec Easy Jog between Sets
 
+Work Distance:
+5 km
+
+Focus:
 最後一組仍需保持跑姿。`],
 
 ["A3 COOL DOWN · 8 MIN",
 `Easy Jog
+5–8 min
 
 Walk
 
 Calf Mobility`],
 
 ["SESSION B · GYMNASTICS + UPPER",
-`PM SESSION`],
+`Equipment:
+Pull-up Bar + Rings + Barbell
+
+PM Session`],
 
 ["B1 WARM-UP · 7 MIN",
-`Row 4 min
+`Equipment: Rower + Band
 
-2 Rounds
+Row
+4 min
 
-8 Scap Pull-up
+Scap Pull-up
+2 Sets × 8 Reps
 
-8 Push-up
+Push-up
+2 Sets × 8 Reps
 
-10 Band Pull Apart`],
+Band Pull Apart
+2 Sets × 10 Reps`],
 
 ["B2 SHOULDER STABILITY · 8 MIN",
-`Serratus Wall Slide × 10
+`Serratus Wall Slide
+2 Sets × 10 Reps
 
 Ring Support Hold
-20 sec
+2 Sets × 20 sec
 
 Hollow Hold
-25 sec
+2 Sets × 25 sec
 
 Band External Rotation
-12 / side
-
-2 rounds`],
+2 Sets × 12 Reps / side`],
 
 ["B3 GYMNASTICS SKILL · 15 MIN",
-`EMOM 15
+`EMOM 15 min
+Total: 5 Rounds
 
 Min 1
-3–5 BMU
+Bar Muscle-up
+Equipment: Pull-up Bar
+3–5 Reps
 
 Min 2
-8–10 T2B
+Toes-to-Bar
+Equipment: Pull-up Bar
+8–10 Reps
 
 Min 3
-20–30m HSW
+Handstand Walk
+Equipment: Floor
+20–30 m
 
-停止在 technical failure 前。`],
+Rule:
+保留約 1–2 Reps，不做到動作變形或失敗。`],
 
 ["B4 UPPER STRENGTH · 20 MIN",
 `Strict Press
 
-5 × 4
-@ 70–75%
+Equipment: Barbell + Rack
 
-約 35–37.5 kg
+5 Sets × 4 Reps
 
-+
+Load: 35–37.5 kg
+
+Intensity: 70–75% 1RM
+
+Rest: 2:00
+
 
 Weighted Pull-up
 
-4 × 5
+Equipment: Pull-up Bar + Weight Belt
 
-RPE 7–8`],
+4 Sets × 5 Reps
+
+Intensity: RPE 7–8
+
+Rest: 2:00`],
 
 ["B5 ACCESSORY · 8 MIN",
 `Ring Face Pull
-3 × 12
+
+Equipment: Rings
+
+3 Sets × 12 Reps
+
 
 Hollow Rock
-2 × 15
+
+Equipment: Bodyweight
+
+2 Sets × 15 Reps
+
 
 External Rotation
-2 × 12`],
+
+Equipment: Band / Cable
+
+2 Sets × 12 Reps / side`],
 
 ["B6 COOL DOWN · 5 MIN",
 `Lat Stretch
 
 Pec Stretch
 
-T-spine Rotation`]
+T-Spine Rotation`]
 
 ],
 
@@ -1079,10 +957,8 @@ videos:[
 ],
 
 cut:
-"如果只能做一餐：優先 Quality Run；PM Strength 縮成 Strict Press 3×4 + Weighted Pull-up 3×5。"
+"若只能一餐：優先 AM Threshold。PM 縮為 Strict Press 3 Sets × 4 Reps + Weighted Pull-up 3 Sets × 5 Reps。"
 },
-
-
 
 {
 day:"THU",
@@ -1095,86 +971,132 @@ intent:
 sections:[
 
 ["01 GENERAL WARM-UP · 8 MIN",
-`Row 2 min
+`Equipment: Rower + Bike + DB
 
-Bike 2 min
+Row
+2 min
 
-2 Rounds
+Bike
+2 min
 
-8 Goblet Squat
+Goblet Squat
+2 Sets × 8 Reps
 
-8 Ring Row
+Ring Row
+2 Sets × 8 Reps
 
-8 Reverse Lunge / side`],
+Reverse Lunge
+2 Sets × 8 Reps / side`],
 
 ["02 MOVEMENT PREP · 8 MIN",
 `KB Front Rack March
-30 sec / side
+
+Equipment: KB
+
+2 Sets × 30 sec / side
+
 
 Bear Crawl
-15m
+
+Equipment: Floor
+
+2 Sets × 15 m
+
 
 Single-leg Glute Bridge
-10 / side
+
+Equipment: Bodyweight
+
+2 Sets × 10 Reps / side
+
 
 Hollow Rock
-10
 
-2 rounds`],
+Equipment: Bodyweight
+
+2 Sets × 10 Reps`],
 
 ["03 OLY / BARBELL SKILL · 12 MIN",
-`Every 2:00 × 6
+`Clean + Push Jerk
 
-1 Clean
+Equipment: Barbell
 
+6 Sets
+
+Each Set:
+1 Rep Clean
 +
+1 Rep Push Jerk
 
-1 Push Jerk
+Every: 2:00
 
-65–75%
+Intensity:
+65–75% 1RM
 
-速度優先。`],
+Focus:
+Speed first`],
 
 ["04 STRENGTH · 18 MIN",
 `Romanian Deadlift
 
-4 × 6
+Equipment: Barbell
 
-RPE 7
+4 Sets × 6 Reps
 
-+
+Intensity: RPE 7
+
+Rest: 2:00–2:30
+
 
 Bench Press
 
-4 × 5
+Equipment: Barbell + Bench
 
-@ 72–77%`],
+4 Sets × 5 Reps
+
+Load: 62.5–65 kg
+
+Intensity: 72–77% 1RM
+
+Rest: 2:00–2:30`],
 
 ["05 COMPETITION CONDITIONING · 18 MIN",
-`Every 6:00 × 3
+`Every 6:00 × 3 Sets
 
-400m Run
+400 m Run
+Equipment: Running Shoes
 
-12 Wall Ball
+12 Reps Wall Ball
+Equipment: Wall Ball
 
-10 DB Front Rack Lunge
+10 Reps DB Front Rack Lunge
+Equipment: DB
 
-8 Burpee Box Jump Over
+8 Reps Burpee Box Jump Over
+Equipment: Box
 
 12/10 cal Row
+Equipment: Rower
 
-剩餘時間休息。
+Recovery:
+Remaining time
 
-RPE 約 8。`],
+Target:
+RPE 8`],
 
 ["06 CORE · 7 MIN",
 `Suitcase Carry
-30m / side
+
+Equipment: KB / DB
+
+2 Sets × 30 m / side
+
 
 Side Plank
-30 sec / side
 
-2 rounds`],
+Equipment: Bodyweight
+
+2 Sets × 30 sec / side`],
 
 ["07 COOL DOWN · 5 MIN",
 `Easy Walk
@@ -1194,6 +1116,7 @@ videos:[
 ["Single-leg Glute Bridge","single leg glute bridge"],
 ["Push Jerk","CrossFit push jerk"],
 ["Romanian Deadlift","romanian deadlift"],
+["Bench Press","barbell bench press"],
 ["Wall Ball","CrossFit wall ball"],
 ["DB Front Rack Lunge","dumbbell front rack walking lunge"],
 ["Burpee Box Jump Over","CrossFit burpee box jump over"],
@@ -1201,53 +1124,51 @@ videos:[
 ],
 
 cut:
-"60 MIN：Strength 各 3 組，Conditioning 改 2 rounds。"
+"60 MIN：Strength 各 3 Sets，Conditioning 改 2 Sets。"
 },
-
-
 
 {
 day:"FRI",
 title:"Long Run Option / Recovery",
 time:"60–90 min",
-
 longOption:"FRI",
 
 intent:
-"如果這週選週五 Long Run，今天完成長距離；如果選週六，今天只做 Recovery。",
+"如果這週選週五 Long Run，今天完成長距離；如果選週六，今天做 Recovery。",
 
 sections:[
 
 ["LONG RUN VERSION",
-`如果本週長跑選 FRIDAY：
+`Equipment: Running Shoes
 
-Warm-up
-8 min Easy Jog + Mobility
+Duration:
+60–75 min
 
-Long Run
-60–75 min Z2
+Intensity:
+Z2
 
-HR 144–155 bpm
+HR:
+144–155 bpm
 
-Conversational effort
+Pace:
+Conversational
 
-最後 10 min 可自然 progression，
-但不要變成 Tempo。`],
+Optional Finish:
+最後 10 min 自然 progression
+
+不要跑成 Tempo。`],
 
 ["RECOVERY VERSION",
-`如果本週長跑選 SATURDAY：
+`Equipment: Bodyweight
 
-Walk 20–30 min
+Walk:
+20–30 min
 
-+
+Mobility:
+Hip + Ankle
 
-Hip / Ankle Mobility
-
-+
-
-5 min relaxed breathing
-
-不要補 CrossFit 課。`]
+Breathing:
+5 min relaxed nasal breathing`]
 
 ],
 
@@ -1261,45 +1182,41 @@ cut:
 "Long Run 與 Recovery 二選一。"
 },
 
-
-
 {
 day:"SAT",
 title:"Long Run Option / Recovery",
 time:"60–90 min",
-
 longOption:"SAT",
 
 intent:
-"如果生活安排比較適合週六，今天才做 Long Run。週五與週六只能有一天長距離。",
+"如果這週選週六 Long Run，今天完成長距離；週五與週六只能有一天長跑。",
 
 sections:[
 
 ["LONG RUN VERSION",
-`如果本週長跑選 SATURDAY：
+`Equipment: Running Shoes
 
-Warm-up
-8 min Easy Jog + Mobility
+Duration:
+60–75 min
 
-Long Run
-60–75 min Z2
+Intensity:
+Z2
 
-HR 144–155 bpm
+HR:
+144–155 bpm
 
-Conversational effort
+Pace:
+Conversational
 
 不要追配速。`],
 
 ["RECOVERY VERSION",
-`如果週五已完成 Long Run：
+`Equipment: Bodyweight
 
-Walk 20–30 min
+Walk:
+20–30 min
 
-或
-
-完全休息
-
-不要再補腿部訓練。`]
+或完全 Rest`]
 
 ],
 
@@ -1312,28 +1229,30 @@ cut:
 "Long Run 與 Recovery 二選一。"
 },
 
-
-
 {
 day:"SUN",
 title:"After-Work Normal Run",
 time:"40–60 min",
 
 intent:
-"你 07:30 上班，因此今天不安排高心理壓力的課。下班後依 Long Run 距離決定 Easy 或 Normal Aerobic。",
+"週日 07:30 上班，下班後跑正常課表。依 Long Run 放週五或週六決定今天強度。",
 
 sections:[
 
 ["01 WARM-UP · 8 MIN",
-`Easy Jog
+`Equipment: Running Shoes
 
-逐漸進入跑步節奏。`],
+Easy Jog
+8 min`],
 
 ["02 NORMAL RUN · 30–40 MIN",
 `如果週五 Long Run：
 
-今天可做
-Easy → Steady Progression
+Duration:
+30–40 min
+
+Intensity:
+Easy → Steady
 
 前 20 min Z2
 
@@ -1343,22 +1262,30 @@ RPE 5–6
 
 如果週六 Long Run：
 
-今天只做
-Recovery / Easy Run
+Duration:
+30–40 min
 
+Intensity:
+Recovery / Easy
+
+HR:
 Z1 → Low Z2
 
-RPE 3–4`],
+RPE:
+3–4`],
 
 ["03 STRIDES · OPTIONAL",
-`如果腿部很新鮮：
+`Equipment: Running Shoes
 
-4 × 15 sec
+若週五 Long Run 且腿部新鮮：
 
-Fast but relaxed
+4 Sets × 15 sec
 
-若週六才跑 Long Run，
-今天取消 Strides。`],
+Recovery:
+Full Walk
+
+若週六 Long Run：
+取消 Strides。`],
 
 ["04 COOL DOWN · 5 MIN",
 `Walk
@@ -1375,18 +1302,12 @@ videos:[
 ],
 
 cut:
-"工作特別累時，30–40 min Easy 就完成任務。"
+"工作特別累時，30–40 min Easy 即完成。"
 }
 
 ]
 
 },
-
-
-
-/* =====================================
-WEEK 2
-===================================== */
 
 {
 name:"W2",
@@ -1401,10 +1322,25 @@ title:"Easy Run",
 time:"45–60 min",
 intent:"保持低強度跑量。",
 sections:[
-["WARM-UP",`Easy Jog 8 min`],
-["EASY RUN",`35–45 min\nZ1 → Low Z2\nRPE 3–4`],
-["STRIDES",`4×15 sec relaxed fast`],
-["COOL DOWN",`Walk + Mobility`]
+["EASY RUN",
+`Equipment: Running Shoes
+
+Duration:
+40–50 min
+
+Intensity:
+Z1 → Low Z2
+
+HR:
+130–150 bpm
+
+RPE:
+3–4`],
+["STRIDES",
+`4 Sets × 15 sec
+
+Recovery:
+Full Walk`]
 ],
 videos:[
 ["Running Strides","running strides technique"]
@@ -1418,13 +1354,86 @@ title:"Squat Strength + Clean Cycling",
 time:"85–90 min",
 intent:"增加下肢力量與 Clean repeatability。",
 sections:[
-["WARM-UP",`Bike + Dynamic Squat Flow`],
-["STABILITY",`Copenhagen Plank\nDead Bug\nAnkle Rock\n2 rounds`],
-["OLY",`Every 2:00 × 6\n2 Hang Power Clean + 1 Front Squat\n60–70% Clean`],
-["STRENGTH",`Back Squat\n5×3 @77–82%\n約105–110kg\n\nBulgarian Split Squat\n3×8 / side`],
-["METCON",`Every3:00×4\n8 Power Clean @60kg\n10 C2B\n10/8 cal Bike`],
-["ACCESSORY",`Nordic 3×5\nPallof 2×10\nCalf Raise 2×15`],
-["COOL DOWN",`Easy Bike + Mobility`]
+
+["OLY",
+`Hang Power Clean + Front Squat
+
+Equipment: Barbell
+
+6 Sets
+
+Each Set:
+2 Reps Hang Power Clean
++
+1 Rep Front Squat
+
+Every:
+2:00
+
+Load:
+57.5–67.5 kg
+
+Intensity:
+60–70% Clean 1RM`],
+
+["STRENGTH",
+`Back Squat
+
+Equipment: Barbell + Rack
+
+5 Sets × 3 Reps
+
+Load:
+105–110 kg
+
+Intensity:
+77–82% 1RM
+
+Rest:
+2:30–3:00
+
+
+Bulgarian Split Squat
+
+Equipment: DB
+
+3 Sets × 8 Reps / side
+
+Intensity:
+RPE 7
+
+Rest:
+1:30–2:00`],
+
+["METCON",
+`Every 3:00 × 4 Sets
+
+Power Clean
+Equipment: Barbell
+8 Reps
+Load: 60 kg
+
+Chest-to-Bar
+Equipment: Pull-up Bar
+10 Reps
+
+Bike
+Equipment: Bike
+10/8 cal
+
+Recovery:
+Remaining time`],
+
+["ACCESSORY",
+`Nordic Curl
+3 Sets × 5 Reps
+
+Pallof Press
+2 Sets × 10 Reps / side
+
+Calf Raise
+2 Sets × 15 Reps`]
+
 ],
 videos:[
 ["Hang Power Clean","hang power clean"],
@@ -1433,7 +1442,7 @@ videos:[
 ["Nordic Curl","nordic hamstring curl"],
 ["Pallof Press","pallof press"]
 ],
-cut:"Squat 4×3，Metcon 3 rounds。"
+cut:"Back Squat 4 Sets × 3 Reps，Metcon 3 Sets。"
 },
 
 {
@@ -1442,13 +1451,73 @@ title:"Two-a-Day｜Threshold + Gymnastics",
 time:"AM 60 / PM 65–75",
 intent:"提高 Threshold，同時增加 Gymnastics Density。",
 sections:[
-["AM WARM-UP",`Jog 10 min + Running Drills`],
-["AM MAIN",`5×1km\n4:50–4:55/km\nRest 90 sec Easy Jog`],
-["AM COOL DOWN",`Easy Jog 8 min`],
-["PM GYMNASTICS",`EMOM16\n1：4 BMU\n2：10 T2B\n3：8 C2B\n4：20–30m HSW`],
-["PM STRENGTH",`Strict Press 5×3 @75–80%\nWeighted Pull-up 4×4`],
-["PM ACCESSORY",`Face Pull\nExternal Rotation\nHollow Rock`],
-["PM COOL DOWN",`Shoulder Mobility`]
+
+["AM THRESHOLD RUN",
+`Equipment: Running Shoes
+
+5 Sets × 1 km
+
+Pace:
+4:50–4:55 / km
+
+Recovery:
+90 sec Easy Jog
+
+Work Distance:
+5 km`],
+
+["PM GYMNASTICS",
+`EMOM 16 min
+Total: 4 Rounds
+
+Min 1
+BMU
+4 Reps
+
+Min 2
+T2B
+10 Reps
+
+Min 3
+C2B
+8 Reps
+
+Min 4
+HSW
+20–30 m
+
+Rule:
+保留 1–2 Reps，不做到技術失敗。`],
+
+["PM STRENGTH",
+`Strict Press
+
+Equipment: Barbell + Rack
+
+5 Sets × 3 Reps
+
+Load:
+37.5–40 kg
+
+Intensity:
+75–80% 1RM
+
+Rest:
+2:00
+
+
+Weighted Pull-up
+
+Equipment: Pull-up Bar + Weight Belt
+
+4 Sets × 4 Reps
+
+Intensity:
+RPE 7–8
+
+Rest:
+2:00`]
+
 ],
 videos:[
 ["Bar Muscle-up","CrossFit bar muscle up"],
@@ -1466,13 +1535,86 @@ title:"Full Body + Mixed Modal",
 time:"80–90 min",
 intent:"提升比賽型 repeatability。",
 sections:[
-["WARM-UP",`Row / Bike / Ski\n8 min total`],
-["PREP",`Goblet Squat\nBear Crawl\nKB Carry\n2 rounds`],
-["BARBELL SKILL",`Clean + Push Jerk\n6 sets @65–75%`],
-["STRENGTH",`Romanian Deadlift 4×5\nBench Press 4×5`],
-["CONDITIONING",`Every7:00×4\n400m Run\n15 Wall Ball\n12 Burpee\n12/10 cal Row`],
-["CORE",`Suitcase Carry\nSide Plank\n2 rounds`],
-["COOL DOWN",`Walk + Mobility`]
+
+["BARBELL SKILL",
+`Clean + Push Jerk
+
+Equipment: Barbell
+
+6 Sets
+
+Each Set:
+1 Rep Clean
++
+1 Rep Push Jerk
+
+Load:
+62.5–72.5 kg
+
+Intensity:
+65–75% Clean 1RM
+
+Rest:
+About 2:00`],
+
+["STRENGTH",
+`Romanian Deadlift
+
+Equipment: Barbell
+
+4 Sets × 5 Reps
+
+Intensity:
+RPE 7
+
+Rest:
+2:00–2:30
+
+
+Bench Press
+
+Equipment: Barbell + Bench
+
+4 Sets × 5 Reps
+
+Load:
+62.5–65 kg
+
+Rest:
+2:00–2:30`],
+
+["CONDITIONING",
+`Every 7:00 × 4 Sets
+
+Run
+400 m
+
+Wall Ball
+15 Reps
+
+Burpee
+12 Reps
+
+Row
+12/10 cal
+
+Recovery:
+Remaining time`],
+
+["CORE",
+`Suitcase Carry
+
+Equipment: KB / DB
+
+2 Sets × 30 m / side
+
+
+Side Plank
+
+Equipment: Bodyweight
+
+2 Sets × 30 sec / side`]
+
 ],
 videos:[
 ["Push Jerk","CrossFit push jerk"],
@@ -1480,18 +1622,35 @@ videos:[
 ["Wall Ball","CrossFit wall ball"],
 ["Suitcase Carry","suitcase carry"]
 ],
-cut:"Conditioning 3 rounds。"
+cut:"Conditioning 3 Sets。"
 },
 
 {
 day:"FRI",
 title:"Long Run Option / Recovery",
-time:"60–90 min",
+time:"65–90 min",
 longOption:"FRI",
 intent:"Long Run 與 Recovery 二選一。",
 sections:[
-["LONG RUN",`65–80 min Z2\nHR 144–155\n穩定 conversational effort`],
-["RECOVERY",`如果週六跑長距離：\nWalk + Mobility 20–30 min`]
+["LONG RUN",
+`Equipment: Running Shoes
+
+Duration:
+65–80 min
+
+Intensity:
+Z2
+
+HR:
+144–155 bpm`],
+["RECOVERY",
+`若週六 Long Run：
+
+Walk
+20–30 min
+
+Mobility:
+Hip + Ankle`]
 ],
 videos:[],
 cut:"只選一個版本。"
@@ -1500,12 +1659,29 @@ cut:"只選一個版本。"
 {
 day:"SAT",
 title:"Long Run Option / Recovery",
-time:"60–90 min",
+time:"65–90 min",
 longOption:"SAT",
 intent:"Long Run 與 Recovery 二選一。",
 sections:[
-["LONG RUN",`65–80 min Z2\n穩定有氧，不追配速`],
-["RECOVERY",`如果週五已完成 Long Run：\nWalk 或 Rest`]
+["LONG RUN",
+`Equipment: Running Shoes
+
+Duration:
+65–80 min
+
+Intensity:
+Z2
+
+HR:
+144–155 bpm`],
+["RECOVERY",
+`若週五已完成 Long Run：
+
+Rest
+
+或
+
+Walk 20–30 min`]
 ],
 videos:[],
 cut:"只選一個版本。"
@@ -1515,10 +1691,25 @@ cut:"只選一個版本。"
 day:"SUN",
 title:"After-Work Normal Run",
 time:"40–60 min",
-intent:"依前一天是否 Long Run 調整。",
+intent:"依 Long Run 日期調整。",
 sections:[
-["RUN",`若週五 Long Run：\n40–50 min Easy → Steady\n\n若週六 Long Run：\n35–45 min Recovery Run`],
-["OPTIONAL STRIDES",`週五 Long Run 情況可做\n4×15 sec relaxed fast`]
+["RUN",
+`如果週五 Long Run：
+
+Duration:
+40–50 min
+
+Intensity:
+Easy → Steady
+
+
+如果週六 Long Run：
+
+Duration:
+35–45 min
+
+Intensity:
+Recovery Run`]
 ],
 videos:[
 ["Running Strides","running strides technique"]
@@ -1529,12 +1720,6 @@ cut:"工作累就全程 Easy。"
 ]
 
 },
-
-
-
-/* =====================================
-WEEK 3
-===================================== */
 
 {
 name:"W3",
@@ -1549,8 +1734,19 @@ title:"Easy Run",
 time:"45–55 min",
 intent:"恢復跑。",
 sections:[
-["RUN",`40–50 min Z1–Low Z2`],
-["STRIDES",`4×15 sec relaxed fast`]
+["RUN",
+`Equipment: Running Shoes
+
+Duration:
+40–50 min
+
+Intensity:
+Z1 → Low Z2`],
+["STRIDES",
+`4 Sets × 15 sec
+
+Recovery:
+Full Walk`]
 ],
 videos:[
 ["Running Strides","running strides technique"]
@@ -1564,35 +1760,154 @@ title:"Front Squat + Clean & Jerk",
 time:"85–90 min",
 intent:"提高力量與 Olympic Weightlifting 強度。",
 sections:[
-["WARM-UP",`Bike + Barbell Complex`],
-["MOBILITY",`Ankle\nFront Rack\nAdductor`],
-["OLY",`Every2:30×6\n1 Clean + 1 Jerk\n65–78%`],
-["STRENGTH",`Front Squat\n5×3 @75–82%\n約75–82.5kg`],
-["METCON",`AMRAP12\n6 Clean @60kg\n8 HSPU variation\n10cal Bike`],
-["ACCESSORY",`Split Squat\nNordic\nCalf`],
-["COOL DOWN",`Mobility`]
+
+["OLY",
+`Clean + Jerk
+
+Equipment: Barbell
+
+6 Sets
+
+Each Set:
+1 Rep Clean
++
+1 Rep Jerk
+
+Every:
+2:30
+
+Load:
+62.5–75 kg
+
+Intensity:
+65–78% Clean 1RM`],
+
+["STRENGTH",
+`Front Squat
+
+Equipment: Barbell + Rack
+
+5 Sets × 3 Reps
+
+Load:
+75–82.5 kg
+
+Intensity:
+75–82% 1RM
+
+Rest:
+2:30–3:00`],
+
+["METCON",
+`AMRAP 12 min
+
+Clean
+Equipment: Barbell
+6 Reps
+Load: 60 kg
+
+HSPU Variation
+Equipment: Wall
+8 Reps
+
+Bike
+Equipment: Bike
+10 cal`],
+
+["ACCESSORY",
+`Split Squat
+
+Equipment: DB
+
+3 Sets × 8 Reps / side
+
+
+Nordic Curl
+
+3 Sets × 5 Reps
+
+
+Calf Raise
+
+2 Sets × 15 Reps`]
+
 ],
 videos:[
 ["Clean and Jerk","CrossFit clean and jerk"],
 ["Front Squat","CrossFit front squat"],
 ["Handstand Push-up","CrossFit handstand push up"]
 ],
-cut:"Front Squat 4×3，AMRAP9。"
+cut:"Front Squat 4 Sets × 3 Reps，AMRAP 9 min。"
 },
 
 {
 day:"WED",
-title:"Two-a-Day｜VO2 + Upper Strength",
+title:"Two-a-Day｜VO2 + Upper",
 time:"AM 60 / PM 65–70",
 intent:"本週最高跑速刺激；晚上避免高腿部 volume。",
 sections:[
-["AM WARM-UP",`Jog + Drills 15 min`],
-["AM MAIN",`6×800m\n4:35–4:40/km\nRest2:00`],
-["AM COOL DOWN",`Jog8min`],
-["PM GYMNASTICS",`Every2:00×7\n3 BMU\n8 T2B\n20m HSW`],
-["PM STRENGTH",`Bench Press5×5 @70–75%\nWeighted Pull-up4×5`],
-["PM ACCESSORY",`Face Pull\nExternal Rotation\nDead Bug`],
-["PM COOL DOWN",`Shoulder Mobility`]
+
+["AM VO2 INTERVALS",
+`Equipment: Running Shoes
+
+6 Sets × 800 m
+
+Pace:
+4:35–4:40 / km
+
+Recovery:
+2:00 Easy Walk / Jog
+
+Work Distance:
+4.8 km`],
+
+["PM GYMNASTICS",
+`Every 2:00 × 7 Sets
+
+Each Set:
+
+BMU
+3 Reps
+
+T2B
+8 Reps
+
+HSW
+20 m
+
+Rule:
+保留 1–2 Reps，
+不做到技術失敗。`],
+
+["PM STRENGTH",
+`Bench Press
+
+Equipment: Barbell + Bench
+
+5 Sets × 5 Reps
+
+Load:
+60–62.5 kg
+
+Intensity:
+70–75% 1RM
+
+Rest:
+2:00–2:30
+
+
+Weighted Pull-up
+
+Equipment: Pull-up Bar + Weight Belt
+
+4 Sets × 5 Reps
+
+Intensity:
+RPE 7–8
+
+Rest:
+2:00`]
+
 ],
 videos:[
 ["Bar Muscle-up","CrossFit bar muscle up"],
@@ -1600,7 +1915,7 @@ videos:[
 ["Handstand Walk","CrossFit handstand walk"],
 ["Face Pull","face pull exercise"]
 ],
-cut:"AM 做5×800m；PM Strength 各3組。"
+cut:"AM 做 5 Sets × 800 m；PM Strength 各 3 Sets。"
 },
 
 {
@@ -1609,13 +1924,68 @@ title:"Competition Intervals",
 time:"80–90 min",
 intent:"整合跑步、槓鈴與 Gymnastics。",
 sections:[
-["WARM-UP",`Run + Bike + Mobility`],
-["PREP",`Thruster\nC2B\nBurpee Pattern`],
-["STRENGTH",`Deadlift 4×4 @70–75%\nStrict Press 4×4`],
-["MAIN",`Every6:00×5\n300m Run\n8 Thruster @42.5kg\n8 C2B\n8 Burpee Box Jump Over`],
-["FLUSH",`Bike Z1 10min`],
-["CORE",`Carry + Pallof + Side Plank`],
-["COOL DOWN",`Mobility`]
+
+["STRENGTH",
+`Deadlift
+
+Equipment: Barbell
+
+4 Sets × 4 Reps
+
+Load:
+100–105 kg
+
+Intensity:
+70–75% 1RM
+
+Rest:
+2:30
+
+
+Strict Press
+
+Equipment: Barbell + Rack
+
+4 Sets × 4 Reps
+
+Load:
+35–37.5 kg
+
+Rest:
+2:00`],
+
+["MAIN",
+`Every 6:00 × 5 Sets
+
+Run
+300 m
+
+Thruster
+Equipment: Barbell
+8 Reps
+Load: 42.5 kg
+
+Chest-to-Bar
+Equipment: Pull-up Bar
+8 Reps
+
+Burpee Box Jump Over
+Equipment: Box
+8 Reps
+
+Recovery:
+Remaining time`],
+
+["CORE",
+`Suitcase Carry
+2 Sets × 30 m / side
+
+Pallof Press
+2 Sets × 10 Reps / side
+
+Side Plank
+2 Sets × 30 sec / side`]
+
 ],
 videos:[
 ["Thruster","CrossFit thruster"],
@@ -1623,7 +1993,7 @@ videos:[
 ["Burpee Box Jump Over","CrossFit burpee box jump over"],
 ["Pallof Press","pallof press"]
 ],
-cut:"做4 rounds，取消 Flush。"
+cut:"做 4 Sets，取消 Flush。"
 },
 
 {
@@ -1631,13 +2001,28 @@ day:"FRI",
 title:"Long Run Option / Recovery",
 time:"70–90 min",
 longOption:"FRI",
-intent:"本週 Long Run 開始加入 Fast Finish。",
+intent:"本週 Long Run 加入 Fast Finish。",
 sections:[
-["LONG RUN",`55–65 min Z2\n+\n最後15 min Steady`],
-["RECOVERY",`若週六 Long Run：\nWalk + Mobility`]
+["LONG RUN",
+`Equipment: Running Shoes
+
+Z2:
+55–65 min
+
++
+
+Steady Finish:
+15 min
+
+HR:
+Z2 → Steady`],
+["RECOVERY",
+`若週六 Long Run：
+
+Walk + Mobility`]
 ],
 videos:[],
-cut:"長跑與恢復二選一。"
+cut:"二選一。"
 },
 
 {
@@ -1647,11 +2032,23 @@ time:"70–90 min",
 longOption:"SAT",
 intent:"若週六長跑，週五必須恢復。",
 sections:[
-["LONG RUN",`55–65 min Z2\n+\n最後15 min Steady`],
-["RECOVERY",`若週五已 Long Run：\nRest / Walk`]
+["LONG RUN",
+`Equipment: Running Shoes
+
+Z2:
+55–65 min
+
++
+
+Steady Finish:
+15 min`],
+["RECOVERY",
+`若週五已 Long Run：
+
+Rest / Walk`]
 ],
 videos:[],
-cut:"長跑與恢復二選一。"
+cut:"二選一。"
 },
 
 {
@@ -1660,7 +2057,23 @@ title:"After-Work Normal Run",
 time:"40–55 min",
 intent:"依 Long Run 日期調整。",
 sections:[
-["RUN",`週五 Long Run：\n45–50 min Easy → Steady\n\n週六 Long Run：\n35–45 min Recovery Run`]
+["RUN",
+`週五 Long Run：
+
+Duration:
+45–50 min
+
+Intensity:
+Easy → Steady
+
+
+週六 Long Run：
+
+Duration:
+35–45 min
+
+Intensity:
+Recovery`]
 ],
 videos:[],
 cut:"腿重時全部 Easy。"
@@ -1669,12 +2082,6 @@ cut:"腿重時全部 Easy。"
 ]
 
 },
-
-
-
-/* =====================================
-WEEK 4
-===================================== */
 
 {
 name:"W4",
@@ -1689,8 +2096,19 @@ title:"Easy Run",
 time:"40–50 min",
 intent:"保持跑步頻率但不堆疲勞。",
 sections:[
-["RUN",`40–45 min Easy Z1–Z2`],
-["STRIDES",`4×15 sec relaxed`]
+["RUN",
+`Equipment: Running Shoes
+
+Duration:
+40–45 min
+
+Intensity:
+Easy Z1–Z2`],
+["STRIDES",
+`4 Sets × 15 sec
+
+Recovery:
+Full Walk`]
 ],
 videos:[],
 cut:"疲勞高取消 Strides。"
@@ -1702,18 +2120,61 @@ title:"Heavy Squat + Barbell Efficiency",
 time:"80–90 min",
 intent:"維持 Peak Strength。",
 sections:[
-["WARM-UP",`Bike + Squat Flow`],
-["OLY",`EMOM12\nOdd：2 Power Clean @70%\nEven：1 Squat Clean @75%`],
-["STRENGTH",`Back Squat\n4×3 @82–85%\n110–115kg`],
-["METCON",`5 Rounds\n6 Power Clean @60kg\n8 Front Rack Lunge\n10/8cal Bike\nRest60sec`],
-["ACCESSORY",`Nordic + Pallof + Calf`],
-["COOL DOWN",`Bike + Mobility`]
+
+["OLY",
+`Equipment: Barbell
+
+EMOM 12 min
+
+Odd Minutes:
+Power Clean
+2 Reps
+Load: 67.5 kg
+
+Even Minutes:
+Squat Clean
+1 Rep
+Load: 70–72.5 kg`],
+
+["STRENGTH",
+`Back Squat
+
+Equipment: Barbell + Rack
+
+4 Sets × 3 Reps
+
+Load:
+110–115 kg
+
+Intensity:
+82–85% 1RM
+
+Rest:
+2:30–3:00`],
+
+["METCON",
+`5 Sets
+
+Power Clean
+6 Reps
+Load: 60 kg
+
+Front Rack Lunge
+8 Reps
+Equipment: Barbell
+
+Bike
+10/8 cal
+
+Recovery:
+60 sec`]
+
 ],
 videos:[
 ["Squat Clean","CrossFit squat clean"],
 ["Front Rack Lunge","front rack walking lunge"]
 ],
-cut:"Strength3×3，Metcon4 rounds。"
+cut:"Strength 3 Sets × 3 Reps，Metcon 4 Sets。"
 },
 
 {
@@ -1722,19 +2183,75 @@ title:"Two-a-Day｜Threshold + Gym Density",
 time:"AM 65 / PM 65",
 intent:"跑步 Threshold + Competition Gymnastics Density。",
 sections:[
-["AM WARM-UP",`Jog + Drills`],
-["AM MAIN",`3×2km\n4:55–5:00/km\nRest2:00 Easy Jog`],
-["AM COOL DOWN",`Easy Jog`],
-["PM GYMNASTICS",`EMOM12\n5 BMU\n10 T2B\n8 C2B`],
-["PM STRENGTH",`Strict Press4×3 @80%\nWeighted Pull-up4×3`],
-["PM ACCESSORY",`Shoulder Prehab + Core`]
+
+["AM THRESHOLD",
+`Equipment: Running Shoes
+
+3 Sets × 2 km
+
+Pace:
+4:55–5:00 / km
+
+Recovery:
+2:00 Easy Jog
+
+Work Distance:
+6 km`],
+
+["PM GYMNASTICS",
+`EMOM 12 min
+Total: 4 Rounds
+
+Min 1
+BMU
+5 Reps
+
+Min 2
+T2B
+10 Reps
+
+Min 3
+C2B
+8 Reps
+
+Rule:
+保留約 1–2 Reps，
+不做到技術失敗。`],
+
+["PM STRENGTH",
+`Strict Press
+
+Equipment: Barbell + Rack
+
+4 Sets × 3 Reps
+
+Load:
+40 kg
+
+Intensity:
+80% 1RM
+
+Rest:
+2:00
+
+
+Weighted Pull-up
+
+4 Sets × 3 Reps
+
+Intensity:
+RPE 8
+
+Rest:
+2:00`]
+
 ],
 videos:[
 ["Bar Muscle-up","CrossFit bar muscle up"],
 ["Toes-to-Bar","CrossFit toes to bar"],
 ["Chest-to-Bar","CrossFit chest to bar"]
 ],
-cut:"AM 改2×2km +1×1km。"
+cut:"AM 改 2 Sets × 2 km + 1 Set × 1 km。"
 },
 
 {
@@ -1743,20 +2260,69 @@ title:"Steel Cup Simulation A",
 time:"80–90 min",
 intent:"模擬比賽，但不 Full Send。",
 sections:[
-["WARM-UP",`Run / Row / Bike gradual`],
-["PREP",`Thruster + C2B + Burpee`],
-["STRENGTH",`Romanian Deadlift3×5\nBench Press3×5`],
-["SIMULATION",`3 Rounds\n600m Run\n15 Thruster @40kg\n12 C2B\n15 Burpee Box Jump Over\nRest3min`],
-["FLUSH",`Easy Bike10min`],
-["CORE",`Carry + Anti-Rotation`],
-["COOL DOWN",`Mobility`]
+
+["STRENGTH",
+`Romanian Deadlift
+
+Equipment: Barbell
+
+3 Sets × 5 Reps
+
+Intensity:
+RPE 7
+
+Rest:
+2:00
+
+
+Bench Press
+
+Equipment: Barbell + Bench
+
+3 Sets × 5 Reps
+
+Load:
+62.5–65 kg
+
+Rest:
+2:00`],
+
+["SIMULATION",
+`3 Sets
+
+Run
+600 m
+
+Thruster
+Equipment: Barbell
+15 Reps
+Load: 40 kg
+
+Chest-to-Bar
+12 Reps
+
+Burpee Box Jump Over
+15 Reps
+
+Recovery:
+3:00 between Sets`],
+
+["FLUSH",
+`Equipment: Bike
+
+Duration:
+10 min
+
+Intensity:
+Z1`]
+
 ],
 videos:[
 ["Thruster","CrossFit thruster"],
 ["Chest-to-Bar","CrossFit chest to bar"],
 ["Burpee Box Jump Over","CrossFit burpee box jump over"]
 ],
-cut:"Simulation 2 rounds。"
+cut:"Simulation 2 Sets。"
 },
 
 {
@@ -1766,8 +2332,21 @@ time:"60–80 min",
 longOption:"FRI",
 intent:"本週 CrossFit 負荷較高，Long Run 不做 Fast Finish。",
 sections:[
-["LONG RUN",`60–70 min Z2 only`],
-["RECOVERY",`若週六長跑：\nWalk + Mobility`]
+["LONG RUN",
+`Equipment: Running Shoes
+
+Duration:
+60–70 min
+
+Intensity:
+Z2 only
+
+HR:
+144–155 bpm`],
+["RECOVERY",
+`若週六 Long Run：
+
+Walk + Mobility`]
 ],
 videos:[],
 cut:"二選一。"
@@ -1780,8 +2359,18 @@ time:"60–80 min",
 longOption:"SAT",
 intent:"本週 CrossFit 負荷較高，Long Run 保守。",
 sections:[
-["LONG RUN",`60–70 min Z2 only`],
-["RECOVERY",`若週五已 Long Run：\nRest / Walk`]
+["LONG RUN",
+`Equipment: Running Shoes
+
+Duration:
+60–70 min
+
+Intensity:
+Z2 only`],
+["RECOVERY",
+`若週五已 Long Run：
+
+Rest / Walk`]
 ],
 videos:[],
 cut:"二選一。"
@@ -1793,7 +2382,23 @@ title:"After-Work Normal Run",
 time:"35–50 min",
 intent:"恢復性 Normal Run。",
 sections:[
-["RUN",`週五 Long Run：\n40–45 min Easy\n\n週六 Long Run：\n30–40 min Recovery`]
+["RUN",
+`週五 Long Run：
+
+Duration:
+40–45 min
+
+Intensity:
+Easy
+
+
+週六 Long Run：
+
+Duration:
+30–40 min
+
+Intensity:
+Recovery`]
 ],
 videos:[],
 cut:"今天不要 Tempo。"
@@ -1802,12 +2407,6 @@ cut:"今天不要 Tempo。"
 ]
 
 },
-
-
-
-/* =====================================
-WEEK 5
-===================================== */
 
 {
 name:"W5",
@@ -1822,10 +2421,17 @@ title:"Easy Run",
 time:"40–50 min",
 intent:"維持跑步頻率。",
 sections:[
-["RUN",`35–45 min Easy`]
+["RUN",
+`Equipment: Running Shoes
+
+Duration:
+35–45 min
+
+Intensity:
+Easy`]
 ],
 videos:[],
-cut:"30min 即可。"
+cut:"30 min 即可。"
 },
 
 {
@@ -1834,17 +2440,63 @@ title:"Strength Maintenance + Clean Speed",
 time:"75–85 min",
 intent:"下降 Volume，保持速度與力量。",
 sections:[
-["WARM-UP",`Bike + Barbell Flow`],
-["OLY",`Every2:00×6\nPower Clean + Squat Clean\n65–75%`],
-["STRENGTH",`Back Squat\n4×2 @82–85%`],
-["METCON",`Every3:00×4\n6 Clean @60kg\n8 C2B\n10cal Bike`],
-["COOL DOWN",`Easy Bike`]
+
+["OLY",
+`Power Clean + Squat Clean
+
+Equipment: Barbell
+
+6 Sets
+
+Each Set:
+1 Rep Power Clean
++
+1 Rep Squat Clean
+
+Every:
+2:00
+
+Load:
+62.5–72.5 kg`],
+
+["STRENGTH",
+`Back Squat
+
+Equipment: Barbell + Rack
+
+4 Sets × 2 Reps
+
+Load:
+110–115 kg
+
+Intensity:
+82–85% 1RM
+
+Rest:
+2:30–3:00`],
+
+["METCON",
+`Every 3:00 × 4 Sets
+
+Clean
+6 Reps
+Load: 60 kg
+
+C2B
+8 Reps
+
+Bike
+10 cal
+
+Recovery:
+Remaining time`]
+
 ],
 videos:[
 ["Power Clean","CrossFit power clean"],
 ["Squat Clean","CrossFit squat clean"]
 ],
-cut:"Strength3×2，Metcon3 rounds。"
+cut:"Strength 3 Sets × 2 Reps，Metcon 3 Sets。"
 },
 
 {
@@ -1853,19 +2505,71 @@ title:"Two-a-Day｜Running Sharpness + Gym",
 time:"AM 55 / PM 60",
 intent:"保持速度感，降低總量。",
 sections:[
-["AM WARM-UP",`Jog + Drills`],
-["AM MAIN",`5×800m\n4:35–4:40/km\nRest2:00`],
-["AM COOL DOWN",`Jog`],
-["PM GYMNASTICS",`EMOM12\n4 BMU\n8 T2B\n6 C2B`],
-["PM STRENGTH",`Strict Press3×3 @75%\nWeighted Pull-up3×3`],
-["PM COOL DOWN",`Mobility`]
+
+["AM INTERVALS",
+`Equipment: Running Shoes
+
+5 Sets × 800 m
+
+Pace:
+4:35–4:40 / km
+
+Recovery:
+2:00 Easy Jog
+
+Work Distance:
+4 km`],
+
+["PM GYMNASTICS",
+`EMOM 12 min
+Total: 4 Rounds
+
+Min 1
+BMU
+4 Reps
+
+Min 2
+T2B
+8 Reps
+
+Min 3
+C2B
+6 Reps`],
+
+["PM STRENGTH",
+`Strict Press
+
+Equipment: Barbell + Rack
+
+3 Sets × 3 Reps
+
+Load:
+37.5 kg
+
+Intensity:
+75% 1RM
+
+Rest:
+2:00
+
+
+Weighted Pull-up
+
+3 Sets × 3 Reps
+
+Intensity:
+RPE 7
+
+Rest:
+2:00`]
+
 ],
 videos:[
 ["Bar Muscle-up","CrossFit bar muscle up"],
 ["Toes-to-Bar","CrossFit toes to bar"],
 ["Chest-to-Bar","CrossFit chest to bar"]
 ],
-cut:"AM 4×800m。"
+cut:"AM 4 Sets × 800 m。"
 },
 
 {
@@ -1874,18 +2578,70 @@ title:"Steel Cup Simulation B",
 time:"70–80 min",
 intent:"最後一次明顯的比賽刺激。",
 sections:[
-["WARM-UP",`Competition Warm-up`],
-["STRENGTH",`Bench Press3×4\nRomanian Deadlift3×4`],
-["MAIN",`Every5:00×4\n300m Run\n8 Thruster\n8 C2B\n8 Burpee Box Jump Over\n約90% effort`],
-["FLUSH",`Easy Bike12min`],
-["COOL DOWN",`Mobility`]
+
+["STRENGTH",
+`Bench Press
+
+Equipment: Barbell + Bench
+
+3 Sets × 4 Reps
+
+Load:
+62.5–65 kg
+
+Rest:
+2:00
+
+
+Romanian Deadlift
+
+Equipment: Barbell
+
+3 Sets × 4 Reps
+
+Intensity:
+RPE 6–7
+
+Rest:
+2:00`],
+
+["MAIN",
+`Every 5:00 × 4 Sets
+
+Run
+300 m
+
+Thruster
+8 Reps
+
+C2B
+8 Reps
+
+Burpee Box Jump Over
+8 Reps
+
+Intensity:
+About 90%
+
+Recovery:
+Remaining time`],
+
+["FLUSH",
+`Equipment: Bike
+
+Duration:
+12 min
+
+Intensity:
+Easy`]
+
 ],
 videos:[
 ["Thruster","CrossFit thruster"],
 ["Chest-to-Bar","CrossFit chest to bar"],
 ["Burpee Box Jump Over","CrossFit burpee box jump over"]
 ],
-cut:"做3 rounds。"
+cut:"做 3 Sets。"
 },
 
 {
@@ -1895,8 +2651,18 @@ time:"55–70 min",
 longOption:"FRI",
 intent:"Taper 開始，長距離縮短。",
 sections:[
-["LONG RUN",`50–60 min Easy Z2`],
-["RECOVERY",`若週六跑：\nWalk / Mobility`]
+["LONG RUN",
+`Equipment: Running Shoes
+
+Duration:
+50–60 min
+
+Intensity:
+Easy Z2`],
+["RECOVERY",
+`若週六跑：
+
+Walk / Mobility`]
 ],
 videos:[],
 cut:"不要補跑量。"
@@ -1909,8 +2675,18 @@ time:"55–70 min",
 longOption:"SAT",
 intent:"Taper 開始，長距離縮短。",
 sections:[
-["LONG RUN",`50–60 min Easy Z2`],
-["RECOVERY",`若週五已跑：\nRest`]
+["LONG RUN",
+`Equipment: Running Shoes
+
+Duration:
+50–60 min
+
+Intensity:
+Easy Z2`],
+["RECOVERY",
+`若週五已跑：
+
+Rest`]
 ],
 videos:[],
 cut:"不要補跑量。"
@@ -1922,8 +2698,21 @@ title:"After-Work Easy Run",
 time:"35–45 min",
 intent:"保持跑感。",
 sections:[
-["RUN",`35–40 min Easy`],
-["OPTIONAL STRIDES",`3×15 sec relaxed\n只有腿很新鮮才做`]
+["RUN",
+`Equipment: Running Shoes
+
+Duration:
+35–40 min
+
+Intensity:
+Easy`],
+["OPTIONAL STRIDES",
+`3 Sets × 15 sec
+
+Recovery:
+Full Walk
+
+只有腿很新鮮才做。`]
 ],
 videos:[],
 cut:"疲勞就不做 Strides。"
@@ -1932,12 +2721,6 @@ cut:"疲勞就不做 Strides。"
 ]
 
 },
-
-
-
-/* =====================================
-WEEK 6
-===================================== */
 
 {
 name:"W6",
@@ -1952,8 +2735,19 @@ title:"Easy Run",
 time:"30–40 min",
 intent:"保持跑感，不累積疲勞。",
 sections:[
-["RUN",`30–35 min Easy`],
-["STRIDES",`3×15 sec relaxed`]
+["RUN",
+`Equipment: Running Shoes
+
+Duration:
+30–35 min
+
+Intensity:
+Easy`],
+["STRIDES",
+`3 Sets × 15 sec
+
+Recovery:
+Full Walk`]
 ],
 videos:[],
 cut:"RPE 3。"
@@ -1965,11 +2759,66 @@ title:"Strength Primer",
 time:"50–60 min",
 intent:"保持神經輸出，不製造 DOMS。",
 sections:[
-["WARM-UP",`Bike + Mobility`],
-["OLY",`5×1 Power Clean @60–70%`],
-["STRENGTH",`Back Squat3×2 @70–75%\nStrict Press3×3 @65–70%`],
-["PRIMER",`3 Rounds easy-fast\n6 Thruster\n5 C2B\n6cal Bike`],
-["COOL DOWN",`Easy Aerobic`]
+
+["OLY",
+`Power Clean
+
+Equipment: Barbell
+
+5 Sets × 1 Rep
+
+Load:
+57.5–67.5 kg
+
+Intensity:
+60–70% Clean 1RM
+
+Rest:
+About 2:00`],
+
+["STRENGTH",
+`Back Squat
+
+Equipment: Barbell + Rack
+
+3 Sets × 2 Reps
+
+Load:
+95–100 kg
+
+Intensity:
+70–75% 1RM
+
+
+Strict Press
+
+Equipment: Barbell + Rack
+
+3 Sets × 3 Reps
+
+Load:
+32.5–35 kg
+
+Intensity:
+65–70% 1RM`],
+
+["PRIMER",
+`3 Sets
+
+Thruster
+6 Reps
+
+C2B
+5 Reps
+
+Bike
+6 cal
+
+Intensity:
+Easy-fast
+
+不要累積乳酸。`]
+
 ],
 videos:[
 ["Power Clean","CrossFit power clean"],
@@ -1985,9 +2834,42 @@ title:"Run + Gymnastics Primer",
 time:"AM 40 / PM 40",
 intent:"喚醒速度與體操節奏。",
 sections:[
-["AM RUN",`Easy Jog10min\n\n4×400m @10K pace\nRest90sec\n\n3×15sec Stride\n\nCool Down`],
-["PM GYMNASTICS",`EMOM9\n3 BMU\n6 T2B\n5 C2B`],
-["PM MOBILITY",`Shoulder + T-Spine`]
+
+["AM RUN",
+`Easy Jog
+10 min
+
+Intervals:
+4 Sets × 400 m
+
+Pace:
+10K Pace
+
+Recovery:
+90 sec
+
+Strides:
+3 Sets × 15 sec
+
+Cool Down:
+Easy Jog`],
+
+["PM GYMNASTICS",
+`EMOM 9 min
+Total: 3 Rounds
+
+Min 1
+BMU
+3 Reps
+
+Min 2
+T2B
+6 Reps
+
+Min 3
+C2B
+5 Reps`]
+
 ],
 videos:[
 ["Bar Muscle-up","CrossFit bar muscle up"],
@@ -2002,10 +2884,45 @@ title:"Activation Only",
 time:"30–40 min",
 intent:"只確認身體有力量與速度。",
 sections:[
-["WARM-UP",`Easy Bike5min`],
-["ACTIVATION",`3×2 Back Squat @60–65%\n3×2 Push Jerk @60–65%`],
-["PRIMER",`2 Rounds\n5 Wall Ball\n4 C2B\n5 Burpee`],
-["COOL DOWN",`Walk + Mobility`]
+
+["ACTIVATION",
+`Back Squat
+
+Equipment: Barbell + Rack
+
+3 Sets × 2 Reps
+
+Load:
+80–87.5 kg
+
+Intensity:
+60–65% 1RM
+
+
+Push Jerk
+
+Equipment: Barbell
+
+3 Sets × 2 Reps
+
+Intensity:
+60–65% 1RM`],
+
+["PRIMER",
+`2 Sets
+
+Wall Ball
+5 Reps
+
+C2B
+4 Reps
+
+Burpee
+5 Reps
+
+Intensity:
+Easy-fast`]
+
 ],
 videos:[
 ["Push Jerk","CrossFit push jerk"],
@@ -2020,9 +2937,22 @@ title:"Pre-Race Recovery",
 time:"20–30 min",
 intent:"比賽前恢復。",
 sections:[
-["MOVEMENT",`Walk15–20min`],
-["MOBILITY",`Hip\nAnkle\nShoulder`],
-["BREATHING",`5min relaxed breathing`]
+["MOVEMENT",
+`Walk
+
+Duration:
+15–20 min`],
+["MOBILITY",
+`Hip
+
+Ankle
+
+Shoulder`],
+["BREATHING",
+`Duration:
+5 min
+
+Relaxed Breathing`]
 ],
 videos:[],
 cut:"不要額外訓練。"
@@ -2035,8 +2965,7 @@ time:"RACE",
 intent:"比賽週末。執行策略比額外訓練更重要。",
 sections:[
 ["RACE STRATEGY",
-`第一個 Event
-不要提前 Full Send。
+`第一個 Event 不提前 Full Send。
 
 Gymnastics：
 失敗前切組。
@@ -2049,15 +2978,15 @@ Mixed Modal：
 最後 25–30% 再提高輸出。`],
 
 ["BETWEEN EVENTS",
-`補水
+`Hydration
 
-碳水
+Carbs
 
-電解質
+Electrolytes
 
-走動
+Walk
 
-依下一場時間重新 Warm-up。`],
+Re-Warm-up before next Event`],
 
 ["MENTAL CUE",
 `Fast is smooth.
@@ -2076,15 +3005,9 @@ cut:"Race Day。"
 
 ];
 
-
-/* =====================================
-LONG RUN DAY
-===================================== */
-
 let longRunDay =
 localStorage.getItem("longRunDay")
 || "FRI";
-
 
 function setLongRunDay(day){
 
@@ -2098,25 +3021,19 @@ function setLongRunDay(day){
   updateLongRunMessage();
 
   renderWeek();
-
 }
-
 
 function updateLongRunMessage(){
 
   const select =
-    document.getElementById(
-      "longRunChoice"
-    );
+    document.getElementById("longRunChoice");
 
   if(select){
     select.value = longRunDay;
   }
 
   const msg =
-    document.getElementById(
-      "longRunMessage"
-    );
+    document.getElementById("longRunMessage");
 
   if(!msg){
     return;
@@ -2129,9 +3046,9 @@ function updateLongRunMessage(){
     FRIDAY LONG RUN
     </strong>
     <br><br>
-    週五完成 Long Run。
-    週六 Recovery / Rest。
-    週日下班後可以跑正常 Easy → Steady。`;
+    週五完成 Long Run。<br>
+    週六 Recovery / Rest。<br>
+    週日下班後可跑正常 Easy → Steady。`;
 
   }else{
 
@@ -2140,18 +3057,12 @@ function updateLongRunMessage(){
     SATURDAY LONG RUN
     </strong>
     <br><br>
-    週五 Recovery。
-    週六完成 Long Run。
+    週五 Recovery。<br>
+    週六完成 Long Run。<br>
     週日下班後只跑 Recovery / Easy。`;
 
   }
-
 }
-
-
-/* =====================================
-NAVIGATION
-===================================== */
 
 function showPage(id,btn){
 
@@ -2174,42 +3085,28 @@ function showPage(id,btn){
   btn.classList.add("active");
 
   window.scrollTo(0,0);
-
 }
 
-
-/* =====================================
-WEEKS
-===================================== */
-
 let selectedWeek = 0;
-
 
 function renderWeekBar(){
 
   const bar =
-    document.getElementById(
-      "weekbar"
-    );
+    document.getElementById("weekbar");
 
   bar.innerHTML =
   weeks.map(
     (w,i)=>
 
     `<button
-    class="weekbtn
-    ${i===selectedWeek
-      ? "active"
-      : ""}"
+    class="weekbtn ${i===selectedWeek ? "active" : ""}"
     onclick="selectWeek(${i})"
     >
     ${w.name}
     </button>`
 
   ).join("");
-
 }
-
 
 function selectWeek(i){
 
@@ -2218,17 +3115,11 @@ function selectWeek(i){
   renderWeekBar();
 
   renderWeek();
-
 }
-
 
 function renderVideos(videos){
 
-  if(
-    !videos
-    ||
-    !videos.length
-  ){
+  if(!videos || !videos.length){
     return "";
   }
 
@@ -2258,9 +3149,7 @@ function renderVideos(videos){
     </div>
 
   </div>`;
-
 }
-
 
 function longRunClass(day){
 
@@ -2271,9 +3160,7 @@ function longRunClass(day){
   return day.longOption === longRunDay
   ? "selectedLong"
   : "recoveryDay";
-
 }
-
 
 function longRunStatus(day){
 
@@ -2285,26 +3172,20 @@ function longRunStatus(day){
 
     return `
     <div class="notice">
-
     <strong class="green">
     THIS WEEK: LONG RUN DAY
     </strong>
-
     </div>`;
 
   }
 
   return `
   <div class="notice">
-
   <strong class="muted">
   THIS WEEK: RECOVERY DAY
   </strong>
-
   </div>`;
-
 }
-
 
 function renderWeek(){
 
@@ -2312,9 +3193,7 @@ function renderWeek(){
     weeks[selectedWeek];
 
   const box =
-    document.getElementById(
-      "weekContent"
-    );
+    document.getElementById("weekContent");
 
   box.innerHTML = `
 
@@ -2329,7 +3208,6 @@ function renderWeek(){
     </h3>
 
   </div>
-
 
   ${w.days.map(
     (d,idx)=>
@@ -2368,7 +3246,6 @@ function renderWeek(){
 
         </div>
 
-
         <div class="intent">
 
           <strong>
@@ -2387,7 +3264,6 @@ function renderWeek(){
         ${longRunStatus(d)}
 
       </div>
-
 
       <div class="daybody">
 
@@ -2408,7 +3284,6 @@ function renderWeek(){
 
         ).join("")}
 
-
         <div class="cut">
 
           <strong>
@@ -2421,7 +3296,6 @@ function renderWeek(){
 
         </div>
 
-
         ${renderVideos(d.videos)}
 
       </div>
@@ -2431,13 +3305,7 @@ function renderWeek(){
   ).join("")}
 
   `;
-
 }
-
-
-/* =====================================
-REPORT
-===================================== */
 
 function saveReport(){
 
@@ -2478,64 +3346,38 @@ function saveReport(){
 
   };
 
-
   const arr =
   JSON.parse(
-    localStorage.getItem(
-      "hybridReports"
-    )
+    localStorage.getItem("hybridReports")
     || "[]"
   );
 
-
   arr.unshift(data);
 
-
   localStorage.setItem(
-
     "hybridReports",
-
-    JSON.stringify(
-      arr.slice(0,30)
-    )
-
+    JSON.stringify(arr.slice(0,30))
   );
-
 
   document
   .getElementById("rNotes")
   .value = "";
 
-
   renderReports();
 
-
-  alert(
-    "Report saved"
-  );
-
+  alert("Report saved");
 }
-
 
 function renderReports(){
 
   const arr =
   JSON.parse(
-
-    localStorage.getItem(
-      "hybridReports"
-    )
-
+    localStorage.getItem("hybridReports")
     || "[]"
-
   );
-
 
   const box =
-  document.getElementById(
-    "reports"
-  );
-
+  document.getElementById("reports");
 
   if(!arr.length){
 
@@ -2545,38 +3387,24 @@ function renderReports(){
     </p>`;
 
     return;
-
   }
-
 
   box.innerHTML =
   arr.map(
-
     r=>
 
     `<div class="reportItem">
 
       <strong>
-
       ${r.date || "No date"}
-
       ·
-
       ${r.workout || "Session"}
-
       </strong>
 
       <div class="muted">
-
-      Completion
-      ${r.completion}
-
-      · RPE
-      ${r.rpe}
-
-      · Fatigue
-      ${r.fatigue}
-
+      Completion ${r.completion}
+      · RPE ${r.rpe}
+      · Fatigue ${r.fatigue}
       </div>
 
       ${
@@ -2590,13 +3418,7 @@ function renderReports(){
     </div>`
 
   ).join("");
-
 }
-
-
-/* =====================================
-INITIALIZE
-===================================== */
 
 document
 .getElementById("rDate")
@@ -2605,13 +3427,9 @@ new Date()
 .toISOString()
 .slice(0,10);
 
-
 renderWeekBar();
-
 renderWeek();
-
 renderReports();
-
 updateLongRunMessage();
 
 </script>
