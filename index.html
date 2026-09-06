@@ -737,43 +737,153 @@ const weeks=[
 
 /* ================= W1 ================= */
 
-
 {
 
 name:"W1",
 dates:"SEP 7–13",
-focus:"Hybrid Foundation + Movement Quality",
+focus:"Dual Track Foundation · Running × Hybrid",
 
 days:[
 
 
+/* ========================================
+   MONDAY
+======================================== */
+
 {
 
 day:"MON",
-title:"MIXED STRENGTH + EASY RUN",
-time:"75–90 min",
+title:"DOUBLE SESSION",
+time:"AM 45–55 / PM 75–90",
+
+summary:[
+"AM · RUNNING · Easy Aerobic",
+"PM · HYBRID · Mixed Strength + MetCon"
+],
+
+sessions:[
+
+
+{
+
+label:"AM · RUNNING",
+title:"Easy Aerobic + Strides",
+time:"45–55 min",
+type:"RUNNING",
 
 intent:
-"建立全身力量與結構能力，不做傳統 Lower Body Day。以 Squat / Pull / Carry / Trunk 為主，再用 Easy Run 維持 aerobic base。",
+"Running Coach：建立本週第一個低強度 aerobic exposure。今天的跑步是一堂完整課，不是 Hybrid 訓練後的收尾。保留體力給 PM Strength + MetCon。",
+
+sections:[
+
+["01 WARM-UP",
+
+`Easy Jog
+8–10 min
+
+Dynamic Ankle
+10 Reps / side
+
+Leg Swing
+10 Reps / side
+
+A-Skip
+2 Sets × 20 m`],
+
+
+["02 EASY RUN",
+
+`Duration:
+35–40 min
+
+HR:
+130–150 bpm
+
+RPE:
+3–4
+
+Pace:
+Conversational
+
+Goal:
+低壓力增加 aerobic volume。
+
+今天不追 Pace。`],
+
+
+["03 STRIDES",
+
+`4 Sets × 15 sec
+
+Intensity:
+Fast but Relaxed
+
+Recovery:
+60–90 sec Walk / Easy Jog
+
+Focus:
+放鬆
++
+步頻
++
+跑姿`],
+
+
+["04 COOL DOWN",
+
+`Easy Walk
+5 min
+
+Calf Mobility
+
+Hip Flexor Mobility`]
+
+],
+
+videos:[
+["Running Strides","running strides technique"],
+["A-Skip","a skip running drill"]
+],
+
+cut:
+"如果睡眠或恢復差：Easy Run 降至 30 min，取消 Strides。"
+
+},
+
+
+{
+
+label:"PM · HYBRID",
+title:"Mixed Strength + MetCon",
+time:"75–90 min",
+type:"HYBRID",
+
+intent:
+"Hybrid Coach：以 Squat / Pull / Carry / Trunk 建立全身 strength exposure，再進 mixed-modal MetCon。不是 Lower Body Day。今天需要保留 CrossFit / WOD 訓練特性。",
 
 sections:[
 
 ["01 WARM-UP",
 
 `Equipment:
-Bike / Rower + Barbell
+Bike / Rower + Barbell + DB
 
-Easy Bike / Row
-5 min
+Bike / Row
+5 min Easy
+
+2 Rounds:
 
 Cossack Squat
-2 Sets × 6 Reps / side
+6 Reps / side
 
 Scap Pull-up
-2 Sets × 8 Reps
+8 Reps
 
 Goblet Squat
-2 Sets × 8 Reps`],
+8 Reps
+
+Hollow Hold
+20 sec`],
 
 
 ["02 MAX STRENGTH",
@@ -791,10 +901,11 @@ Rest:
 RPE:
 7–8
 
-Goal:
-Stable Strength Output
+Rule:
+不做到 Grind。
 
-不要做到 Grind。`],
+Goal:
+維持高品質力量輸出。`],
 
 
 ["03 PULL STRENGTH",
@@ -809,19 +920,17 @@ RPE:
 Rest:
 90–120 sec
 
+Rule:
 保留約 1–2 Reps。
 
-不要做到動作變形或失敗。`],
+Technical Failure 前停止。`],
 
 
-["04 CARRY + TRUNK",
+["04 CARRY / TRUNK",
 
-`DB Farmer Carry
+`Heavy DB Farmer Carry
 
 4 Sets × 40 m
-
-Load:
-Heavy
 
 Goal:
 Unbroken
@@ -835,84 +944,164 @@ Pallof Press
 3 Sets × 10 Reps / side`],
 
 
-["05 RUN · EASY AEROBIC",
+["05 METCON",
 
-`Duration:
-35–40 min
+`AMRAP 12 min
 
-HR:
-130–150 bpm
+10 DB Power Snatch
+Load: 22.5 kg
 
-RPE:
-3–4
+8 Pull-up
 
-Pace:
-Conversational
+10 / 8 Cal Row
+
+40 m Farmer Carry
+Heavy
+
+Target:
+RPE 7–8
+
+Goal:
+持續輸出。
+
+不要第一輪衝太快。`],
 
 
-Optional:
+["06 COOL DOWN",
 
-4 Sets × 15 sec Strides
+`Easy Bike / Walk
+5–8 min
 
-Recovery:
-60–90 sec Walk / Easy Jog`]
+Lat Mobility
+
+Hip Mobility
+
+Relaxed Breathing`]
 
 ],
 
 videos:[
-
-["Cossack Squat",
-"cossack squat"],
-
-["Weighted Pull-up",
-"weighted pull up"],
-
-["Farmer Carry",
-"farmer carry technique"],
-
-["Running Strides",
-"running strides technique"]
-
+["Back Squat","CrossFit back squat"],
+["Weighted Pull-up","weighted pull up"],
+["DB Power Snatch","CrossFit dumbbell power snatch"],
+["Farmer Carry","farmer carry technique"]
 ],
 
 cut:
-"時間不足：Back Squat 3 Sets + Weighted Pull-up 3 Sets + Easy Run 30 min。"
+"時間不足：Back Squat 3 Sets + Weighted Pull-up 3 Sets + MetCon 10 min。"
+
+}
+
+]
+
+},
+
+
+/* ========================================
+   TUESDAY
+======================================== */
+
+{
+
+day:"TUE",
+title:"DOUBLE SESSION",
+time:"AM 35–45 / PM 80–95",
+
+summary:[
+"AM · RUNNING · Easy Aerobic",
+"PM · HYBRID · E2 Weightlifting + Conditioning"
+],
+
+sessions:[
+
+
+{
+
+label:"AM · RUNNING",
+title:"Easy Aerobic",
+time:"35–45 min",
+type:"RUNNING",
+
+intent:
+"Running Coach：今天維持跑頻與 aerobic volume，但刻意不做 Threshold。真正的本週 Running Quality Session 留給 Wednesday。",
+
+sections:[
+
+["01 EASY RUN",
+
+`Duration:
+35–45 min
+
+HR:
+130–145 bpm
+
+RPE:
+2–3
+
+Pace:
+Conversational
+
+Goal:
+舒服完成。
+
+不追配速。`],
+
+
+["02 OPTIONAL DRILLS",
+
+`只有腿部狀況良好：
+
+Pogo
+2 Sets × 20 Reps
+
+A-Skip
+2 Sets × 20 m
+
+不做 Sprint。`]
+
+],
+
+videos:[],
+
+cut:
+"腿部明顯疲勞：30 min Recovery Run 即可。"
 
 },
 
 
 {
 
-day:"TUE",
-title:"E2 FOUNDATION · WEIGHTLIFTING + THRESHOLD",
-time:"AM / PM Preferred",
+label:"PM · HYBRID",
+title:"E2 Foundation · Weightlifting + Row",
+time:"80–95 min",
+type:"WEIGHTLIFTING",
 
 intent:
-"W1 先建立 Clean Quality 與 Row Capacity，暫時不把每次訓練都做成 Row → Heavy Clean。後續週期再逐步進入 fatigue transfer。",
+"Hybrid Coach：W1 先分別提高 Clean Quality 與 Row Capacity。今天不是 Row → Max Clean 模擬；Fatigue Transfer 會在後續週期逐步加入。",
 
 sections:[
 
-
-["01 CLEAN WARM-UP",
+["01 WEIGHTLIFTING WARM-UP",
 
 `Equipment:
-Barbell
+Barbell + Rower
+
+Row
+4 min Easy
+
+Front Rack Mobility
+30 sec / side × 2
 
 Tall Clean
 2 Sets × 5 Reps
 
 Clean High Pull
-2 Sets × 5 Reps
-
-Front Rack Mobility
-30 sec / side × 2`],
+2 Sets × 5 Reps`],
 
 
-["02 CLEAN SKILL",
+["02 CLEAN COMPLEX",
 
 `5 Sets
-
-Each Set:
 
 1 Clean Pull
 +
@@ -920,19 +1109,13 @@ Each Set:
 +
 1 Squat Clean
 
-
 Load:
-
 50 / 55 / 60 / 62.5 / 65 kg
 
-
 Rest:
-
 90–120 sec
 
-
 Focus:
-
 Bar Path
 +
 Fast Turnover
@@ -954,13 +1137,10 @@ Rest:
 
 每一下 Reset。
 
-Goal:
-穩定接槓
-+
-Front Rack Position`],
+不要 Touch & Go。`],
 
 
-["04 E2 ROW CAPACITY",
+["04 ROW CAPACITY",
 
 `Concept2 Row
 
@@ -973,22 +1153,97 @@ Recovery:
 2:00
 
 Goal:
-Pace Difference ≤ 3 sec / 500 m
+Pace Difference
+≤ 3 sec / 500 m`],
 
 
-W1 Purpose:
+["05 E2 CONDITIONING",
 
-建立 Row Output。
+`Every 4:00 × 4 Sets
 
-今天不是完整模擬
-Row → Max Clean。`],
+500 m Row
+
+Then:
+
+3 Squat Clean
+@ 60 kg
+
+Remaining Time:
+Recovery
+
+Goal:
+Row 後重新建立呼吸
++
+Front Rack
++
+Technique
+
+這不是 Heavy Clean Test。`],
 
 
-["05 RUN · THRESHOLD",
+["06 ACCESSORY / RESET",
 
-`Warm-up:
+`Front Rack Hold
 
-10 min Easy Jog
+3 Sets × 20–30 sec
+
+Moderate-Heavy
+
+
+Dead Bug
+
+3 Sets × 8 Reps / side`]
+
+],
+
+videos:[
+["Tall Clean","tall clean drill"],
+["Squat Clean","CrossFit squat clean"],
+["Row Technique","Concept2 rowing technique"]
+],
+
+cut:
+"時間不足：Clean Strength 4 Sets + Row Capacity 3 Sets；E2 Conditioning 3 Sets。"
+
+}
+
+]
+
+},
+
+
+/* ========================================
+   WEDNESDAY
+======================================== */
+
+{
+
+day:"WED",
+title:"RUNNING QUALITY",
+time:"55–70 min",
+
+summary:[
+"RUNNING · Threshold Intervals"
+],
+
+sessions:[
+
+{
+
+label:"RUNNING",
+title:"Threshold · 5 × 1 km",
+time:"55–70 min",
+type:"RUNNING",
+
+intent:
+"Running Coach：本週主要 Running Quality Session。前兩天跑步都刻意保持 Easy，就是為了讓今天真正有品質。",
+
+sections:[
+
+["01 WARM-UP",
+
+`Easy Jog
+10–12 min
 
 Pogo
 2 Sets × 20 Reps
@@ -999,10 +1254,13 @@ A-Skip
 Strides
 3 Sets × 60 m
 
+Recovery:
+Full Walk / Jog`],
 
-Main:
 
-5 Sets × 1 km
+["02 THRESHOLD",
+
+`5 Sets × 1 km
 
 Pace:
 4:55–5:00 / km
@@ -1011,90 +1269,71 @@ Recovery:
 90 sec Easy Jog
 
 Work Distance:
-5 km`]
+5 km
+
+Goal:
+最後一組仍維持跑姿
++
+呼吸控制
+
+不要把第一組跑成 Interval Pace。`],
+
+
+["03 COOL DOWN",
+
+`Easy Jog
+10 min
+
+Then:
+
+Walk
+3–5 min`]
 
 ],
 
 videos:[
-
-["Squat Clean",
-"CrossFit squat clean"],
-
-["Clean Pull",
-"clean pull weightlifting"],
-
-["Row Technique",
-"Concept2 rowing technique"]
-
+["Running Strides","running strides technique"],
+["A-Skip","a skip running drill"]
 ],
 
 cut:
-"若同一天完成，優先 AM / PM 分開。若只能一次完成，先 Weightlifting；Threshold 可縮為 4 × 1 km。"
+"疲勞偏高：4 × 1 km。若狀態明顯差，改 40 min Easy，不硬做品質。"
+
+}
+
+]
 
 },
 
 
-{
-
-day:"WED",
-title:"AEROBIC RECOVERY RUN",
-time:"35–45 min",
-
-intent:
-"吸收 MON–TUE 的力量與品質刺激。今天主要任務是恢復、增加跑頻與 aerobic volume，不再增加高強度刺激。",
-
-sections:[
-
-["01 RUN",
-
-`Duration:
-35–45 min
-
-HR:
-130–145 bpm
-
-RPE:
-2–3
-
-Pace:
-依呼吸與恢復決定。
-
-今天不要追 Pace。`],
-
-
-["02 OPTIONAL MOBILITY",
-
-`10–15 min
-
-Ankle Mobility
-
-Hip Rotation
-
-Cossack Squat
-
-T-Spine Rotation`]
-
-],
-
-videos:[],
-
-cut:
-"腿重或整體疲勞高：30–35 min Easy 即可。"
-
-},
-
+/* ========================================
+   THURSDAY
+======================================== */
 
 {
 
 day:"THU",
-title:"GYMNASTICS + STEEL CUP METCON",
-time:"75–90 min",
+title:"HYBRID · GYMNASTICS + STEEL CUP WOD",
+time:"80–95 min",
+
+summary:[
+"HYBRID · Gymnastics Capacity",
+"STEEL CUP · E1 MetCon"
+],
+
+sessions:[
+
+{
+
+label:"HYBRID",
+title:"Gymnastics + Steel Cup E1",
+time:"80–95 min",
+type:"HYBRID",
 
 intent:
-"以 Gymnastics Skill / Capacity 加上 E1 mixed-modal conditioning。這不是 Upper Day，而是 Skill → Capacity → Competition MetCon。",
+"Hybrid Coach：Gymnastics Skill → Capacity → Competition MetCon。不是 Upper Body Day。W1 建立 Wall Walk、T2B、Pull-up 與 E1 movements 的品質及疲勞耐受。",
 
 sections:[
-
 
 ["01 GYMNASTICS PREP",
 
@@ -1126,9 +1365,12 @@ Rest:
 60–75 sec
 
 Goal:
+每 Rep 路徑一致
+
+Focus:
 Movement Efficiency
 
-不追最快速度。`],
+不追極限速度。`],
 
 
 ["03 T2B CAPACITY",
@@ -1141,10 +1383,12 @@ Target:
 60–80 Total Reps
 
 Rule:
-保留約 2–3 Reps buffer。`],
+每組保留約 2–3 Reps
+
+不要做到 kip deteriorates。`],
 
 
-["04 PULL CAPACITY",
+["04 PULL-UP RHYTHM",
 
 `Pull-up
 
@@ -1154,45 +1398,47 @@ Rest:
 60 sec
 
 Goal:
-
-Stable Cycling
+Consistent Cycling
 +
-Synchro Readiness`],
+Quick Reset`],
 
 
 ["05 STEEL CUP E1 METCON",
 
 `3 Rounds
 
-DB Power Snatch
-12 Reps
+12 DB Power Snatch
 @ 22.5 kg
 
-Shuttle Run
-8 Reps
+8 Shuttle Run Reps
 
-Pull-up
-8 Reps
+8 Pull-up
 
-DB Suitcase Carry
 3 × 10 m Out & Back
+DB Suitcase Carry
 @ 22.5 kg
 
 Rest:
 3:00 between Rounds
 
-Target RPE:
-7–8
+Target:
+RPE 7–8
 
-W1:
-不 Full Send。`],
+Goal:
+Pacing
++
+Transitions
++
+Movement Consistency
+
+W1 不 Full Send。`],
 
 
-["06 OPTIONAL SHOULDER ISO",
+["06 SHOULDER ISO",
 
-`Suitcase Hold
+`Front Rack Hold
 or
-Front Rack Hold
+Suitcase Hold
 
 3 Sets × 30 sec
 
@@ -1202,36 +1448,50 @@ Rest:
 ],
 
 videos:[
-
-["Wall Walk",
-"CrossFit wall walk"],
-
-["Toes-to-Bar",
-"CrossFit toes to bar"],
-
-["DB Power Snatch",
-"CrossFit dumbbell power snatch"],
-
-["Shuttle Run",
-"shuttle run change of direction"]
-
+["Wall Walk","CrossFit wall walk"],
+["Toes-to-Bar","CrossFit toes to bar"],
+["Pull-up","CrossFit pull up"],
+["DB Power Snatch","CrossFit dumbbell power snatch"],
+["Shuttle Run","shuttle run change of direction"]
 ],
 
 cut:
-"60 MIN：Wall Walk 4 Sets；T2B EMOM 8；MetCon 2 Rounds。"
+"60 MIN：Wall Walk 4 Sets + T2B EMOM 8 + E1 MetCon 2 Rounds。"
+
+}
+
+]
 
 },
 
+
+/* ========================================
+   FRIDAY
+======================================== */
 
 {
 
 day:"FRI",
 title:"LONG RUN OPTION / RECOVERY",
-time:"65–75 min",
+time:"70–85 min",
 longOption:"FRI",
 
+summary:[
+"RUNNING · Long Run if selected",
+"Otherwise · Recovery"
+],
+
+sessions:[
+
+{
+
+label:"RUNNING",
+title:"Long Run / Recovery",
+time:"70–85 min",
+type:"RUNNING",
+
 intent:
-"Friday 與 Saturday 只選一天完成 Long Run。另一日 Recovery。",
+"Running Coach：Friday / Saturday 只選一天做完整 Long Run。沒有被選中的一天就是 Recovery，不再硬塞 Hybrid 工作量。",
 
 sections:[
 
@@ -1249,13 +1509,16 @@ RPE:
 Pace:
 Unlocked
 
+Goal:
+Aerobic Endurance
+
 
 Optional:
 
 最後 10 min
 Natural Progression
 
-只有狀態很好才做。`],
+只有整體狀態很好才做。`],
 
 
 ["RECOVERY VERSION",
@@ -1267,27 +1530,50 @@ Hip Mobility
 
 Ankle Mobility
 
-Easy Stretch`]
+Relaxed Breathing
+5 min`]
 
 ],
 
 videos:[],
 
 cut:
-"Long Run / Recovery 二選一。"
+"Long Run 與 Recovery 二選一。"
+
+}
+
+]
 
 },
 
+
+/* ========================================
+   SATURDAY
+======================================== */
 
 {
 
 day:"SAT",
 title:"LONG RUN OPTION / RECOVERY",
-time:"65–75 min",
+time:"70–85 min",
 longOption:"SAT",
 
+summary:[
+"RUNNING · Long Run if selected",
+"Otherwise · Recovery"
+],
+
+sessions:[
+
+{
+
+label:"RUNNING",
+title:"Long Run / Recovery",
+time:"70–85 min",
+type:"RUNNING",
+
 intent:
-"Friday 與 Saturday 只選一天完成 Long Run。另一日 Recovery。",
+"Running Coach：若 Saturday 是本週 Long Run，今天完成完整 endurance session；如果 Friday 已經完成，Saturday 就恢復。",
 
 sections:[
 
@@ -1303,14 +1589,17 @@ RPE:
 3–4
 
 Pace:
-Unlocked`],
+Unlocked
+
+Goal:
+Aerobic Endurance`],
 
 
 ["RECOVERY VERSION",
 
 `Rest
 
-或
+or
 
 Walk
 20–30 min
@@ -1323,26 +1612,46 @@ Mobility
 videos:[],
 
 cut:
-"Long Run / Recovery 二選一。"
+"Long Run 與 Recovery 二選一。"
+
+}
+
+]
 
 },
 
 
+/* ========================================
+   SUNDAY
+======================================== */
+
 {
 
 day:"SUN",
-title:"OPTIONAL · RUN / PULL CAPACITY / REST",
-time:"30–60 min",
+title:"OPTIONAL SESSION",
+time:"30–70 min",
+
+summary:[
+"Recovery Run / Hybrid Skill / Rest"
+],
+
+sessions:[
+
+{
+
+label:"OPTIONAL",
+title:"Recovery Run / Hybrid Skill / Rest",
+time:"30–70 min",
+type:"OPTIONAL",
 
 intent:
-"週日不是固定補課日。依本週完成度與恢復狀況，選 Recovery Run、Pull Capacity 或完整 Rest。",
+"總教練決策日。Sunday 不固定要求你一定再完成一堂。根據 Running + Hybrid 兩條線的本週疲勞，選 Recovery Run、Hybrid Skill 或 Rest。",
 
 sections:[
 
-
 ["OPTION A · RECOVERY RUN",
 
-`如果 Long Run 後疲勞仍明顯：
+`如果 Long Run 後仍有疲勞：
 
 Duration:
 30–35 min
@@ -1351,85 +1660,77 @@ HR:
 130–145 bpm
 
 RPE:
-2–3`],
+2–3
+
+完全 Recovery。`],
 
 
-["OPTION B · PULL CAPACITY",
+["OPTION B · HYBRID SKILL",
 
-`如果恢復良好，
-且本週需要增加 Hybrid Strength Exposure：
+`如果 aerobic 恢復良好，
+但想保留 CrossFit Skill Exposure：
 
+EMOM 20
 
-Deadlift
+Min 1:
+8–10 Cal Ski / Row
 
-4 Sets × 4 Reps
+Min 2:
+6–8 T2B
 
-RPE:
-7
+Min 3:
+6 DB Hang Power Clean
+Moderate
 
-Rest:
-2:30
+Min 4:
+Rest
 
+5 Rounds Total
 
-Chest-to-Bar Pull-up
+Intensity:
+RPE 6–7
 
-4 Sets × 6–8 Reps
+Goal:
+Skill + Movement Quality
 
-Rest:
-75–90 sec
-
-
-Concept2 Row
-
-4 Sets × 500 m
-
-RPE:
-7
-
-Recovery:
-90 sec
-
-
-Heavy Farmer Carry
-
-4 Sets × 30 m`],
+不是第二個 High Intensity WOD。`],
 
 
 ["OPTION C · REST",
 
-`如果出現：
+`選擇 Full Rest 如果：
 
-High / Very High Fatigue
+Fatigue:
+High / Very High
 
-Session RPE 累積偏高
+Running Quality 明顯下降
 
-腿部恢復不佳
+Long Run 恢復不佳
 
-睡眠明顯不足
+Sleep 明顯不足
+
+或
+
+Hybrid MetCon 表現下降
 
 
-→ Full Rest
+Rule:
 
-
-不要為了完成課表硬補刺激。`]
+不要因為「課表上有」就硬補刺激。`]
 
 ],
 
 videos:[
-
-["Deadlift",
-"conventional deadlift technique"],
-
-["Chest-to-Bar",
-"CrossFit chest to bar pull up"],
-
-["Farmer Carry",
-"farmer carry technique"]
-
+["Toes-to-Bar","CrossFit toes to bar"],
+["DB Hang Power Clean","dumbbell hang power clean"]
 ],
 
 cut:
-"SUN 是 Optional Day。Recovery 優先於硬補訓練。"
+"Sunday 是 Optional。恢復優先於補課。"
+
+}
+
+]
 
 }
 
@@ -3765,18 +4066,274 @@ function toggleDay(dayEl){
    RENDER WEEK
 ======================================== */
 
+/* ========================================
+   SESSION COLLAPSE
+======================================== */
+
+function toggleSession(sessionEl,event){
+
+  if(event){
+    event.stopPropagation();
+  }
+
+  sessionEl.classList.toggle("open");
+
+}
+
+
+/* ========================================
+   RENDER SESSION
+======================================== */
+
+function renderSession(s,index){
+
+  return `
+
+  <div
+    class="sessionCard"
+    style="
+      margin-top:12px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#101318;
+      overflow:hidden;
+    "
+  >
+
+    <div
+      class="sessionHead"
+      onclick="toggleSession(this.parentElement,event)"
+      style="
+        padding:15px;
+        cursor:pointer;
+        -webkit-tap-highlight-color:transparent;
+      "
+    >
+
+      <div
+        style="
+          display:flex;
+          justify-content:space-between;
+          gap:10px;
+          align-items:center;
+        "
+      >
+
+        <div style="min-width:0">
+
+          <div
+            class="eyebrow"
+            style="font-size:11px"
+          >
+            ${s.label || "SESSION"}
+          </div>
+
+          <div
+            style="
+              font-size:16px;
+              font-weight:900;
+              margin-top:5px;
+            "
+          >
+            ${s.title}
+          </div>
+
+        </div>
+
+
+        <div
+          style="
+            display:flex;
+            align-items:center;
+            gap:8px;
+            flex-shrink:0;
+          "
+        >
+
+          <span class="timepill">
+            ${s.time || ""}
+          </span>
+
+          <span
+            class="sessionChevron"
+            style="
+              width:27px;
+              height:27px;
+              border-radius:50%;
+              background:#232930;
+              color:var(--green);
+              display:flex;
+              align-items:center;
+              justify-content:center;
+              font-weight:900;
+              transition:transform .35s ease;
+            "
+          >
+            ⌄
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="sessionBody"
+      style="
+        display:grid;
+        grid-template-rows:0fr;
+        opacity:0;
+        transition:
+          grid-template-rows .4s cubic-bezier(.22,.61,.36,1),
+          opacity .25s ease;
+      "
+    >
+
+      <div
+        style="
+          min-height:0;
+          overflow:hidden;
+        "
+      >
+
+        <div style="padding:0 15px 15px">
+
+          <div class="intent">
+
+            <strong>
+              COACH INTENT
+            </strong>
+
+            <div
+              class="muted"
+              style="margin-top:5px"
+            >
+              ${s.intent || ""}
+            </div>
+
+          </div>
+
+
+          ${(s.sections || []).map(
+            section => `
+
+            <div class="section">
+
+              <div class="secname">
+                ${section[0]}
+              </div>
+
+              <div class="work">
+                ${section[1]}
+              </div>
+
+            </div>
+
+            `
+          ).join("")}
+
+
+          ${
+            s.cut
+            ?
+            `
+
+            <div class="cut">
+
+              <strong>
+                COACH ADJUSTMENT
+              </strong>
+
+              <br>
+
+              ${s.cut}
+
+            </div>
+
+            `
+            :
+            ""
+          }
+
+
+          ${renderVideos(s.videos)}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  `;
+
+}
+
+
+/* ========================================
+   OLD DAY COMPATIBILITY
+   W2-W6 暫時維持舊格式
+======================================== */
+
+function renderLegacyDayContent(d){
+
+  return `
+
+  ${(d.sections || []).map(
+    s => `
+
+    <div class="section">
+
+      <div class="secname">
+        ${s[0]}
+      </div>
+
+      <div class="work">
+        ${s[1]}
+      </div>
+
+    </div>
+
+    `
+  ).join("")}
+
+
+  <div class="cut">
+
+    <strong>
+      COACH ADJUSTMENT
+    </strong>
+
+    <br>
+
+    ${d.cut || ""}
+
+  </div>
+
+
+  ${renderVideos(d.videos)}
+
+  `;
+
+}
+
+
+/* ========================================
+   RENDER WEEK
+======================================== */
+
 function renderWeek(){
 
-  const w=
-  weeks[selectedWeek];
+  const w = weeks[selectedWeek];
 
-  const box=
-  document.getElementById(
-    "weekContent"
-  );
+  const box =
+  document.getElementById("weekContent");
 
 
-  box.innerHTML=`
+  box.innerHTML = `
 
   <div class="card">
 
@@ -3793,126 +4350,216 @@ function renderWeek(){
 
   ${w.days.map(
 
-    (d,idx)=>
+    (d,idx) => {
 
-    `
+      const hasSessions =
+        Array.isArray(d.sessions)
+        &&
+        d.sessions.length > 0;
 
-    <div
-    class="day
-    ${idx===0 ? "open" : ""}
-    ${longRunClass(d)}
-    "
-    >
+
+      const sessionCount =
+        hasSessions
+        ? d.sessions.length
+        : 1;
+
+
+      const summaryHTML =
+        hasSessions
+        ?
+        `
+
+        <div
+          style="
+            margin-top:12px;
+            display:flex;
+            flex-direction:column;
+            gap:5px;
+          "
+        >
+
+          ${(d.summary || []).map(
+            x => `
+
+            <div
+              class="muted"
+              style="
+                font-size:13px;
+                font-weight:700;
+              "
+            >
+              ${x}
+            </div>
+
+            `
+          ).join("")}
+
+        </div>
+
+        `
+        :
+        "";
+
+
+      const content =
+        hasSessions
+        ?
+        d.sessions
+          .map(
+            (s,i) => renderSession(s,i)
+          )
+          .join("")
+        :
+        renderLegacyDayContent(d);
+
+
+      return `
 
       <div
-      class="dayhead"
-      onclick="toggleDay(this.parentElement)"
+        class="
+          day
+          ${idx===0 ? "open" : ""}
+          ${longRunClass(d)}
+        "
       >
 
-        <div class="daytitle">
+        <div
+          class="dayhead"
+          onclick="toggleDay(this.parentElement)"
+        >
 
-          <div>
+          <div class="daytitle">
 
-            <div class="daymeta">
+            <div style="min-width:0">
 
-              <div class="eyebrow">
-                ${d.day}
+              <div class="daymeta">
+
+                <div class="eyebrow">
+                  ${d.day}
+                </div>
+
+                <span class="datepill">
+                  ${weekCalendarDates[selectedWeek][idx] || ""}
+                </span>
+
               </div>
 
-              <span class="datepill">
-                ${weekCalendarDates[selectedWeek][idx] || ""}
+
+              <h3>
+                ${d.title}
+              </h3>
+
+
+              ${
+                hasSessions
+                ?
+                `
+
+                <div
+                  style="
+                    margin-top:7px;
+                    display:flex;
+                    gap:6px;
+                    flex-wrap:wrap;
+                  "
+                >
+
+                  <span class="tag blue">
+                    ${sessionCount}
+                    ${sessionCount === 1 ? "SESSION" : "SESSIONS"}
+                  </span>
+
+                  ${
+                    d.sessions.some(
+                      s => s.type === "RUNNING"
+                    )
+                    ?
+                    `<span class="tag blue">RUN</span>`
+                    :
+                    ""
+                  }
+
+                  ${
+                    d.sessions.some(
+                      s =>
+                        s.type === "HYBRID"
+                        ||
+                        s.type === "WEIGHTLIFTING"
+                    )
+                    ?
+                    `<span class="tag yellow">HYBRID</span>`
+                    :
+                    ""
+                  }
+
+                </div>
+
+                `
+                :
+                ""
+              }
+
+
+              ${summaryHTML}
+
+            </div>
+
+
+            <div class="dayright">
+
+              <span class="timepill">
+                ${d.time}
+              </span>
+
+              <span class="chevron">
+                ⌄
               </span>
 
             </div>
 
-            <h3>
-              ${d.title}
-            </h3>
-
           </div>
 
 
-          <div class="dayright">
+          ${
+            !hasSessions
+            ?
+            `
 
-            <span class="timepill">
-              ${d.time}
-            </span>
-
-            <span class="chevron">
-              ⌄
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="intent">
-
-          <strong>
-            COACH INTENT
-          </strong>
-
-          <div
-          class="muted"
-          style="margin-top:5px"
-          >
-
-            ${d.intent}
-
-          </div>
-
-        </div>
-
-
-        ${longRunStatus(d)}
-
-      </div>
-
-
-      <div class="daybody">
-
-        <div class="daybodyInner">
-
-          <div class="daycontent">
-
-            ${d.sections.map(
-
-              s=>
-
-              `
-
-              <div class="section">
-
-                <div class="secname">
-                  ${s[0]}
-                </div>
-
-                <div class="work">
-                  ${s[1]}
-                </div>
-
-              </div>
-
-              `
-
-            ).join("")}
-
-
-            <div class="cut">
+            <div class="intent">
 
               <strong>
-                COACH ADJUSTMENT
+                COACH INTENT
               </strong>
 
-              <br>
-
-              ${d.cut}
+              <div
+                class="muted"
+                style="margin-top:5px"
+              >
+                ${d.intent || ""}
+              </div>
 
             </div>
 
+            `
+            :
+            ""
+          }
 
-            ${renderVideos(d.videos)}
+
+          ${longRunStatus(d)}
+
+        </div>
+
+
+        <div class="daybody">
+
+          <div class="daybodyInner">
+
+            <div class="daycontent">
+
+              ${content}
+
+            </div>
 
           </div>
 
@@ -3920,13 +4567,62 @@ function renderWeek(){
 
       </div>
 
-    </div>
+      `;
 
-    `
+    }
 
   ).join("")}
 
   `;
+
+
+  document
+    .querySelectorAll(".sessionCard")
+    .forEach(
+
+      card => {
+
+        const body =
+          card.querySelector(".sessionBody");
+
+        const chev =
+          card.querySelector(".sessionChevron");
+
+        const observer =
+          new MutationObserver(() => {
+
+            const open =
+              card.classList.contains("open");
+
+            body.style.gridTemplateRows =
+              open ? "1fr" : "0fr";
+
+            body.style.opacity =
+              open ? "1" : "0";
+
+            if(chev){
+
+              chev.style.transform =
+                open
+                ? "rotate(180deg)"
+                : "rotate(0deg)";
+
+            }
+
+          });
+
+
+        observer.observe(
+          card,
+          {
+            attributes:true,
+            attributeFilter:["class"]
+          }
+        );
+
+      }
+
+    );
 
 }
 
