@@ -3946,7 +3946,7 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY
 );
-function saveReport(){
+async function saveReport(){
 
   const data={
 
@@ -3998,6 +3998,22 @@ function saveReport(){
   );
 
 
+ const { error } = await supabaseClient
+  .from("training_reports")
+  .insert([{
+    date: data.date,
+    workout: data.workout,
+    completion: Number(data.completion),
+    rpe: Number(data.rpe),
+    fatigue: data.fatigue,
+    notes: data.notes
+  }]);
+
+if (error) {
+  console.error("Supabase save error:", error);
+  alert("Cloud save failed: " + error.message);
+  return;
+}
   arr.unshift(data);
 
 
