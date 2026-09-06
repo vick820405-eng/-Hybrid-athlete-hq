@@ -4036,7 +4036,7 @@ if (!user) {
     user_id: user.id,
     date: data.date,
     workout: data.workout,
-    completion: Number(data.completion),
+    completion: parseInt(data.completion, 10),
     rpe: Number(data.rpe),
     fatigue: data.fatigue,
     notes: data.notes
