@@ -3946,16 +3946,38 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY
 );
+  async function signIn() {
+  const email = prompt("請輸入登入 Email");
+  const password = prompt("請輸入密碼");
+
+  if (!email || !password) return;
+
+  const { error } = await supabaseClient.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    alert("登入失敗：" + error.message);
+    return;
+  }
+
+  alert("登入成功");
+}
   async function getCurrentUser() {
   const { data: { user } } = await supabaseClient.auth.getUser();
   return user;
 }
 async function saveReport(){
-const user = await getCurrentUser();
+let user = await getCurrentUser();
 
 if (!user) {
-  alert("Please sign in first");
-  return;
+  await signIn();
+  user = await getCurrentUser();
+
+  if (!user) {
+    return;
+  }
 }
   const data={
     user_id: user.id,
@@ -4011,6 +4033,7 @@ if (!user) {
  const { error } = await supabaseClient
   .from("training_reports")
   .insert([{
+    user_id: user.id,
     date: data.date,
     workout: data.workout,
     completion: Number(data.completion),
