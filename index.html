@@ -31,7 +31,9 @@ html,body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;
 }
 
-body{padding-bottom:95px}
+body{
+  padding-bottom:95px;
+}
 
 header{
   padding:52px 22px 24px;
@@ -45,10 +47,24 @@ header{
   letter-spacing:2.4px;
 }
 
-h1{font-size:30px;margin:10px 0 0}
-h2{font-size:23px;margin:28px 0 14px}
-h3{font-size:19px;margin:0 0 6px}
-p{line-height:1.6}
+h1{
+  font-size:30px;
+  margin:10px 0 0;
+}
+
+h2{
+  font-size:23px;
+  margin:28px 0 14px;
+}
+
+h3{
+  font-size:19px;
+  margin:0 0 6px;
+}
+
+p{
+  line-height:1.6;
+}
 
 .page{
   display:none;
@@ -57,7 +73,9 @@ p{line-height:1.6}
   margin:auto;
 }
 
-.page.active{display:block}
+.page.active{
+  display:block;
+}
 
 .card{
   background:var(--card);
@@ -67,7 +85,9 @@ p{line-height:1.6}
   margin-bottom:15px;
 }
 
-.hero{padding:26px}
+.hero{
+  padding:26px;
+}
 
 .big{
   font-size:34px;
@@ -142,12 +162,17 @@ p{line-height:1.6}
   margin:14px 0;
   overflow:hidden;
   background:var(--card);
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease,
+    opacity .25s ease;
 }
 
 .dayhead{
   padding:18px;
   cursor:pointer;
   -webkit-tap-highlight-color:transparent;
+  user-select:none;
 }
 
 .daytitle{
@@ -161,7 +186,7 @@ p{line-height:1.6}
   display:flex;
   align-items:center;
   gap:8px;
-  margin-bottom:5px;
+  margin-bottom:6px;
 }
 
 .datepill{
@@ -176,24 +201,73 @@ p{line-height:1.6}
   color:#fff;
 }
 
+.dayright{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.timepill{
+  background:#232930;
+  color:var(--muted);
+  border-radius:99px;
+  padding:6px 9px;
+  font-size:11px;
+  white-space:nowrap;
+}
+
+.chevron{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:#232930;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--green);
+  font-size:18px;
+  font-weight:900;
+  transition:transform .42s cubic-bezier(.22,.61,.36,1);
+}
+
+.day.open .chevron{
+  transform:rotate(180deg);
+}
+
+/* =========================================
+   SMOOTH OPEN / CLOSE
+========================================= */
+
 .daybody{
-  max-height:0;
+  display:grid;
+  grid-template-rows:0fr;
   opacity:0;
-  overflow:hidden;
-  padding:0 18px;
-  transform:translateY(-6px);
 
   transition:
-    max-height .42s cubic-bezier(.22,.61,.36,1),
-    opacity .25s ease,
-    transform .42s cubic-bezier(.22,.61,.36,1),
-    padding-bottom .42s cubic-bezier(.22,.61,.36,1);
+    grid-template-rows .46s cubic-bezier(.22,.61,.36,1),
+    opacity .28s ease;
+}
+
+.daybodyInner{
+  min-height:0;
+  overflow:hidden;
 }
 
 .day.open .daybody{
+  grid-template-rows:1fr;
   opacity:1;
+}
+
+.daycontent{
+  padding:0 18px 18px;
+  transform:translateY(-8px);
+
+  transition:
+    transform .46s cubic-bezier(.22,.61,.36,1);
+}
+
+.day.open .daycontent{
   transform:translateY(0);
-  padding-bottom:18px;
 }
 
 .section{
@@ -219,15 +293,8 @@ p{line-height:1.6}
   white-space:pre-line;
 }
 
-.work strong{color:#fff}
-
-.timepill{
-  background:#232930;
-  color:var(--muted);
-  border-radius:99px;
-  padding:6px 9px;
-  font-size:11px;
-  white-space:nowrap;
+.work strong{
+  color:#fff;
 }
 
 .cut{
@@ -294,7 +361,9 @@ p{line-height:1.6}
   box-shadow:0 0 0 1px var(--green);
 }
 
-.recoveryDay{opacity:.68}
+.recoveryDay{
+  opacity:.68;
+}
 
 label{
   display:block;
@@ -303,7 +372,9 @@ label{
   margin:14px 0 6px;
 }
 
-input,select,textarea{
+input,
+select,
+textarea{
   width:100%;
   padding:13px;
   border-radius:12px;
@@ -313,7 +384,9 @@ input,select,textarea{
   font-size:16px;
 }
 
-textarea{min-height:105px}
+textarea{
+  min-height:105px;
+}
 
 button.primary{
   width:100%;
@@ -354,270 +427,265 @@ nav button{
   padding:12px 3px;
 }
 
-nav button.active{color:var(--green)}
+nav button.active{
+  color:var(--green);
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="eyebrow">VIC'S TRAINING SYSTEM</div>
-<h1>HYBRID ATHLETE HQ</h1>
+  <div class="eyebrow">VIC'S TRAINING SYSTEM</div>
+  <h1>HYBRID ATHLETE HQ</h1>
 </header>
 
 <main>
 
 <section id="today" class="page active">
 
-<div class="card hero">
+  <div class="card hero">
+    <div class="eyebrow">NEXT RACE</div>
+    <div class="big">鋼鐵盃 ELITE</div>
+    <div class="muted">2026 / 10 / 17–18</div>
 
-<div class="eyebrow">NEXT RACE</div>
+    <div class="row" style="margin-top:20px">
 
-<div class="big">
-鋼鐵盃 ELITE
-</div>
+      <div class="mini">
+        <div class="muted">CURRENT PHASE</div>
+        <div class="stat">STEEL CUP</div>
+      </div>
 
-<div class="muted">
-2026 / 10 / 17–18
-</div>
+      <div class="mini">
+        <div class="muted">LONG TERM</div>
+        <div class="stat">SUB 3:30</div>
+      </div>
 
-<div class="row" style="margin-top:20px">
+    </div>
+  </div>
 
-<div class="mini">
-<div class="muted">CURRENT PHASE</div>
-<div class="stat">STEEL CUP</div>
-</div>
+  <h2>Weekly Structure</h2>
 
-<div class="mini">
-<div class="muted">LONG TERM</div>
-<div class="stat">SUB 3:30</div>
-</div>
+  <div class="card">
 
-</div>
-</div>
+    <span class="tag blue">RUN × 4</span>
+    <span class="tag yellow">STRENGTH × 3</span>
+    <span class="tag">STEEL CUP SPECIFIC</span>
+    <span class="tag">GYMNASTICS</span>
 
-<h2>Weekly Structure</h2>
+    <p>
+      <strong>MON</strong> RUN 1/4 · Easy Run<br>
+      <strong>TUE</strong> E2 · Clean Strength + Row<br>
+      <strong>WED AM</strong> RUN 2/4 · Quality Run<br>
+      <strong>WED PM</strong> E3 · Wall Walk + T2B + Upper<br>
+      <strong>THU</strong> E1 / E3 · Competition Specific<br>
+      <strong>FRI / SAT</strong> RUN 3/4 · Long Run 二選一<br>
+      <strong>SUN</strong> RUN 4/4 · After-Work Run
+    </p>
 
-<div class="card">
+    <div class="intent">
+      <strong>PROGRAMMING LOGIC</strong>
 
-<span class="tag blue">RUN × 4</span>
-<span class="tag yellow">STRENGTH × 3</span>
-<span class="tag">STEEL CUP SPECIFIC</span>
-<span class="tag">GYMNASTICS</span>
+      <p>
+        W1 Movement Base →
+        W2 Volume Build →
+        W3 Fatigue Transfer →
+        W4 Competition Specific →
+        W5 Peak Specificity →
+        W6 Taper + Race。
+      </p>
+    </div>
 
-<p>
-<strong>MON</strong> RUN 1/4 · Easy Run<br>
-<strong>TUE</strong> E2 · Clean Strength + Row<br>
-<strong>WED AM</strong> RUN 2/4 · Quality Run<br>
-<strong>WED PM</strong> E3 · Wall Walk + T2B + Upper<br>
-<strong>THU</strong> E1 / E3 · Competition Specific<br>
-<strong>FRI / SAT</strong> RUN 3/4 · Long Run 二選一<br>
-<strong>SUN</strong> RUN 4/4 · After-Work Run
-</p>
+  </div>
 
-<div class="intent">
+  <div class="card">
 
-<strong>PROGRAMMING LOGIC</strong>
+    <div class="eyebrow">
+      LONG RUN DAY
+    </div>
 
-<p>
-W1 Movement Base →
-W2 Volume Build →
-W3 Fatigue Transfer →
-W4 Competition Specific →
-W5 Peak Specificity →
-W6 Taper + Race。
-</p>
+    <h3 style="margin-top:8px">
+      這週長跑排哪一天？
+    </h3>
 
-</div>
-</div>
+    <select
+      id="longRunChoice"
+      class="longChoice"
+      onchange="setLongRunDay(this.value)"
+    >
 
-<div class="card">
+      <option value="FRI">
+        Friday｜週五
+      </option>
 
-<div class="eyebrow">
-LONG RUN DAY
-</div>
+      <option value="SAT">
+        Saturday｜週六
+      </option>
 
-<h3 style="margin-top:8px">
-這週長跑排哪一天？
-</h3>
+    </select>
 
-<select
-id="longRunChoice"
-class="longChoice"
-onchange="setLongRunDay(this.value)"
->
+    <div
+      id="longRunMessage"
+      class="notice">
+    </div>
 
-<option value="FRI">
-Friday｜週五
-</option>
-
-<option value="SAT">
-Saturday｜週六
-</option>
-
-</select>
-
-<div
-id="longRunMessage"
-class="notice">
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
 <section id="plan" class="page">
 
-<h2>
-Steel Cup Specific Block V2
-</h2>
+  <h2>
+    Steel Cup Specific Block V2
+  </h2>
 
-<p class="muted">
-4 Runs · 3 Strength Exposures · E1 / E2 / E3 Specificity
-</p>
+  <p class="muted">
+    4 Runs · 3 Strength Exposures · E1 / E2 / E3 Specificity
+  </p>
 
-<div
-class="weekbar"
-id="weekbar">
-</div>
+  <div
+    class="weekbar"
+    id="weekbar">
+  </div>
 
-<div id="weekContent"></div>
+  <div id="weekContent"></div>
 
 </section>
 
 
 <section id="profile" class="page">
 
-<h2>Athlete Profile</h2>
+  <h2>Athlete Profile</h2>
 
-<div class="card">
-<h3>Body</h3>
-<p>165 cm · 67 kg</p>
-</div>
+  <div class="card">
+    <h3>Body</h3>
+    <p>165 cm · 67 kg</p>
+  </div>
 
-<div class="card">
-<h3>Strength</h3>
+  <div class="card">
 
-<p class="muted">
-Back Squat 135 kg<br>
-Front Squat 100 kg<br>
-Deadlift 140 kg<br>
-Bench Press 85 kg<br>
-Strict Press 50 kg
-</p>
+    <h3>Strength</h3>
 
-</div>
+    <p class="muted">
+      Back Squat 135 kg<br>
+      Front Squat 100 kg<br>
+      Deadlift 140 kg<br>
+      Bench Press 85 kg<br>
+      Strict Press 50 kg
+    </p>
 
-<div class="card">
+  </div>
 
-<h3>Olympic Weightlifting</h3>
+  <div class="card">
 
-<p class="muted">
-Clean 95 kg<br>
-Clean & Jerk 85 kg<br>
-Snatch 60 kg
-</p>
+    <h3>Olympic Weightlifting</h3>
 
-</div>
+    <p class="muted">
+      Clean 95 kg<br>
+      Clean & Jerk 85 kg<br>
+      Snatch 60 kg
+    </p>
 
-<div class="card">
+  </div>
 
-<h3>Gymnastics</h3>
+  <div class="card">
 
-<p class="muted">
-Strict Pull-up 17<br>
-C2B 20<br>
-BMU 5<br>
-RMU 6<br>
-T2B 13–15<br>
-HSW 20m+
-</p>
+    <h3>Gymnastics</h3>
 
-</div>
+    <p class="muted">
+      Strict Pull-up 17<br>
+      C2B 20<br>
+      BMU 5<br>
+      RMU 6<br>
+      T2B 13–15<br>
+      HSW 20m+
+    </p>
 
-<div class="card">
+  </div>
 
-<h3>Running</h3>
+  <div class="card">
 
-<p class="muted">
-10K 49:00<br>
-Half Marathon 1:54<br>
-Z1 130–142 bpm<br>
-Z2 144–155 bpm<br>
-Marathon Goal Sub 3:30
-</p>
+    <h3>Running</h3>
 
-</div>
+    <p class="muted">
+      10K 49:00<br>
+      Half Marathon 1:54<br>
+      Z1 130–142 bpm<br>
+      Z2 144–155 bpm<br>
+      Marathon Goal Sub 3:30
+    </p>
+
+  </div>
 
 </section>
 
 
 <section id="report" class="page">
 
-<h2>Training Report</h2>
+  <h2>Training Report</h2>
 
-<div class="card">
+  <div class="card">
 
-<label>Date</label>
-<input type="date" id="rDate">
+    <label>Date</label>
+    <input type="date" id="rDate">
 
-<label>Workout / Session</label>
-<input
-id="rWorkout"
-placeholder="例：W2 Wednesday AM">
+    <label>Workout / Session</label>
+    <input
+      id="rWorkout"
+      placeholder="例：W2 Wednesday AM">
 
-<label>Completion</label>
+    <label>Completion</label>
 
-<select id="rComplete">
-<option>100%</option>
-<option>75–99%</option>
-<option>50–74%</option>
-<option>&lt;50%</option>
-<option>Rest / Skip</option>
-</select>
+    <select id="rComplete">
+      <option>100%</option>
+      <option>75–99%</option>
+      <option>50–74%</option>
+      <option>&lt;50%</option>
+      <option>Rest / Skip</option>
+    </select>
 
-<label>Session RPE</label>
+    <label>Session RPE</label>
 
-<select id="rRpe">
-<option>5</option>
-<option>6</option>
-<option selected>7</option>
-<option>8</option>
-<option>9</option>
-<option>10</option>
-</select>
+    <select id="rRpe">
+      <option>5</option>
+      <option>6</option>
+      <option selected>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+    </select>
 
-<label>Fatigue</label>
+    <label>Fatigue</label>
 
-<select id="rFatigue">
-<option>Low</option>
-<option selected>Normal</option>
-<option>High</option>
-<option>Very High</option>
-</select>
+    <select id="rFatigue">
+      <option>Low</option>
+      <option selected>Normal</option>
+      <option>High</option>
+      <option>Very High</option>
+    </select>
 
-<label>
-Pain / Feedback / Question
-</label>
+    <label>
+      Pain / Feedback / Question
+    </label>
 
-<textarea
-id="rNotes"
-placeholder="今天哪裡卡？哪一段太難？疼痛？Garmin 感受？">
-</textarea>
+    <textarea
+      id="rNotes"
+      placeholder="今天哪裡卡？哪一段太難？疼痛？Garmin 感受？">
+    </textarea>
 
-<button
-class="primary"
-onclick="saveReport()">
-SAVE REPORT
-</button>
+    <button
+      class="primary"
+      onclick="saveReport()">
+      SAVE REPORT
+    </button>
 
-</div>
+  </div>
 
-<div class="card">
-<h3>Recent Reports</h3>
-<div id="reports"></div>
-</div>
+  <div class="card">
+    <h3>Recent Reports</h3>
+    <div id="reports"></div>
+  </div>
 
 </section>
 
@@ -626,26 +694,26 @@ SAVE REPORT
 
 <nav>
 
-<button
-class="active"
-onclick="showPage('today',this)">
-TODAY
-</button>
+  <button
+    class="active"
+    onclick="showPage('today',this)">
+    TODAY
+  </button>
 
-<button
-onclick="showPage('plan',this)">
-PLAN
-</button>
+  <button
+    onclick="showPage('plan',this)">
+    PLAN
+  </button>
 
-<button
-onclick="showPage('profile',this)">
-PROFILE
-</button>
+  <button
+    onclick="showPage('profile',this)">
+    PROFILE
+  </button>
 
-<button
-onclick="showPage('report',this)">
-REPORT
-</button>
+  <button
+    onclick="showPage('report',this)">
+    REPORT
+  </button>
 
 </nav>
 
@@ -654,14 +722,14 @@ REPORT
 
 function ytLink(search){
 
-return "https://www.youtube.com/results?search_query="
-+ encodeURIComponent(search);
+  return "https://www.youtube.com/results?search_query="
+  + encodeURIComponent(search);
 
 }
 
 
 /* ========================================
-   STEEL CUP TRAINING BLOCK
+   TRAINING BLOCK
 ======================================== */
 
 const weeks=[
@@ -672,9 +740,7 @@ const weeks=[
 {
 
 name:"W1",
-
 dates:"SEP 7–13",
-
 focus:"Movement Base",
 
 days:[
@@ -683,9 +749,7 @@ days:[
 {
 
 day:"MON",
-
 title:"RUN 1/4 · Easy Aerobic",
-
 time:"45–60 min",
 
 intent:
@@ -768,9 +832,7 @@ cut:
 {
 
 day:"TUE",
-
 title:"E2 · Clean Strength + Row Power",
-
 time:"80–90 min",
 
 intent:
@@ -933,9 +995,7 @@ cut:
 {
 
 day:"WED",
-
 title:"RUN 2/4 + E3 Gymnastics",
-
 time:"AM 55–65 / PM 60–70",
 
 intent:
@@ -1070,9 +1130,7 @@ cut:
 {
 
 day:"THU",
-
 title:"E1 · DB Snatch + Shuttle + Pull-up",
-
 time:"75–85 min",
 
 intent:
@@ -1208,11 +1266,8 @@ cut:
 {
 
 day:"FRI",
-
 title:"RUN 3/4 · Long Run / Recovery",
-
 time:"65–80 min",
-
 longOption:"FRI",
 
 intent:
@@ -1268,11 +1323,8 @@ cut:
 {
 
 day:"SAT",
-
 title:"RUN 3/4 · Long Run / Recovery",
-
 time:"65–80 min",
-
 longOption:"SAT",
 
 intent:
@@ -1320,9 +1372,7 @@ cut:
 {
 
 day:"SUN",
-
 title:"RUN 4/4 · After-Work Run",
-
 time:"30–45 min",
 
 intent:
@@ -1396,9 +1446,7 @@ cut:
 {
 
 name:"W2",
-
 dates:"SEP 14–20",
-
 focus:"Specific Volume Build",
 
 days:[
@@ -1406,9 +1454,7 @@ days:[
 {
 
 day:"MON",
-
 title:"RUN 1/4 · Easy Aerobic",
-
 time:"45–55 min",
 
 intent:
@@ -1447,9 +1493,7 @@ cut:
 {
 
 day:"TUE",
-
 title:"E2 · Clean Volume + Row",
-
 time:"80–90 min",
 
 intent:
@@ -1545,9 +1589,7 @@ cut:
 {
 
 day:"WED",
-
 title:"RUN 2/4 + E3 Capacity",
-
 time:"AM 60 / PM 65–75",
 
 intent:
@@ -1632,9 +1674,7 @@ cut:
 {
 
 day:"THU",
-
 title:"E1 + Worm Introduction",
-
 time:"80–90 min",
 
 intent:
@@ -1735,11 +1775,8 @@ cut:
 {
 
 day:"FRI",
-
 title:"RUN 3/4 · Long Run / Recovery",
-
 time:"70–85 min",
-
 longOption:"FRI",
 
 intent:"Long Run 與 Recovery 二選一。",
@@ -1776,11 +1813,8 @@ cut:"只選一個版本。"
 {
 
 day:"SAT",
-
 title:"RUN 3/4 · Long Run / Recovery",
-
 time:"70–85 min",
-
 longOption:"SAT",
 
 intent:"Long Run 與 Recovery 二選一。",
@@ -1815,9 +1849,7 @@ cut:"只選一個版本。"
 {
 
 day:"SUN",
-
 title:"RUN 4/4 · After-Work Run",
-
 time:"35–50 min",
 
 intent:"依 Long Run 日期調整。",
@@ -1856,9 +1888,7 @@ cut:
 {
 
 name:"W3",
-
 dates:"SEP 21–27",
-
 focus:"Fatigue Transfer",
 
 days:[
@@ -1866,9 +1896,7 @@ days:[
 {
 
 day:"MON",
-
 title:"RUN 1/4 · Easy Run",
-
 time:"40–50 min",
 
 intent:"恢復並保留跑頻。",
@@ -1902,9 +1930,7 @@ cut:"腿重就取消 Strides。"
 {
 
 day:"TUE",
-
 title:"E2 · Row → Heavy Clean",
-
 time:"80–90 min",
 
 intent:
@@ -1991,9 +2017,7 @@ cut:
 {
 
 day:"WED",
-
 title:"RUN 2/4 + E3 Density",
-
 time:"AM 60 / PM 60–70",
 
 intent:
@@ -2081,9 +2105,7 @@ cut:
 {
 
 day:"THU",
-
 title:"E1 Broken + E3 Worm Density",
-
 time:"80–90 min",
 
 intent:
@@ -2166,11 +2188,8 @@ cut:
 {
 
 day:"FRI",
-
 title:"RUN 3/4 · Long Run / Recovery",
-
 time:"70–90 min",
-
 longOption:"FRI",
 
 intent:
@@ -2210,11 +2229,8 @@ cut:
 {
 
 day:"SAT",
-
 title:"RUN 3/4 · Long Run / Recovery",
-
 time:"70–90 min",
-
 longOption:"SAT",
 
 intent:"Long Run 與 Recovery 二選一。",
@@ -2245,9 +2261,7 @@ cut:"只選一個版本。"
 {
 
 day:"SUN",
-
 title:"RUN 4/4 · After-Work Run",
-
 time:"35–50 min",
 
 intent:"恢復優先。",
@@ -2283,9 +2297,7 @@ cut:"今天不做 Tempo。"
 {
 
 name:"W4",
-
 dates:"SEP 28–OCT 4",
-
 focus:"Competition Specific",
 
 days:[
@@ -2293,9 +2305,7 @@ days:[
 {
 
 day:"MON",
-
 title:"RUN 1/4 · Easy Run",
-
 time:"40–50 min",
 
 intent:"維持跑頻，不製造額外疲勞。",
@@ -2329,9 +2339,7 @@ cut:"疲勞高取消 Strides。"
 {
 
 day:"TUE",
-
 title:"E2 · 1000m Row + Heavy Clean",
-
 time:"75–85 min",
 
 intent:
@@ -2409,9 +2417,7 @@ cut:
 {
 
 day:"WED",
-
 title:"RUN 2/4 + E3 Competition Density",
-
 time:"AM 60–65 / PM 60–70",
 
 intent:
@@ -2485,9 +2491,7 @@ cut:
 {
 
 day:"THU",
-
 title:"E1 Competition Simulation",
-
 time:"70–85 min",
 
 intent:
@@ -2575,11 +2579,8 @@ cut:
 {
 
 day:"FRI",
-
 title:"RUN 3/4 · Long Run / Recovery",
-
 time:"60–75 min",
-
 longOption:"FRI",
 
 intent:
@@ -2613,11 +2614,8 @@ cut:"不補跑量。"
 {
 
 day:"SAT",
-
 title:"RUN 3/4 · Long Run / Recovery",
-
 time:"60–75 min",
-
 longOption:"SAT",
 
 intent:
@@ -2649,9 +2647,7 @@ cut:"不補跑量。"
 {
 
 day:"SUN",
-
 title:"RUN 4/4 · Recovery / Normal Run",
-
 time:"30–45 min",
 
 intent:"恢復性跑步。",
@@ -2687,9 +2683,7 @@ cut:"今天不要 Steady Finish。"
 {
 
 name:"W5",
-
 dates:"OCT 5–11",
-
 focus:"Peak Specificity",
 
 days:[
@@ -2697,9 +2691,7 @@ days:[
 {
 
 day:"MON",
-
 title:"RUN 1/4 · Easy Run",
-
 time:"35–45 min",
 
 intent:"維持跑感，進入 Peak Week。",
@@ -2726,9 +2718,7 @@ cut:"30 min 也可以。"
 {
 
 day:"TUE",
-
 title:"E2 Peak · Row + Max Clean Strategy",
-
 time:"70–80 min",
 
 intent:
@@ -2807,9 +2797,7 @@ cut:
 {
 
 day:"WED",
-
 title:"RUN 2/4 + E3 Sharpness",
-
 time:"AM 50–55 / PM 50–60",
 
 intent:
@@ -2889,9 +2877,7 @@ cut:
 {
 
 day:"THU",
-
 title:"E3 Peak Simulation",
-
 time:"65–80 min",
 
 intent:
@@ -2974,11 +2960,8 @@ cut:
 {
 
 day:"FRI",
-
 title:"RUN 3/4 · Long Run / Recovery",
-
 time:"50–65 min",
-
 longOption:"FRI",
 
 intent:"開始 Taper 跑量。",
@@ -3009,11 +2992,8 @@ cut:"不要補跑量。"
 {
 
 day:"SAT",
-
 title:"RUN 3/4 · Long Run / Recovery",
-
 time:"50–65 min",
-
 longOption:"SAT",
 
 intent:"開始 Taper 跑量。",
@@ -3044,9 +3024,7 @@ cut:"不要補跑量。"
 {
 
 day:"SUN",
-
 title:"RUN 4/4 · Easy Run",
-
 time:"30–40 min",
 
 intent:"保持跑感。",
@@ -3089,9 +3067,7 @@ cut:"疲勞就取消 Strides。"
 {
 
 name:"W6",
-
 dates:"OCT 12–18",
-
 focus:"Taper + Race",
 
 days:[
@@ -3099,9 +3075,7 @@ days:[
 {
 
 day:"MON",
-
 title:"RUN 1/4 · Easy Run",
-
 time:"30–35 min",
 
 intent:"保持跑感，不累積疲勞。",
@@ -3138,9 +3112,7 @@ cut:"全程應該覺得輕鬆。"
 {
 
 day:"TUE",
-
 title:"E2 Primer · Clean + Row",
-
 time:"45–55 min",
 
 intent:
@@ -3199,9 +3171,7 @@ cut:"本堂已是 Taper，不加量。"
 {
 
 day:"WED",
-
 title:"RUN 2/4 + Gymnastics Primer",
-
 time:"AM 35–40 / PM 30–35",
 
 intent:
@@ -3259,9 +3229,7 @@ cut:"不加量。"
 {
 
 day:"THU",
-
 title:"E1 / E3 Activation Only",
-
 time:"30–40 min",
 
 intent:
@@ -3321,9 +3289,7 @@ cut:
 {
 
 day:"FRI",
-
 title:"Pre-Race Recovery",
-
 time:"20–30 min",
 
 intent:"完全以恢復為主。",
@@ -3367,9 +3333,7 @@ cut:"不要額外訓練。"
 {
 
 day:"SAT–SUN",
-
 title:"STEEL CUP ELITE · RACE",
-
 time:"RACE",
 
 intent:
@@ -3525,71 +3489,71 @@ localStorage.getItem("longRunDay")
 
 function setLongRunDay(day){
 
-longRunDay=day;
+  longRunDay=day;
 
-localStorage.setItem(
-"longRunDay",
-day
-);
+  localStorage.setItem(
+    "longRunDay",
+    day
+  );
 
-updateLongRunMessage();
+  updateLongRunMessage();
 
-renderWeek();
+  renderWeek();
 
 }
 
 
 function updateLongRunMessage(){
 
-const select=
-document.getElementById(
-"longRunChoice"
-);
+  const select=
+  document.getElementById(
+    "longRunChoice"
+  );
 
-if(select){
+  if(select){
 
-select.value=
-longRunDay;
+    select.value=
+    longRunDay;
 
-}
+  }
 
-const msg=
-document.getElementById(
-"longRunMessage"
-);
+  const msg=
+  document.getElementById(
+    "longRunMessage"
+  );
 
-if(!msg)return;
+  if(!msg)return;
 
 
-if(longRunDay==="FRI"){
+  if(longRunDay==="FRI"){
 
-msg.innerHTML=
+    msg.innerHTML=
 
-`<strong class="green">
-FRIDAY LONG RUN
-</strong>
+    `<strong class="green">
+    FRIDAY LONG RUN
+    </strong>
 
-<br><br>
+    <br><br>
 
-週五完成 RUN 3/4 Long Run。<br>
-週六 Recovery / Rest。<br>
-週日完成 RUN 4/4 Normal Run。`;
+    週五完成 RUN 3/4 Long Run。<br>
+    週六 Recovery / Rest。<br>
+    週日完成 RUN 4/4 Normal Run。`;
 
-}else{
+  }else{
 
-msg.innerHTML=
+    msg.innerHTML=
 
-`<strong class="green">
-SATURDAY LONG RUN
-</strong>
+    `<strong class="green">
+    SATURDAY LONG RUN
+    </strong>
 
-<br><br>
+    <br><br>
 
-週五 Recovery。<br>
-週六完成 RUN 3/4 Long Run。<br>
-週日 RUN 4/4 改 Recovery / Easy。`;
+    週五 Recovery。<br>
+    週六完成 RUN 3/4 Long Run。<br>
+    週日 RUN 4/4 改 Recovery / Easy。`;
 
-}
+  }
 
 }
 
@@ -3600,28 +3564,28 @@ SATURDAY LONG RUN
 
 function showPage(id,btn){
 
-document
-.querySelectorAll(".page")
-.forEach(
-x=>x.classList.remove("active")
-);
+  document
+  .querySelectorAll(".page")
+  .forEach(
+    x=>x.classList.remove("active")
+  );
 
-document
-.getElementById(id)
-.classList.add("active");
+  document
+  .getElementById(id)
+  .classList.add("active");
 
-document
-.querySelectorAll("nav button")
-.forEach(
-x=>x.classList.remove("active")
-);
+  document
+  .querySelectorAll("nav button")
+  .forEach(
+    x=>x.classList.remove("active")
+  );
 
-btn.classList.add("active");
+  btn.classList.add("active");
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
 }
 
@@ -3635,44 +3599,44 @@ let selectedWeek=0;
 
 function renderWeekBar(){
 
-const bar=
-document.getElementById(
-"weekbar"
-);
+  const bar=
+  document.getElementById(
+    "weekbar"
+  );
 
-bar.innerHTML=
+  bar.innerHTML=
 
-weeks.map(
+  weeks.map(
 
-(w,i)=>
+    (w,i)=>
 
-`<button
+    `<button
 
-class="weekbtn
-${i===selectedWeek
-? "active"
-: ""}"
+    class="weekbtn
+    ${i===selectedWeek
+    ? "active"
+    : ""}"
 
-onclick="selectWeek(${i})"
+    onclick="selectWeek(${i})"
 
->
+    >
 
-${w.name}
+    ${w.name}
 
-</button>`
+    </button>`
 
-).join("");
+  ).join("");
 
 }
 
 
 function selectWeek(i){
 
-selectedWeek=i;
+  selectedWeek=i;
 
-renderWeekBar();
+  renderWeekBar();
 
-renderWeek();
+  renderWeek();
 
 }
 
@@ -3683,46 +3647,46 @@ renderWeek();
 
 function renderVideos(videos){
 
-if(
-!videos
-||
-!videos.length
-){
+  if(
+    !videos
+    ||
+    !videos.length
+  ){
 
-return "";
+    return "";
 
-}
+  }
 
-return `
+  return `
 
-<div class="videos">
+  <div class="videos">
 
-<div class="secname">
-MOVEMENT VIDEOS
-</div>
+    <div class="secname">
+      MOVEMENT VIDEOS
+    </div>
 
-<div class="videoGrid">
+    <div class="videoGrid">
 
-${videos.map(
+    ${videos.map(
 
-v=>
+      v=>
 
-`<a
-class="videoBtn"
-href="${ytLink(v[1])}"
-target="_blank"
-rel="noopener"
->
+      `<a
+      class="videoBtn"
+      href="${ytLink(v[1])}"
+      target="_blank"
+      rel="noopener"
+      >
 
-${v[0]}
+      ${v[0]}
 
-</a>`
+      </a>`
 
-).join("")}
+    ).join("")}
 
-</div>
+    </div>
 
-</div>`;
+  </div>`;
 
 }
 
@@ -3733,60 +3697,60 @@ ${v[0]}
 
 function longRunClass(day){
 
-if(!day.longOption){
+  if(!day.longOption){
 
-return "";
+    return "";
 
-}
+  }
 
-return day.longOption===longRunDay
+  return day.longOption===longRunDay
 
-? "selectedLong"
+  ? "selectedLong"
 
-: "recoveryDay";
+  : "recoveryDay";
 
 }
 
 
 function longRunStatus(day){
 
-if(!day.longOption){
+  if(!day.longOption){
 
-return "";
+    return "";
 
-}
+  }
 
-if(
-day.longOption===longRunDay
-){
+  if(
+    day.longOption===longRunDay
+  ){
 
-return `
+    return `
 
-<div class="notice">
+    <div class="notice">
 
-<strong class="green">
+      <strong class="green">
 
-THIS WEEK:
-RUN 3/4 · LONG RUN DAY
+        THIS WEEK:
+        RUN 3/4 · LONG RUN DAY
 
-</strong>
+      </strong>
 
-</div>`;
+    </div>`;
 
-}
+  }
 
-return `
+  return `
 
-<div class="notice">
+  <div class="notice">
 
-<strong class="muted">
+    <strong class="muted">
 
-THIS WEEK:
-RECOVERY DAY
+      THIS WEEK:
+      RECOVERY DAY
 
-</strong>
+    </strong>
 
-</div>`;
+  </div>`;
 
 }
 
@@ -3797,64 +3761,7 @@ RECOVERY DAY
 
 function toggleDay(dayEl){
 
-const body=
-dayEl.querySelector(
-".daybody"
-);
-
-const isOpen=
-dayEl.classList.contains(
-"open"
-);
-
-
-if(isOpen){
-
-body.style.maxHeight=
-body.scrollHeight+"px";
-
-requestAnimationFrame(()=>{
-
-body.style.maxHeight="0px";
-
-dayEl.classList.remove(
-"open"
-);
-
-});
-
-}else{
-
-dayEl.classList.add(
-"open"
-);
-
-body.style.maxHeight="0px";
-
-requestAnimationFrame(()=>{
-
-body.style.maxHeight=
-body.scrollHeight+"px";
-
-});
-
-}
-
-}
-
-
-function syncOpenHeights(){
-
-document
-.querySelectorAll(
-".day.open .daybody"
-)
-.forEach(body=>{
-
-body.style.maxHeight=
-body.scrollHeight+"px";
-
-});
+  dayEl.classList.toggle("open");
 
 }
 
@@ -3865,157 +3772,166 @@ body.scrollHeight+"px";
 
 function renderWeek(){
 
-const w=
-weeks[selectedWeek];
+  const w=
+  weeks[selectedWeek];
 
-const box=
-document.getElementById(
-"weekContent"
-);
-
-
-box.innerHTML=`
-
-<div class="card">
-
-<div class="eyebrow">
-${w.name} · ${w.dates}
-</div>
-
-<h3 style="margin-top:8px">
-${w.focus}
-</h3>
-
-</div>
+  const box=
+  document.getElementById(
+    "weekContent"
+  );
 
 
-${w.days.map(
+  box.innerHTML=`
 
-(d,idx)=>
+  <div class="card">
 
-`
+    <div class="eyebrow">
+      ${w.name} · ${w.dates}
+    </div>
 
-<div
-class="day
-${idx===0 ? "open" : ""}
-${longRunClass(d)}
-"
->
+    <h3 style="margin-top:8px">
+      ${w.focus}
+    </h3>
 
-<div
-class="dayhead"
-onclick="toggleDay(this.parentElement)"
->
-
-<div class="daytitle">
-
-<div>
-
-<div class="daymeta">
-
-<div class="eyebrow">
-${d.day}
-</div>
-
-<span class="datepill">
-
-${weekCalendarDates[selectedWeek][idx] || ""}
-
-</span>
-
-</div>
-
-<h3>
-${d.title}
-</h3>
-
-</div>
+  </div>
 
 
-<span class="timepill">
-${d.time}
-</span>
+  ${w.days.map(
 
-</div>
+    (d,idx)=>
 
+    `
 
-<div class="intent">
+    <div
+    class="day
+    ${idx===0 ? "open" : ""}
+    ${longRunClass(d)}
+    "
+    >
 
-<strong>
-COACH INTENT
-</strong>
+      <div
+      class="dayhead"
+      onclick="toggleDay(this.parentElement)"
+      >
 
-<div
-class="muted"
-style="margin-top:5px"
->
+        <div class="daytitle">
 
-${d.intent}
+          <div>
 
-</div>
+            <div class="daymeta">
 
-</div>
+              <div class="eyebrow">
+                ${d.day}
+              </div>
 
+              <span class="datepill">
+                ${weekCalendarDates[selectedWeek][idx] || ""}
+              </span>
 
-${longRunStatus(d)}
+            </div>
 
-</div>
+            <h3>
+              ${d.title}
+            </h3>
 
-
-<div class="daybody">
-
-${d.sections.map(
-
-s=>
-
-`
-
-<div class="section">
-
-<div class="secname">
-${s[0]}
-</div>
-
-<div class="work">
-${s[1]}
-</div>
-
-</div>
-
-`
-
-).join("")}
+          </div>
 
 
-<div class="cut">
+          <div class="dayright">
 
-<strong>
-COACH ADJUSTMENT
-</strong>
+            <span class="timepill">
+              ${d.time}
+            </span>
 
-<br>
+            <span class="chevron">
+              ⌄
+            </span>
 
-${d.cut}
+          </div>
 
-</div>
-
-
-${renderVideos(d.videos)}
-
-</div>
-
-</div>
-
-`
-
-).join("")}
-
-`;
+        </div>
 
 
-requestAnimationFrame(
-syncOpenHeights
-);
+        <div class="intent">
+
+          <strong>
+            COACH INTENT
+          </strong>
+
+          <div
+          class="muted"
+          style="margin-top:5px"
+          >
+
+            ${d.intent}
+
+          </div>
+
+        </div>
+
+
+        ${longRunStatus(d)}
+
+      </div>
+
+
+      <div class="daybody">
+
+        <div class="daybodyInner">
+
+          <div class="daycontent">
+
+            ${d.sections.map(
+
+              s=>
+
+              `
+
+              <div class="section">
+
+                <div class="secname">
+                  ${s[0]}
+                </div>
+
+                <div class="work">
+                  ${s[1]}
+                </div>
+
+              </div>
+
+              `
+
+            ).join("")}
+
+
+            <div class="cut">
+
+              <strong>
+                COACH ADJUSTMENT
+              </strong>
+
+              <br>
+
+              ${d.cut}
+
+            </div>
+
+
+            ${renderVideos(d.videos)}
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    `
+
+  ).join("")}
+
+  `;
 
 }
 
@@ -4026,174 +3942,174 @@ syncOpenHeights
 
 function saveReport(){
 
-const data={
+  const data={
 
-date:
-document
-.getElementById("rDate")
-.value,
+    date:
+    document
+    .getElementById("rDate")
+    .value,
 
-workout:
-document
-.getElementById("rWorkout")
-.value,
+    workout:
+    document
+    .getElementById("rWorkout")
+    .value,
 
-completion:
-document
-.getElementById("rComplete")
-.value,
+    completion:
+    document
+    .getElementById("rComplete")
+    .value,
 
-rpe:
-document
-.getElementById("rRpe")
-.value,
+    rpe:
+    document
+    .getElementById("rRpe")
+    .value,
 
-fatigue:
-document
-.getElementById("rFatigue")
-.value,
+    fatigue:
+    document
+    .getElementById("rFatigue")
+    .value,
 
-notes:
-document
-.getElementById("rNotes")
-.value,
+    notes:
+    document
+    .getElementById("rNotes")
+    .value,
 
-savedAt:
-new Date().toISOString()
+    savedAt:
+    new Date().toISOString()
 
-};
-
-
-const arr=
-JSON.parse(
-
-localStorage.getItem(
-"hybridReports"
-)
-
-|| "[]"
-
-);
+  };
 
 
-arr.unshift(data);
+  const arr=
+  JSON.parse(
+
+    localStorage.getItem(
+      "hybridReports"
+    )
+
+    || "[]"
+
+  );
 
 
-localStorage.setItem(
-
-"hybridReports",
-
-JSON.stringify(
-arr.slice(0,30)
-)
-
-);
+  arr.unshift(data);
 
 
-document
-.getElementById("rNotes")
-.value="";
+  localStorage.setItem(
+
+    "hybridReports",
+
+    JSON.stringify(
+      arr.slice(0,30)
+    )
+
+  );
 
 
-renderReports();
+  document
+  .getElementById("rNotes")
+  .value="";
 
 
-alert(
-"Report saved"
-);
+  renderReports();
+
+
+  alert(
+    "Report saved"
+  );
 
 }
 
 
 function renderReports(){
 
-const arr=
-JSON.parse(
+  const arr=
+  JSON.parse(
 
-localStorage.getItem(
-"hybridReports"
-)
+    localStorage.getItem(
+      "hybridReports"
+    )
 
-|| "[]"
+    || "[]"
 
-);
-
-
-const box=
-document.getElementById(
-"reports"
-);
+  );
 
 
-if(!arr.length){
-
-box.innerHTML=
-
-`<p class="muted">
-尚無回報資料
-</p>`;
-
-return;
-
-}
+  const box=
+  document.getElementById(
+    "reports"
+  );
 
 
-box.innerHTML=
+  if(!arr.length){
 
-arr.map(
+    box.innerHTML=
 
-r=>
+    `<p class="muted">
+      尚無回報資料
+    </p>`;
 
-`
+    return;
 
-<div class="reportItem">
-
-<strong>
-
-${r.date || "No date"}
-
-·
-
-${r.workout || "Session"}
-
-</strong>
+  }
 
 
-<div class="muted">
+  box.innerHTML=
 
-Completion
-${r.completion}
+  arr.map(
 
-· RPE
-${r.rpe}
+    r=>
 
-· Fatigue
-${r.fatigue}
+    `
 
-</div>
+    <div class="reportItem">
+
+      <strong>
+
+        ${r.date || "No date"}
+
+        ·
+
+        ${r.workout || "Session"}
+
+      </strong>
 
 
-${
+      <div class="muted">
 
-r.notes
+        Completion
+        ${r.completion}
 
-?
+        · RPE
+        ${r.rpe}
 
-`<p>
-${r.notes}
-</p>`
+        · Fatigue
+        ${r.fatigue}
 
-:
+      </div>
 
-""
 
-}
+      ${
 
-</div>
+        r.notes
 
-`
+        ?
 
-).join("");
+        `<p>
+          ${r.notes}
+        </p>`
+
+        :
+
+        ""
+
+      }
+
+    </div>
+
+    `
+
+  ).join("");
 
 }
 
@@ -4218,18 +4134,6 @@ renderWeek();
 renderReports();
 
 updateLongRunMessage();
-
-
-window.addEventListener(
-"resize",
-()=>{
-
-requestAnimationFrame(
-syncOpenHeights
-);
-
-}
-);
 
 </script>
 
