@@ -3946,9 +3946,19 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY
 );
+  async function getCurrentUser() {
+  const { data: { user } } = await supabaseClient.auth.getUser();
+  return user;
+}
 async function saveReport(){
+const user = await getCurrentUser();
 
+if (!user) {
+  alert("Please sign in first");
+  return;
+}
   const data={
+    user_id: user.id,
 
     date:
     document
