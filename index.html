@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
 <title>Hybrid Athlete HQ</title>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 *{box-sizing:border-box}
 
@@ -3939,7 +3939,13 @@ function renderWeek(){
 /* ========================================
    REPORT
 ======================================== */
+const SUPABASE_URL = "https://xbppdtursoijugvondpf.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_w9mNq-FaP2A3SPhBCyaSUA_3zbU4kIe";
 
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
 function saveReport(){
 
   const data={
