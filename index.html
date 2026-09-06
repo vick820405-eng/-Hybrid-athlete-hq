@@ -4760,12 +4760,131 @@ if (error) {
   renderReports();
 
 
-  alert(
-    "Report saved"
-  );
+ const readiness = calculateReadiness(data);
+
+const readinessIcon =
+  readiness.status === "GREEN"
+    ? "🟢"
+    : readiness.status === "YELLOW"
+    ? "🟡"
+    : "🔴";
+
+alert(
+  "Report saved\n\n" +
+  readinessIcon + " READINESS · " +
+  readiness.status +
+  "\n\nScore: " +
+  readiness.score +
+  " / 100\n\nCOACH DECISION\n" +
+  readiness.decision
+);
 
 }
+/* ========================================
+   READINESS ENGINE V1
+======================================== */
 
+function calculateReadiness(report){
+
+  const completion = Number(report.completion || 0);
+  const rpe = Number(report.rpe || 0);
+  const fatigue = String(report.fatigue || "").toLowerCase();
+
+  let score = 100;
+  let reasons = [];
+
+  /* COMPLETION */
+
+  if(completion < 70){
+    score -= 30;
+    reasons.push("Workout completion below 70%");
+  }
+  else if(completion < 90){
+    score -= 15;
+    reasons.push("Workout completion below target");
+  }
+
+
+  /* RPE */
+
+  if(rpe >= 9.5){
+    score -= 30;
+    reasons.push("Very high session RPE");
+  }
+  else if(rpe >= 9){
+    score -= 20;
+    reasons.push("High session RPE");
+  }
+  else if(rpe >= 8.5){
+    score -= 10;
+    reasons.push("Moderately high session RPE");
+  }
+
+
+  /* SUBJECTIVE FATIGUE */
+
+  if(
+    fatigue.includes("high") ||
+    fatigue.includes("高") ||
+    fatigue.includes("very tired")
+  ){
+    score -= 25;
+    reasons.push("High subjective fatigue");
+  }
+
+  else if(
+    fatigue.includes("medium") ||
+    fatigue.includes("moderate") ||
+    fatigue.includes("中")
+  ){
+    score -= 10;
+    reasons.push("Moderate subjective fatigue");
+  }
+
+
+  score = Math.max(0,Math.min(100,score));
+
+
+  let status;
+  let decision;
+
+
+  if(score >= 80){
+
+    status = "GREEN";
+
+    decision =
+      "維持原訓練計畫。若下一次訓練表現持續良好，再依週期正常 Progression。";
+
+  }
+
+  else if(score >= 55){
+
+    status = "YELLOW";
+
+    decision =
+      "恢復狀況需要注意。下一堂訓練優先保留主要訓練目的，總 Volume 可降低約 10–20%，避免額外疲勞。";
+
+  }
+
+  else{
+
+    status = "RED";
+
+    decision =
+      "恢復狀況不佳。下一堂不建議硬做原定高強度課表，優先 Recovery / Easy Aerobic / Skill，並重新評估後續課表。";
+
+  }
+
+
+  return {
+    score,
+    status,
+    reasons,
+    decision
+  };
+
+}
 
 function renderReports(){
 
