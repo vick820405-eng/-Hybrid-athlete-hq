@@ -4762,7 +4762,7 @@ if (error) {
 
  const readiness = calculateReadiness(data);
 const nextSession = getNextSession();
-
+const adaptiveSession = adaptNextSession(readiness, nextSession);
 const readinessIcon =
   readiness.status === "GREEN"
     ? "🟢"
@@ -4787,9 +4787,16 @@ alert(
       nextSession.session.time
     : "\n\nNEXT SESSION\nNot found"
   ) +
+"\n\nCOACH DECISION\n" +
+readiness.decision +
 
-  "\n\nCOACH DECISION\n" +
-  readiness.decision
+(adaptiveSession
+  ? "\n\nADAPTIVE PLAN · " +
+    adaptiveSession.level +
+    "\n" +
+    adaptiveSession.adjustment
+  : ""
+)
 );
 
 }
@@ -4964,6 +4971,119 @@ function getNextSession(){
 
   return null;
 }
+/* ========================================
+   ADAPTIVE SESSION ENGINE V1
+======================================== */
+
+function adaptNextSession(readiness, nextSession){
+
+  if(!readiness || !nextSession || !nextSession.session){
+    return null;
+  }
+
+  const session = nextSession.session;
+  const type = String(session.type || "").toUpperCase();
+  const title = String(session.title || "");
+  const titleLower = title.toLowerCase();
+
+  /* GREEN — keep original plan */
+
+  if(readiness.status === "GREEN"){
+    return {
+      level: "KEEP",
+      title: session.title,
+      adjustment: "維持原課表與原定訓練量。"
+    };
+  }
+
+  /* RUNNING */
+
+  if(type === "RUNNING"){
+
+    const isQualityRun =
+      titleLower.includes("threshold") ||
+      titleLower.includes("interval") ||
+      titleLower.includes("tempo") ||
+      titleLower.includes("vo2");
+
+    /* YELLOW + quality running */
+
+    if(readiness.status === "YELLOW" && isQualityRun){
+
+      return {
+        level: "REDUCE",
+        title: session.title,
+        adjustment:
+          "保留主要跑步刺激，但降低約 20% Volume。若原課表為 5 × 1 km，調整為 4 × 1 km；配速與 Recovery 維持原設定。"
+      };
+
+    }
+
+    /* RED + quality running */
+
+    if(readiness.status === "RED" && isQualityRun){
+
+      return {
+        level: "REPLACE",
+        title: session.title,
+        adjustment:
+          "取消原定高強度跑步。改為低負荷恢復訓練；可由 Recovery Run、低強度 Bike / Row、或 Rest + Mobility 中依疲勞來源選擇。"
+      };
+
+    }
+
+    /* YELLOW + easy running */
+
+    if(readiness.status === "YELLOW"){
+
+      return {
+        level: "REDUCE",
+        title: session.title,
+        adjustment:
+          "保留 Easy Aerobic，但總時間降低約 10–20%，維持低 RPE。"
+      };
+
+    }
+
+    /* RED + easy running */
+
+    if(readiness.status === "RED"){
+
+      return {
+        level: "REPLACE",
+        title: session.title,
+        adjustment:
+          "取消原定跑量，改為 Recovery / Low-impact Aerobic / Rest，依疲勞來源決定。"
+      };
+
+    }
+
+  }
+
+  /* HYBRID placeholder — V2 */
+
+  if(type === "HYBRID"){
+
+    return {
+      level:
+        readiness.status === "YELLOW"
+          ? "REDUCE"
+          : "REPLACE",
+      title: session.title,
+      adjustment:
+        "HYBRID 自動調整邏輯將於下一階段加入，目前先保留 Coach Review。"
+    };
+
+  }
+
+  return {
+    level: "REVIEW",
+    title: session.title,
+    adjustment: "需要 Coach Review。"
+  };
+
+}
+  
 function renderReports(){
 
   const arr=
