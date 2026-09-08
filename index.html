@@ -4761,6 +4761,7 @@ if (error) {
 
 
  const readiness = calculateReadiness(data);
+const nextSession = getNextSession();
 
 const readinessIcon =
   readiness.status === "GREEN"
@@ -4775,7 +4776,19 @@ alert(
   readiness.status +
   "\n\nScore: " +
   readiness.score +
-  " / 100\n\nCOACH DECISION\n" +
+  " / 100" +
+
+  (nextSession
+    ? "\n\nNEXT SESSION\n" +
+      nextSession.day + " · " +
+      nextSession.session.type + "\n" +
+      nextSession.session.title +
+      "\n" +
+      nextSession.session.time
+    : "\n\nNEXT SESSION\nNot found"
+  ) +
+
+  "\n\nCOACH DECISION\n" +
   readiness.decision
 );
 
@@ -4885,7 +4898,72 @@ function calculateReadiness(report){
   };
 
 }
+/* ========================================
+   NEXT SESSION ENGINE V1
+======================================== */
 
+function getNextSession(){
+
+  const now = new Date();
+
+  const dayMap = {
+    0:"SUN",
+    1:"MON",
+    2:"TUE",
+    3:"WED",
+    4:"THU",
+    5:"FRI",
+    6:"SAT"
+  };
+
+  const today = dayMap[now.getDay()];
+
+  const currentWeek = weeks[0];
+
+  if(!currentWeek || !currentWeek.days){
+    return null;
+  }
+
+  const todayIndex =
+    currentWeek.days.findIndex(d => d.day === today);
+
+  if(todayIndex === -1){
+    return null;
+  }
+
+  const todayData = currentWeek.days[todayIndex];
+
+  /* If today has sessions, use the next session */
+  if(todayData.sessions && todayData.sessions.length){
+
+    return {
+      day: todayData.day,
+      session: todayData.sessions[0],
+      source: "TODAY"
+    };
+
+  }
+
+  /* Otherwise find the next day with a session */
+
+  for(let i = todayIndex + 1; i < currentWeek.days.length; i++){
+
+    const nextDay = currentWeek.days[i];
+
+    if(nextDay.sessions && nextDay.sessions.length){
+
+      return {
+        day: nextDay.day,
+        session: nextDay.sessions[0],
+        source: "NEXT_DAY"
+      };
+
+    }
+
+  }
+
+  return null;
+}
 function renderReports(){
 
   const arr=
