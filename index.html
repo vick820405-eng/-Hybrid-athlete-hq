@@ -5006,7 +5006,39 @@ function adaptNextSession(readiness, nextSession){
       titleLower.includes("interval") ||
       titleLower.includes("tempo") ||
       titleLower.includes("vo2");
+    const isLongRun =
+  titleLower.includes("long run") ||
+  titleLower.includes("long");
 
+const isEasyRun =
+  titleLower.includes("easy") ||
+  titleLower.includes("recovery");
+/* YELLOW + long run */
+
+if(readiness.status === "YELLOW" && isLongRun){
+
+  return {
+    level: "REDUCE",
+    title: session.title,
+    adjustment:
+      "保留 Long Run 的有氧刺激，但總時間 / 距離降低約 15–25%。強度維持原 Zone，不加入額外 Tempo 或 Fast Finish。"
+  };
+
+}
+
+/* RED + long run */
+
+if(readiness.status === "RED" && isLongRun){
+
+  return {
+    level: "REPLACE",
+    title: session.title,
+    adjustment:
+      "取消原定 Long Run。改為低負荷有氧或恢復方案；可從短 Recovery Run、低強度 Bike、分段 Aerobic 或 Rest 中依疲勞來源選擇。"
+  };
+
+}
+    
     /* YELLOW + quality running */
 
     if(readiness.status === "YELLOW" && isQualityRun){
@@ -5035,7 +5067,7 @@ function adaptNextSession(readiness, nextSession){
 
     /* YELLOW + easy running */
 
-    if(readiness.status === "YELLOW"){
+    if(readiness.status === "YELLOW" && isEasyRun){
 
       return {
         level: "REDUCE",
@@ -5048,7 +5080,7 @@ function adaptNextSession(readiness, nextSession){
 
     /* RED + easy running */
 
-    if(readiness.status === "RED"){
+   if(readiness.status === "RED" && isEasyRun){
 
       return {
         level: "REPLACE",
@@ -5064,16 +5096,157 @@ function adaptNextSession(readiness, nextSession){
   /* HYBRID placeholder — V2 */
 
   if(type === "HYBRID"){
+const isWeightlifting =
+  titleLower.includes("weightlifting") ||
+  titleLower.includes("clean") ||
+  titleLower.includes("snatch") ||
+  titleLower.includes("jerk");
 
-    return {
-      level:
-        readiness.status === "YELLOW"
-          ? "REDUCE"
-          : "REPLACE",
-      title: session.title,
-      adjustment:
-        "HYBRID 自動調整邏輯將於下一階段加入，目前先保留 Coach Review。"
-    };
+const isGymnastics =
+  titleLower.includes("gymnastics") ||
+  titleLower.includes("wall walk") ||
+  titleLower.includes("t2b") ||
+  titleLower.includes("pull-up") ||
+  titleLower.includes("muscle-up");
+
+const isMetcon =
+  titleLower.includes("metcon") ||
+  titleLower.includes("wod") ||
+  titleLower.includes("conditioning");
+
+const isCompetition =
+  titleLower.includes("competition") ||
+  titleLower.includes("steel cup") ||
+  titleLower.includes("e1") ||
+  titleLower.includes("e2") ||
+  titleLower.includes("e3");
+
+const isStrength =
+  titleLower.includes("strength") ||
+  titleLower.includes("squat") ||
+  titleLower.includes("push") ||
+  titleLower.includes("pull");
+/* YELLOW + COMPETITION SPECIFIC */
+
+if(readiness.status === "YELLOW" && isCompetition){
+
+  return {
+    level: "REDUCE",
+    title: session.title,
+    adjustment:
+      "保留 Competition Specific 的主要技術與比賽刺激，但降低總 Volume 約 15–20%。優先保留關鍵動作、轉換與比賽節奏，減少重複 Sets / Rounds，避免額外疲勞。"
+  };
+
+}
+    /* RED + COMPETITION SPECIFIC */
+
+if(readiness.status === "RED" && isCompetition){
+
+  return {
+    level: "REPLACE",
+    title: session.title,
+    adjustment:
+      "取消原定高疲勞 Competition Specific 模擬。保留低疲勞 Skill / Technique 練習，移除高強度 Race Simulation、Heavy Loading 與高 Volume MetCon；必要時改為 Recovery。"
+  };
+
+}
+    /* YELLOW + WEIGHTLIFTING */
+
+if(readiness.status === "YELLOW" && isWeightlifting){
+
+  return {
+    level: "REDUCE",
+    title: session.title,
+    adjustment:
+      "保留主要 Weightlifting 技術與主動作品質。Working Sets 降低約 15–20%，避免接近失敗；若原課表包含 Heavy Singles，優先降低最高重量或減少 1–2 Sets。"
+  };
+
+}
+    /* RED + WEIGHTLIFTING */
+
+if(readiness.status === "RED" && isWeightlifting){
+
+  return {
+    level: "REPLACE",
+    title: session.title,
+    adjustment:
+      "取消原定 Heavy Weightlifting。改為 Technique / Position Work，使用約 50–65% 強度，維持動作品質與速度，不進行 Heavy Single、Max Attempt 或高疲勞 Barbell Cycling。"
+  };
+
+}
+    /* YELLOW + GYMNASTICS */
+
+if(readiness.status === "YELLOW" && isGymnastics){
+
+  return {
+    level: "REDUCE",
+    title: session.title,
+    adjustment:
+      "保留 Gymnastics Skill 與主要動作，但總 Reps / Sets 降低約 15–20%。停止在技術品質下降前，保留約 2–3 Reps，不進入 Failure。"
+  };
+
+}
+    /* RED + GYMNASTICS */
+
+if(readiness.status === "RED" && isGymnastics){
+
+  return {
+    level: "REPLACE",
+    title: session.title,
+    adjustment:
+      "取消高疲勞 Gymnastics Volume。改為低疲勞 Skill / Technique 練習，降低動作難度與總 Reps，不進行高密度 EMOM、AMRAP 或接近 Failure 的體操訓練。"
+  };
+
+}
+    /* YELLOW + METCON */
+
+if(readiness.status === "YELLOW" && isMetcon){
+
+  return {
+    level: "REDUCE",
+    title: session.title,
+    adjustment:
+      "保留 MetCon 的主要訓練目的與動作組合，但總 Volume 降低約 15–20%。可減少 Rounds / Reps 或縮短工作時間，強度控制在 RPE 7 左右，避免進入高疲勞區。"
+  };
+
+}
+    /* RED + METCON */
+
+if(readiness.status === "RED" && isMetcon){
+
+  return {
+    level: "REPLACE",
+    title: session.title,
+    adjustment:
+      "取消原定高強度 MetCon。改為低疲勞 Aerobic / Skill-based Conditioning，降低工作密度與動作複雜度，維持 RPE 約 5–6；不做高乳酸、高密度 AMRAP 或接近失敗的循環訓練。"
+  };
+
+}
+    /* YELLOW + STRENGTH */
+
+if(readiness.status === "YELLOW" && isStrength){
+
+  return {
+    level: "REDUCE",
+    title: session.title,
+    adjustment:
+      "保留主要 Strength 刺激，但總 Working Sets 降低約 15–20%，主動作維持中高品質，避免接近 Failure；若原課表為高強度 Sets，可降低 5–10% Load 或減少 1–2 Sets。"
+  };
+
+}
+    /* RED + STRENGTH */
+
+if(readiness.status === "RED" && isStrength){
+
+  return {
+    level: "REPLACE",
+    title: session.title,
+    adjustment:
+      "取消原定高強度 Strength 工作。改為低疲勞 Technique / Movement Quality，使用約 50–65% 強度，減少 Working Sets，不做 Heavy Singles、Grinding Reps 或接近 Failure 的訓練。"
+  };
+
+}
+ 
 
   }
 
