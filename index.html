@@ -677,7 +677,8 @@ nav button.active{
 
     <button
       class="primary"
-      onclick="saveReport()">
+      type="button"
+onclick="this.disabled=true; saveReport().finally(()=>{this.disabled=false;})">
       SAVE REPORT
     </button>
 
