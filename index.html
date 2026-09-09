@@ -4751,7 +4751,22 @@ if (error) {
     )
 
   );
+  /* MULTI-DAY COACH STATE */
+  const multiDayReadiness =
+    calculateMultiDayReadiness(arr);
 
+  localStorage.setItem(
+    "hybridMultiDayReadiness",
+    JSON.stringify({
+      ...multiDayReadiness,
+      updatedAt: new Date().toISOString()
+    })
+  );
+
+  console.log(
+    "Multi-Day Readiness:",
+    multiDayReadiness
+  );
 
   document
   .getElementById("rNotes")
@@ -4764,20 +4779,54 @@ if (error) {
  const readiness = calculateReadiness(data);
 const nextSession = getNextSession();
 const adaptiveSession = adaptNextSession(readiness, nextSession);
+  /* FINAL COACH STATE */
+const singleCoachStatus =
+  String(readiness.status || "GREEN").toUpperCase();
+
+const multiCoachStatus =
+  String(
+    multiDayReadiness?.status || "GREEN"
+  ).toUpperCase();
+
+let finalCoachStatus = "GREEN";
+
+if(
+  singleCoachStatus === "RED" ||
+  multiCoachStatus === "RED"
+){
+  finalCoachStatus = "RED";
+}
+else if(
+  singleCoachStatus === "YELLOW" ||
+  multiCoachStatus === "YELLOW"
+){
+  finalCoachStatus = "YELLOW";
+}
+
+const coachDecisionText =
+  finalCoachStatus === "RED"
+    ? "近期恢復或累積疲勞狀況不佳。重新評估未來 2–3 天訓練，優先保護關鍵課，取消或替換非必要高疲勞刺激。"
+    : finalCoachStatus === "YELLOW"
+      ? "近期疲勞正在累積。保留主要訓練目的，未來 1–2 天避免額外增加 Volume，必要時降低約 10–20%。"
+      : readiness.decision;
 const readinessIcon =
-  readiness.status === "GREEN"
+  finalCoachStatus === "GREEN"
     ? "🟢"
-    : readiness.status === "YELLOW"
-    ? "🟡"
-    : "🔴";
+    : finalCoachStatus === "YELLOW"
+      ? "🟡"
+      : "🔴";
 
 alert(
   "Report saved\n\n" +
   readinessIcon + " READINESS · " +
-  readiness.status +
-  "\n\nScore: " +
-  readiness.score +
-  " / 100" +
+  finalCoachStatus +
+  "\n\nSingle Score · " +
+readiness.score +
+" / 100" +
+
+"\nMulti-Day Score · " +
+(multiDayReadiness?.score ?? "N/A") +
+" / 100" +
 
   (nextSession
     ? "\n\nNEXT SESSION\n" +
@@ -4788,8 +4837,14 @@ alert(
       nextSession.session.time
     : "\n\nNEXT SESSION\nNot found"
   ) +
+"\n\nCOACH STATE\n" +
+"Single · " + singleCoachStatus + "\n" +
+"Multi-Day · " + multiCoachStatus + "\n" +
+"Trend · " + (multiDayReadiness?.trend || "NO DATA") + "\n" +
+"Final · " + finalCoachStatus +
+
 "\n\nCOACH DECISION\n" +
-readiness.decision +
+coachDecisionText +
 
 (adaptiveSession
   ? "\n\nADAPTIVE PLAN · " +
@@ -5110,6 +5165,60 @@ function adaptNextSession(readiness, nextSession){
   if(!readiness || !nextSession || !nextSession.session){
     return null;
   }
+    /* ==================================
+     SINGLE + MULTI-DAY COACH STATE
+  ================================== */
+
+  let multiDayReadiness = null;
+
+  try{
+    multiDayReadiness = JSON.parse(
+      localStorage.getItem("hybridMultiDayReadiness") || "null"
+    );
+  }catch(error){
+    console.warn(
+      "Multi-Day Readiness load failed:",
+      error
+    );
+  }
+
+  const singleStatus =
+    String(readiness.status || "GREEN").toUpperCase();
+
+  const multiStatus =
+    String(
+      multiDayReadiness?.status || "GREEN"
+    ).toUpperCase();
+
+  let effectiveStatus = "GREEN";
+
+  /*
+    RED has highest priority.
+    YELLOW overrides GREEN when fatigue
+    is accumulating across recent sessions.
+  */
+
+  if(
+    singleStatus === "RED" ||
+    multiStatus === "RED"
+  ){
+    effectiveStatus = "RED";
+  }
+  else if(
+    singleStatus === "YELLOW" ||
+    multiStatus === "YELLOW"
+  ){
+    effectiveStatus = "YELLOW";
+  }
+
+  readiness = {
+    ...readiness,
+    status: effectiveStatus,
+    singleStatus,
+    multiDayStatus: multiStatus,
+    multiDayTrend:
+      multiDayReadiness?.trend || "NO DATA"
+  };
 
   const session = nextSession.session;
   const type = String(session.type || "").toUpperCase();
