@@ -4906,6 +4906,135 @@ function calculateReadiness(report){
   };
 
 }
+  /* ==================================
+   MULTI-DAY READINESS ENGINE V1
+================================== */
+
+function calculateMultiDayReadiness(reports){
+
+  if(!Array.isArray(reports) || reports.length === 0){
+    return {
+      score: 100,
+      status: "GREEN",
+      trend: "NO DATA",
+      sessionsAnalyzed: 0,
+      redCount: 0,
+      yellowCount: 0,
+      highRpeCount: 0,
+      recommendation:
+        "近期訓練資料不足，先依原計畫執行。"
+    };
+  }
+
+  /* 只分析最近 3 次訓練 */
+  const recentReports = reports
+    .slice()
+    .sort((a,b) => new Date(b.date) - new Date(a.date))
+    .slice(0,3);
+
+  const readinessResults =
+    recentReports.map(report => calculateReadiness(report));
+
+  let weightedScore = 0;
+  let totalWeight = 0;
+
+  let redCount = 0;
+  let yellowCount = 0;
+  let highRpeCount = 0;
+
+  readinessResults.forEach((result,index) => {
+
+    /* 越近期的訓練權重越高 */
+    const weights = [0.50,0.30,0.20];
+    const weight = weights[index] || 0.20;
+
+    weightedScore += result.score * weight;
+    totalWeight += weight;
+
+    if(result.status === "RED"){
+      redCount++;
+    }
+
+    if(result.status === "YELLOW"){
+      yellowCount++;
+    }
+
+    const report = recentReports[index];
+
+    if(Number(report.rpe || 0) >= 9){
+      highRpeCount++;
+    }
+
+  });
+
+  let score =
+    totalWeight > 0
+      ? Math.round(weightedScore / totalWeight)
+      : 100;
+
+  /*
+    累積疲勞規則：
+    單次 RED 很重要，
+    連續 YELLOW / 高 RPE 也不能只看平均值。
+  */
+
+  if(redCount >= 2){
+    score -= 20;
+  }
+  else if(redCount === 1){
+    score -= 10;
+  }
+
+  if(yellowCount >= 2){
+    score -= 10;
+  }
+
+  if(highRpeCount >= 2){
+    score -= 10;
+  }
+
+  score = Math.max(0,Math.min(100,score));
+
+  let status = "GREEN";
+  let trend = "STABLE";
+  let recommendation =
+    "近期負荷穩定，可維持原定訓練刺激。";
+
+  if(score < 55 || redCount >= 2){
+
+    status = "RED";
+    trend = "ACCUMULATED FATIGUE";
+
+    recommendation =
+      "近期出現明顯累積疲勞。不要只調整下一堂課，應重新評估未來 2–3 天訓練，優先保護關鍵課並降低非必要負荷。";
+
+  }
+  else if(
+    score < 80 ||
+    redCount === 1 ||
+    yellowCount >= 2 ||
+    highRpeCount >= 2
+  ){
+
+    status = "YELLOW";
+    trend = "FATIGUE BUILDING";
+
+    recommendation =
+      "近期疲勞正在累積。保留主要訓練目的，但未來 1–2 天避免增加額外 Volume，必要時降低 10–20% 工作量。";
+
+  }
+
+  return {
+    score,
+    status,
+    trend,
+    sessionsAnalyzed: recentReports.length,
+    redCount,
+    yellowCount,
+    highRpeCount,
+    recommendation
+  };
+}
 /* ========================================
    NEXT SESSION ENGINE V1
 ======================================== */
